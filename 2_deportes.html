@@ -1,0 +1,1316 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>2. Deportes | Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="José Ramón Dorado Repiso" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.8 Portable - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-2"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield</a></li>
+   <li><a href="1_processing.html" class="no-ch">1. Processing</a></li>
+   <li id="active"><a href="2_deportes.html" class="active no-ch">2. Deportes</a></li>
+   <li><a href="3_magia.html" class="no-ch">3. Magia</a></li>
+   <li><a href="4_robots.html" class="no-ch">4. Robots</a></li>
+   <li><a href="5_espacio.html" class="no-ch">5. Espacio</a></li>
+   <li><a href="recursos.html" class="no-ch">Recursos</a></li>
+   <li><a href="gua_didctica.html" class="no-ch">Guía didáctica</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="1_processing.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="3_magia.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">2. Deportes</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id0">
+<div class="iDevice emphasis0" >
+<div id="ta0_1748_2" class="block iDevice_content">
+<div class="exe-text"><p><a href="https://ctc101.arduino.cc/ctc101/module/module-2">https://ctc101.arduino.cc/ctc101/module/module-2</a></p>
+<p>Aprende los conceptos básicos de las tecnologías digitales para controlar actuadores y leer sensores digitales. Vas a construir y jugar con pequeños juegos electrónicos que simulan deportes como el baloncesto, esgrima y pong entre otros.</p></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id1">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">2.1 QUÉ ES LA PLACA CTC</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta1_1749_2" class="block iDevice_content">
+<div class="exe-text"><p>Existen muchos tipos de placas. La que vas a utilizar se llama 101.</p>
+<p><strong>Qué es la placa CTC</strong><br />Estas placas son pequeños ordenadores con los que puedes leer información de diferentes sensores, así como controlar luces, motores y muchas otras cosas. La gran mayoría de los sistemas que nos rodean son ordenadores de diferentes tamaños. Los ordenadores no necesitan tener teclado ni pantalla. Hay ordenadores en el microondas de la cocina, dentro de los ascensores para detectar qué botón pulsas , en los coches... Hay más de 70 ordenadores similares a esta placa, hay ordenadores por todas partes.</p>
+<p>Existen muchos tipos de placas. La que vas a utilizar se llama 101.</p>
+<p><img src="2_01.png" alt="placa" title="placa" width="580" height="331" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>La placa tiene varios pines que están numerados y agrupados según su funcionalidad. Hay 14 pines digitales (numerados del 0 al 13) y 6 pines analógicos (numerados del A0 al A5). Más adelante aprenderás lo que significa esto y como emplearlo.</p>
+<p>Puedes leer más sobre todas y cada una de las partes de la placa en la referencia de placa CTC 101.</p>
+<p>Puesto que la placa, a diferencia del ordenador que usas normalmente, no tiene pantalla ni teclado. Se necesita un programa externo ejecutado en otro ordenador para poder escribir programas para la placa. Este programa es lo que llamamos IDE. IDE significa "Integrated Development Environment" (Entorno de Desarrollo Integrado). Esto funciona de la siguiente forma, escribes tu programa en el IDE, lo cargas en la placa, y el programa se ejecutará en la placa.</p>
+<p><img src="2_02.png" alt="programa" title="programa" width="580" height="615" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>Este IDE es muy fácil de usar y parecido a Processing. Hay una sencilla barra de herramientas que puedes utilizar para:</p>
+<p><img src="2_03.png" alt="aceptar" title="aceptar" width="56" height="56" /></p>
+<p>Verificar si tu programa compila, es decir si no tiene errores.</p>
+<p><img src="2_04.png" alt="cargar" title="cargar" width="56" height="56" /></p>
+<p>Cargar el programa a la placa.</p>
+<p><img src="2_05.png" alt="crear" title="crear" width="56" height="56" /></p>
+<p>Crear un programa nuevo.</p>
+<p><img src="2_06.png" alt="abrir" title="abrir" width="56" height="56" /></p>
+<p>Abre un programa</p>
+<p><img src="2_07.png" alt="guardar" title="guardar" width="56" height="56" /></p>
+<p>Guardar el programa en el disco duro del ordenador.</p>
+<p><img src="2_08.png" alt="monitor" title="monitor" width="56" height="56" /></p>
+<p>En la parte derecha de la barra de herramientas se encuentra el monitor de puerto serie. Esto abre una ventana de comunicación con la placa controladora.</p>
+<p>Al igual que el IDE de Processing, este IDE tiene un área de mensajes en la que cuando compilas o descargar tus programas, te da información sobre cualquier error. Si el programa se descarga sin errores, el mensaje dirá “Subido”.</p>
+<p>La placa se conecta a tu ordenador utilizando un cable USB, al igual que cualquier otro periférico, como la impresora, el teclado o incluso, un mando de videojuego. La placa necesita estar conectada al ordenador a través del cable USB para cargar un programa. El cable USB sirve también para suministrar energía a la placa, pero también puedes alimentarla usando una fuente de energía externa, como una batería o un transformador apropiado.</p>
+<p><img src="2_09.png" alt="conect" title="conect" width="580" height="428" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>Cuando programes la placa, debes asegurarte de que el IDE está configurado correctamente para la placa que estés utilizando. Compruébalo en el menú 'Herramientas → Puerto' para ver que el puerto esté configurado correctamente, y en 'Herramientas → Tarjeta' para comprobar que esté seleccionada la tarjeta que estás usando.</p>
+<p>Nota: Para saber a qué puerto está conectado tu placa, sigue estos pasos: 1. Desconecta la placa del ordenador. 2. Comprueba 'Herramientas → Puerto' para ver si está disponible. 3. Conecta la placa al ordenador. 4. Entra en 'Herramientas → Puerto' de nuevo y verás un puerto nuevo, es al que está conectado tu placa. 5. Selecciona ese puerto.</p>
+<p>¡Sigue experimentando<br />En los siguientes apartados aprenderás cómo programar tu placa. Si quieres saber un poco más sobre algunas de las funciones que vas a emplear puedes visitar esta página.</p>
+<p>En los proyectos de este módulo emplearás funciones de la librería EducationShield. En el mundo de la programación, una librería es una colección de código que puedes llamar desde tu propio programa. Además, como explicamos en el Módulo 1, una función contiene un conjunto de comandos o instrucciones en tan sólo una línea de código. Una librería es una colección de funciones. Cuando incluyes la librería EducationShield en tu programa, puedes llamar a todas las funciones incluidas en está librería.</p>
+<p>Tienes tutoriales sobre la instalación en la referencia instala el IDE.</p>
+<p>Para poder hacer los ejemplos y los proyectos que se utilizan en CTC, vamos a necesitar la Education Shield y la librería de CTC 'EducationShield'</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id2">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">2.2 SEÑALES DIGITALES</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta2_1750_2" class="block iDevice_content">
+<div class="exe-text"><p>A diferencia de los humanos, los ordenadores trabajan y se comunican con sólo 2 símbolos; '1' y '0'. Esto es lo que llamamos señales digitales. Usando una combinación de éstos símbolos, las máquinas digitales pueden representar todo lo que hay en el universo.<br />Señales digitales<br />El alfabeto Español consta de 27 símbolos, más otros tantos para las mayúsculas, y 10 símbolos para los números. A diferencia de los humanos, los ordenadores trabajan y se comunican con sólo 2 símbolos; '1' y '0'. Esto es lo que llamamos señales digitales. Usando una combinación de éstos símbolos, las máquinas digitales pueden representar todo lo que hay en el universo. La placa controladora representa un '1' con el voltaje de referencia de la placa (5 V ó 3,3 V dependiendo de la placa), y un '0' con 0 voltios (0 V).</p>
+<p><img src="2_10.png" alt="senales" title="senales" width="580" height="609" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>Al hablar de señales digitales, hablamos de entradas y salidas. Una entrada digital significa que la placa está recibiendo datos digitales de un sensor, por ejemplo, un botón. Cuando leemos el estado de un botón, la placa recibirá bien HIGH(un ’1′), o LOW (un ’0′), dependiendo de si el botón está pulsado o no. Una salida digital significa que la placa está mandando datos digitales a un actuador, como por ejemplo, un LED. Para encender un LED, la placa manda HIGH; y para apagarlo, manda LOW.</p>
+<p>Lógica binaria<br />Otra característica común en todos los ordenadores es que utilizan lógica binaria. Lógica binaria significa que sólo hay dos posibilidades. Puesto que un ordenador utiliza sólo dos símbolos, '0' y '1', decimos que ellos también emplean lógica binaria. En este caso, '1' representa TRUE, mientras que ’0′ representa FALSE. Esto es así porque la lógica binaria también puede ser usada para hacer preguntas como ‘¿Ha alcanzado la temperatura 20 grados?’, la respuesta es o bien cierta, o bien falsa, y por tanto puede ser representada con ’1′ ó ’0′.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id3">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">2.3 CUENTA EN BINARIO</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta3_1748_2" class="block iDevice_content">
+<div class="exe-text"><p>Los seres humanos tenemos un total de 10 símbolos para representar los números: del 0 al 9. Combinándolos, podemos representar cualquier número - 13, 648, 2015, etc. De la misma forma que cualquier cosa en el universo puede ser representada por unos y ceros.</p>
+<p>Cuenta en binario<br />Los seres humanos tenemos un total de 10 símbolos para representar los números: del 0 al 9. Combinándolos, podemos representar cualquier número - 13, 648, 2015, etc. De la misma forma que cualquier cosa en el universo puede ser representada por unos y ceros. Sólo se necesita un sistema para combinarlos.</p>
+<p>Imagina cuatro interruptores que pueden estar encendidos o apagados. Cada interruptor tiene su propio valor, '8','4','2' y '1'. Cuando todos están apagados, representan '0' - 0000. Para representar el número uno, simplemente encendemos el interruptor '1' - 0001. Para representar el número dos, encendemos el interruptor '2' - 0010. Ahora piensa cuidadosamente - ¿Cómo puedes representar el número tres? Basta con encender el interruptor '1' y el '2' - 0011; ya que 2 más 1 son 3.</p>
+<p>¿Empiezas a entender el funcionamiento detrás del sistema binario? Probemos a obtener el número siete. Encendemos los interruptores '4', '2' y '1' - 0111. ¿Y para el número 11? Encendemos los interruptores '8', '2' y '1' - 1011.</p>
+<p>Mira en la siguiente tabla para entender como funciona:</p>
+<p><img src="2_11.png" alt="binario" title="binario" width="580" height="837" style="display: block; margin-left: auto; margin-right: auto;" /></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id4">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">2.4 BLINK</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta4_1749_2" class="block iDevice_content">
+<div class="exe-text"><p>Veamos cómo controlar el LED de tu placa utilizando un comando sencillo. El primer ejemplo es el que llamamos Blink, que significa encender y apagar el LED repetidamente (hacer que el LED parpadee).</p>
+<p><strong>Blink</strong><br />Durante la introducción a la programación vimos como hacer pequeños programas y animaciones usando Processing. Encendíamos y apagábamos los píxeles en la pantalla del ordenador. Como sabes, la placa controladora no tiene pantalla, pero tiene un LED - una pequeña lámpara que puede encenderse y apagarse fácilmente usando un programa. Se puede decir que la placa viene con una pantalla de un solo píxel. Ese LED está conectado al pin digital 13.</p>
+<p>Veamos cómo controlar el LED de tu placa utilizando un comando sencillo. El primer ejemplo es el que llamamos Blink, que significa encender y apagar el LED repetidamente (hacer que el LED parpadee). Al igual que los programas de Processing que siempre necesitan tener una función setup() y una función draw(), en este caso se necesitan las funciones setup() y loop():</p>
+<p>setup(): Esta parte del programa sólo se ejecuta al principio. Aquí podrás configurar, entre otras cosas, las funcionalidades de los pines, ya sean entradas (inputs) o salidas (outputs).<br />loop(): Esta parte funcionará infinitamente (o hasta que desconectes la fuente de alimentación). Los comandos en la función loop serán ejecutados en orden, uno tras otro. Cuando llegamos al último comando, comenzará de nuevo desde el principio.<br />Nota: Ahora vas a empezar a utilizar el IDE, así que si aún no lo has instalado, clica aquí</p>
+<p><strong>Ejemplo 2.1</strong><br />En este ejemplo, harás parpadear el LED de la placa.</p>
+<p>MATERIALES</p>
+<p><img src="2_12.png" alt="placa" title="placa" width="580" height="206" /></p>
+<p>1 x placa controladora</p>
+<p>INSTRUCCIONES</p>
+<p>1. Abre el IDE y escribe el siguiente programa:</p>
+<div class="highlighted-code language-processing">
+<div>
+<pre><code>/*
+* _2.1_blink
+*
+* The on-board LED blinks with a 2 second interval,
+* being turned on for 1 second and then turned off for 1 second.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+void setup() {
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(13, HIGH);
+  delay(1000);
+  digitalWrite(13, LOW);
+  delay(1000);
+}
+</code></pre>
+</div>
+</div>
+<p>2. Conecta la placa al ordenador utilizando el cable USB.<br />3. Compila y descarga el programa en la placa empleando este icono </p>
+<p><br />RESULTADO<br />El LED de la placa parpadea con un intervalo de 2 segundos, un segundo encendido y un segundo apagado.</p>
+<p>COMANDOS<br />pinMode(pinNumber, INPUT | OUTPUT | INPUT\_PULLUP): Se utiliza para determinar si el pin digital de tu placa está escribiendo (OUTPUT) o leyendo (INPUT | INPUT\_PULLUP) las señales hacia/desde el entorno.<br />digitalWrite(pinNumber, HIGH | LOW): Se utiliza para hacer que un pin digital concreto, pinNumber, escriba (HIGH) o (LOW) a una salida.<br />delay( time ): Detiene el programa durante una cierta cantidad de tiempo. El tiempo se expresa en milisegundos. Si quieres detener el programa durante 2 segundos, deberías escribir delay(2000).<br />Recordemos también lo que vimos durante el Módulo 1:</p>
+<p>Cada línea termina con punto y coma ;.<br />Los bloques de código están contenidos entre llaves { }.<br />Las funciones comienzan con una definición como void.<br />Las funciones tienen parámetros que figuran entre paréntesis ( ), y pueden tener tantos parámetros como necesites.</p>
+<p><br />CÓMO FUNCIONA<br />En la función setup(), se configura el pin 13 como salida, en él esta conectado el LED de la placa.<br />En la función loop(), se enciende el LED escribiendo HIGH en el pin 13. Esto significa que envía un nivel alto al pin 13.<br />El programa espera durante 1000 milisegundos (que es lo mismo que 1 segundo).<br />El LED se apaga escribiendo LOW en el pin 13. Esto significa que envía un nivel bajo al pin 13.<br />El programa espera durante 1000 milisegundos.<br />Repite la función loop().<br />Añade tus propios ledes<br />Puedes añadir tus propios ledes al circuito. Todos los circuitos necesitan alimentación y tierra para que la electricidad atraviese sus componentes. En la placa, la alimentación se puede tomar del pin IOREF o de los pines digitales (cuando se ponen a HIGH). El pin IOREF está conectado al voltaje de referencia de tu placa controladora (5 V o 3,3 V dependiendo de la placa). La tierra esta marcada en la placa como GND.</p>
+<p>Cuando trabajas con un LED, es importante que recuerdes que tiene polaridad. El aspecto físico de un LED muestra su polaridad. El terminal largo se denomina ánodo y debe estar conectado al positivo, en este caso a un pin digital para poder controlarlo. El terminal corto, o cátodo, debe estar conectado a tierra (0 V o GND).</p>
+<p>Si te fijas en la ilustración, el terminal corto, o cátodo, se marca también con un lado plano (flat edge) en la carcasa del LED.</p>
+<p><img src="2_14.png" alt="led" title="led" width="580" height="651" /></p>
+<p>Los ledes no se romperán si los conectas con la polaridad opuesta, simplemente no funcionarán. Sin embargo, por ellos no puede circular mucha corriente, para asegurarte de que no se quemen, debes poner una resistencia. El valor de la resistencia suele variar, en nuestro caso, utilizaremos 220 ohm. Aprende más sobre esto en la referencia de resistencias y ley de ohm.</p>
+<p>Para hacer más fácil la construcción de circuitos, usaremos la Arduino Education Shield. Una vez montada en tu placa, la shield amplia sus capacidades, además de añadirle características extra. Para hacer el circuito con un LED, haremos uso de la breadboard. Lee más sobre la breadboard, y sobre la Arduino Education Shield si quires o lo necesitas.</p>
+<p><strong>Ejemplo 2.2</strong><br />En este ejemplo conectarás un LED a la tu placa controladora y lo harás parpadear.</p>
+<p>MATERIALES</p>
+<p><img src="2_15.png" alt="ejemplo 2.2" title="ejemplo 2.2" width="580" height="394" /></p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x LED<br />1 x resistencia 220 ohm<br />2 x cable de prototipado</p>
+<p><br />INSTRUCCIONES</p>
+<p><img src="2_16.png" alt="instrucc" title="instrucc" width="580" height="428" /></p>
+<p>1. Conecta la shield en la parte superior de tu placa controladora.<br />2. Conecta el LED a través del puente de la breadboard.<br />3. Conecta la resistencia de 220 ​​ohm al pin digital 5 con un cable de prototipado.<br />4. Conecta el otro terminal de la resistencia al terminal positivo del LED (el terminal más largo).<br />5. Conecta el terminal negativo (el terminal más corto) del LED a GND.<br />6. Escribe el siguiente programa en el IDE:</p>
+<div class="highlighted-code language-processing">
+<div>
+<pre><code>/*
+* _2.2_blink
+*
+* An external LED blinks with a 2 second interval,
+* being turned on for 1 second and then turned off for 1 second.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+void setup() {
+  pinMode(5, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(5, HIGH);
+  delay(1000);
+  digitalWrite(5, LOW);
+  delay(1000);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa empleando este icono  <br />RESULTADO<br />Como en el ejemplo anterior, el LED parpadea con un intervalo de 2 segundos.</p>
+<p>CÓMO FUNCIONA<br />En la función setup(), se configura el pin 5 como salida, este es el pin al que esta conectado el LED.<br />En la función loop(), se enciende el LED escribiendo HIGH en el pin 5.<br />El programa espera durante 1000 milisegundos.<br />El LED se apaga escribiendo LOW en el pin 5.<br />El programa espera durante 1000 milisegundos.<br />Repite la función loop().</p>
+<p><br /><strong>Ejemplo 2.3</strong><br />En este ejemplo, modificarás el ejemplo 2.2 ligeramente. Vas a mantener el mismo circuito pero en el programa crearemos una variable para almacenar el número del pin digital al que hemos conectado el LED, en lugar de escribir simplemente un número. Revisa la sección de variables del primer módulo si quieres recordar lo que son.</p>
+<p>INSTRUCCIONES<br />Escribe el siguiente programa en el IDE:</p>
+<div class="highlighted-code language-processing">
+<div>
+<pre><code>/*
+* _2.3_blink
+*
+* An external LED blinks with a 2 second interval,
+* being turned on for 1 second and then turned off for 1 second.
+*
+* The variable ledPin is declared to hold the value 5, the number
+* of the digital pin you are using.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+int ledPin = 5;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
+  delay(1000);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa empleando este icono  <br />RESULTADO<br />Este ejemplo debe funcionar exactamente igual que el anterior.</p>
+<p>CÓMO FUNCIONA<br />Se declara la variable ledPin para almacenar el valor 5, el número del pin digital que estás empleando.<br />En la función setup(), se configura el pin 5 como salida, usando para ello la variable ledPin.<br />En la función loop(), se enciende el LED escribiendo HIGH en el pin 5, usando para ello la variable ledPin.<br />El programa espera durante 1000 milisegundos.<br />El LED se apaga escribiendo LOW en el pin 5.<br />El programa espera durante 1000 milisegundos.<br />Repite la función loop().<br />Nota: Si decides conectar el LED a otro pin digital, gracias a la variable, solo tendrás que reemplazar el número en un sitio en el código y no en tres.</p>
+<p>¡Sigue experimentando!<br />Ahora puedes probar a ver qué sucede cuando cambias los tiempos dentro de la función delay. ¿Qué ocurre si haces los tiempos más pequeños? ¿La luz parpadea más rápido o más lento?<br />También puedes utilizar la luz para simular los latidos del corazón. Comprueba tus latidos midiendo tu pulso, notarás que siempre obtienes dos pulsaciones, algo así como tock tock… pausa… tock tock… pausa… ¿Puedes simularlo con un LED? (SUGERENCIA: puedes copiar y pegar el código).<br />Por último, ¿qué sucede cuando el tiempo es verdaderamente pequeño? Digamos que lo cambias a delay(10), ¿todavía puedes ver el parpadeo de la luz?<br />VU-Meter<br />Es posible conectar y controlar más de un LED a tu placa. En los proyectos de este módulo verás que al usar varios ledes obtenemos lo que llamamos VU-Meter en el programa CTC. Un VU-Meter es una línea de ledes agrupados. La librería EducationShield contiene un clase llamada vuMeter con varias funciones para que puedas controlar muchos ledes más fácilmente. Lee más sobre ello en la referencia VU-Meter.</p>
+<p><img src="2_19.png" alt="vumeter" title="vumeter" width="580" height="428" /></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id5">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">2.5 BEEP</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta5_1750_2" class="block iDevice_content">
+<div class="exe-text"><p>Vamos a jugar un poco con sonidos. Como probablemente ya sabrás, el sonido son vibraciones. El sonido de una guitarra por ejemplo, se produce por las vibraciones de las cuerdas. Por lo tanto, para producir sonido necesitamos algo que genere vibraciones.</p>
+<p>Beep<br />Vamos a jugar un poco con sonidos. Como probablemente ya sabrás, el sonido son vibraciones. El sonido de una guitarra por ejemplo, se produce por las vibraciones de las cuerdas. Por lo tanto, para producir sonido necesitamos algo que genere vibraciones. En el siguiente experimento haremos esto mediante un zumbador piezoeléctrico que pite.</p>
+<p><strong>El Zumbador Piezoeléctrico</strong></p>
+<p><strong><img src="2_20.png" alt="zumbador" title="zumbador" width="580" height="330" /></strong></p>
+<p><strong>Ejemplo 2.4</strong><br />En este ejemplo, conectarás un zumbador a la placa y empleando el programa Blink de los ejemplos anteriores, harás vibrar al piezoeléctrico.</p>
+<p>MATERIALES</p>
+<p><img src="2_21.png" alt="2_4" title="2_4" width="580" height="397" /></p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x piezo<br />2 x cable de prototipado</p>
+<p><br />INSTRUCCIONES</p>
+<p><img src="2_22.png" alt="instr" title="instr" width="580" height="425" /></p>
+<p>1. Conecta la shield en la parte superior de tu placa controladora.<br />2. Conecta el piezo a través del puente de la breadboard.<br />3. Conecta un terminal del piezo (no importa cual) al pin digital 8 y el otro a GND, usado los cables de prototipado.<br />4. Abre el IDE y escribe el siguiente programa:</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _2.4_beep
+*
+* The piezo makes click with a 2 second interval.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+int speakerPin = 8;
+
+void setup() {
+  pinMode(speakerPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(speakerPin, HIGH);
+  delay(1000);
+  digitalWrite(speakerPin, LOW);
+  delay(1000);
+}
+</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />Este programa hace que el material dentro del piezoeléctrico se repela y vuelva a su posición normal en un intervalo de 2 segundos. Lo que escuchas es un "clic" cada segundo.</p>
+<p>CÓMO FUNCIONA<br />Se declara la variable speakerPin para almacenar el valor 8, el número del pin digital que estás empleando.<br />En la función setup(), se configura el pin 8 como salida.<br />En la función loop(), escribiendo HIGH en el pin 8, el material dentro del piezoeléctrico se repele creando un sonido "clic".<br />El programa espera durante 1000 milisegundos.<br />Escribiendo LOW en el pin 8, el material dentro del piezoeléctrico vuelve a la posición inicial creando otro sonido "clic".<br />El programa espera durante 1000 milisegundos.<br />Repite la función loop().</p>
+<p><br /><strong>Ejemplo 2.5</strong><br />Para poder generar un tono, en lugar de un sonido "clic", necesitas hacer que el piezoeléctrico oscile más rápido. En este ejemplo, modificarás el ejemplo 2.4 ligeramente. Vas a mantener el mismo circuito pero en el programa reducirás el tiempo de delay</p>
+<p>INSTRUCCIONES<br />Escribe el siguiente programa en el IDE:</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _2.5_beep
+*
+* The piezo makes click with a 1 millisecond interval.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+int speakerPin = 8;
+
+void setup() {
+  pinMode(speakerPin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(speakerPin, HIGH);
+  delay(1);
+  digitalWrite(speakerPin, LOW);
+  delay(1);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />Esta vez el material dentro del piezo oscila con un intervalo de 2 milisegundos. Es demasiado rápido para distinguir el sonido "clic". En esta ocasión, el piezo hace un sonido fuerte, como un zumbido.</p>
+<p>CÓMO FUNCIONA<br />Se declara la variable speakerPin para almacenar el valor 8, el número del pin digital que estás empleando.<br />En la función setup(), se configura el pin 8 como salida.<br />En la función loop(), escribiendo HIGH en el pin 8, el material dentro del piezoeléctrico se repele creando un sonido "clic".<br />El programa espera durante 1 milisegundo.<br />Escribiendo LOW en el pin 8, el material dentro del piezoeléctrico vuelve a la posición inicial creando otro sonido "clic".<br />El programa espera durante 1 milisegundo.<br />Repite la función loop().</p>
+<p><br /><strong>Tonos</strong><br />Ahora ya sabes como generar sonido con un zumbador piezoeléctrico cambiando el pin entre '0' y '1' un determinado número de veces por segundo. Esta cantidad es la frecuencia, y obtendrás diferentes tonos dependiendo de su valor. A alta frecuencia, esto es, muchas oscilaciones por segundo, obtendrás sonidos muy agudos, mientras que a baja frecuencia, obtendrás sonidos más graves.</p>
+<p>Los tonos tienen nombres: Do (C), Re (D), Mi (E), Fa (F), Sol (G), La (A), Si (B). De estos tonos, Do (C) tiene la frecuencia más baja, 262 hercios (Hz), mientras que Si (B) tiene la más alta, 494 Hz. Esto significa que necesitamos hacer oscilar al pin 262 veces por segundo para que suene un Do (C) y 494 veces por segundo para que suene un Si (B).</p>
+<p><img src="2_25.png" alt="tonos" title="tonos" width="580" height="338" /></p>
+<p>Si quieres hacer sonar tonos diferentes, tienes que cambiar la cantidad de tiempo que el pin está en HIGHy LOW, esto se corresponde con la frecuencia. Basta con cambiar el tiempo en la función delay(). Hay un par de problemas: para tocar los tonos, la función delay() no permite controlar el tiempo con la precisión necesaria y además, detiene el programa mientras toca un tono, lo que no te permite ejecutar otras cosas al mismo tiempo.</p>
+<p>En lugar de la función delay(), puedes emplear una función llamada tone() que necesita dos o tres parámetros. El primero es el pin digital al que está conectado el piezo y el segundo es la frecuencia del tono. Esta función calcula el tiempo en función de la frecuencia y oscila el pin digital entre HIGH y LOW en paralelo con otras tareas sin detener el programa. El tercer parámetro es opcional e indica la duración del tono en milisegundos.</p>
+<p><img src="2_26.png" alt="tonos_2" title="tonos_2" width="580" height="744" /></p>
+<p><strong>Ejemplo 2.6</strong><br />En este ejemplo, vas a mantener el mismo circuito y emplearás la función tone()</p>
+<p>INSTRUCCIONES<br />Escribe el siguiente programa en el IDE:</p>
+<p><span style="font-size: 1.05em;"> </span></p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _2.6_beep
+*
+* The piezo uses the tone() function to generate an A with a frequency of 440 hertz.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+void setup() {
+  tone(8, 440, 1000);
+}
+
+void loop() {
+
+}</code></pre>
+</div>
+</div>
+<p><code>
+</code></p>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />El piezo toca la nota "La" durante un segundo. Si quieres tocar tonos diferentes, solamente hay que cambiar el número ‘440’ por otro valor de frecuencia de los de la tabla anterior.</p>
+<p>COMANDOS<br />tone(pinNumber, frequency, duration): Toca un tono en el piezo conectado al pin digital pinNumber, donde frequency es la frecuencia del tono, y duration es la duración en milisegundos.<br />CÓMO FUNCIONA<br />En la función setup(), se toca un tono en el pin digital 8 con una frecuencia de 440 hercios. El tono tiene una duración de 1000 milisegundos.</p>
+<p><strong>Melodías</strong><br />Una melodía es una combinación de notas. Sin embargo, si quisiéramos tocar una melodía en un zumbador cómo hemos hecho en los ejemplos anteriores, no acabaríamos nunca. En lugar de tener que calcular el tiempo del delay dependiendo de la frecuencia, y decidir cuantas veces hacer oscilar el pin dependiendo de la duración de la nota, hay una función en la librería EducationShield llamada play() Puedes leer acerca de cómo usarla para tocar melodías en la referencia melodía.</p>
+<p>¡Sigue experimentando!<br />Escribe una melodía empleando la función tone()<br />Escribe una melodía empleando la función play()<span style="font-size: 1.05em;"> </span></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id6">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">2.6 ENTRADAS DIGITALES</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta6_1748_2" class="block iDevice_content">
+<div class="exe-text"><p>Al igual que puedes asignar HIGH o LOW a un pin digital de la placa controladora, puedes leer el valor generado por un sensor que esté conectado a ella. Las entradas digitales, al igual que las salidas solo tienen dos estados.</p>
+<p><strong>Entradas digitales</strong><br />Al igual que puedes asignar HIGH o LOW a un pin digital de la placa controladora, puedes leer el valor generado por un sensor que esté conectado a ella. Las entradas digitales, al igual que las salidas solo tienen dos estados.</p>
+<p><strong>Ejemplo 2.7</strong><br />Un simple cable es un buen ejemplo para demostrar la teoría básica de las entradas digitales. En este ejemplo, escribirás un programa que encenderá o apagará el LED de la placa en función de la lectura del pin digital al que el cable está conectado.</p>
+<p>MATERIALES</p>
+<p><img src="2_30.png" alt="230" title="230" width="580" height="203" /></p>
+<p>1 x placa controladora<br />1 x cable de prototipado</p>
+<p>INSTRUCCIONES</p>
+<p><img src="2_31.png" alt="231" title="231" width="580" height="428" /></p>
+<p>1. Conecta el cable al pin digital 5 de la placa controladora.<br />2. Abre el IDE y escribe el siguiente programa:</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _2.7_digital_input
+*
+* The board will turn the on-board LED on or off
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+int inputPin = 5;
+int ledPin = 13;
+
+void setup() {
+  pinMode(inputPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(inputPin) == HIGH) {
+    digitalWrite(ledPin, HIGH);
+  }
+  else {
+    digitalWrite(ledPin, LOW);
+  }
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />Conecta el extremo suelto del cable a la alimentación y luego a GND y repite esto varias veces. ¿Qué ocurre? Cuando conectas el cable a la alimentación, el LED de la placa se enciende. Cuando conectas el cable a GND el LED de la placa se apaga. Como verás, esto no funciona perfectamente.</p>
+<p>COMANDOS<br />pinMode(pinNumber, INPUT): Configura el pin digital pinNumber para que se comporte como entrada.<br />digitalRead(pinNumber): Lee el valor de voltaje en el pin digital pinNumber, y devuelve si está a HIGH o LOW. Devolverá HIGH cuando el cable esté conectado a la alimentación y LOW cuando se conecte a GND.<br />Recordemos también lo que vimos durante el primer bloque de contenido:</p>
+<p>if( test ){ statements }: Comprueba si la condición test es verdadera o falsa. Si es verdadera, se ejecuta el código entre llaves (statements). Si es falsa, el programa salta esa parte y ejecuta el código después de las llaves.<br />value1 == value2: Compara value1 y value2. Si los valores son iguales, devuelve "1", si son diferentes devuelve "0". Cuando quieres comparar dos valores en un programa, debes utilizar dos veces el signo 'igual a', es decir, ==. Esto hace que el ordenador entienda que los quieres comparar (en lugar de asignar). Este "doble igual" es lo que llamamos un operador. Hay otros operadores que comparan otro tipo de valores.<br />CÓMO FUNCIONA<br />Se declaran dos variables, ledPin y inputPin. En ledPin se almacena el valor 13, y en inputPin el valor 5.<br />En la función setup(), el pin 13 se configura como salida y el pin 5 como entrada.<br />En la función loop(), se lee el estado del pin 5, y simultáneamente se comprueba si es igual a HIGH.<br />Si el cable está conectado a la alimentación se lee un nivel alto (HIGH), y se enciende el LED escribiendo HIGH en el pin 13.<br />Si el cable está conectado a GND se lee un nivel bajo (LOW), y se apaga el LED escribiendo LOW en el pin 13.<br />Repite la función loop(), lo que significa que se comprueba estado del pin 5 continuamente.<br />Botón<br />Un simple cable puede ser bueno para explicar la teoría de entradas digitales, pero no es la mejor entrada que puedes usar para tus proyectos. Vamos a probar mejor con un botón. Con la placa controladora, puedes leer dos estados diferentes de un botón; HIGH y LOW.</p>
+<p>En el siguiente ejemplo usarás el botón de Modulino. Los componentes Modulino te ayudan hacer circuitos fácilmente ya que son pequeños circuitos integrados con los componentes electrónicos necesarios, como por ejemplo, resistencias.</p>
+<p><strong>Ejemplo 2.8</strong><br />Este ejemplo hace lo mismo que el anterior, pero en lugar de emplear un cable vas a emplear un botón de Modulino.</p>
+<p>MATERIALES</p>
+<p><img src="2_32.png" alt="232" title="232" width="580" height="394" /></p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x módulo botón<br />1 x cable de módulo</p>
+<p>INSTRUCCIONES</p>
+<p><img src="2_33.png" alt="233" title="233" width="580" height="555" /></p>
+<p>1. Conecta la shield en la parte superior de tu placa controladora.<br />2. Conecta el botón de Modulino a al conector D6 de la shield usando el cable de Modulino.<br />3. Escribe el siguiente programa en el IDE:</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _2.8_digital_input
+*
+* The board will turn the on-board LED on or off, with a button module
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+int inputPin = 6;
+int ledPin = 13;
+
+void setup() {
+  pinMode(inputPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(inputPin) == HIGH) {
+    digitalWrite(ledPin, HIGH);
+  }
+  else {
+    digitalWrite(ledPin, LOW);
+  }
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />El LED se encenderá cuando el botón este pulsado y se apagará cuando el botón no este pulsado.</p>
+<p>CÓMO FUNCIONA<br />En este ejemplo, la variable inputPin almacena el valor 6, el número del pin digital al que está conectado el botón.<br />En la función setup(), el pin 13 se configura como salida y el pin 6 como entrada.<br />En la función loop(), se lee el estado del pin 6, y simultáneamente se comprueba si es igual a HIGH.<br />Si el botón esta pulsado, se lee un nivel alto (HIGH), y se enciende el LED.<br />Si el botón no esta pulsado, se lee un nivel bajo (LOW), y se apaga el LED.<br />Repite la función loop(), lo que significa que se comprueba estado del pin 6 continuamente.<br />¡Sigue experimentando!<br />Escribe un programa que haga sonar un sonido al pulsar el botón.<br />Añade un LED que parpadee cuando el botón este pulsado.<br />  </p>
+<p>Nota: El conector D6 está conectado al pin digital 6 de la placa controladora. Si tienes algo en D6, no podrás usarlo para conectar cualquier otra cosa.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice em_iDevice_udl_exp_tareagrupal" id="id8">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header" style="background-image:url(icon_udl_exp_tareagrupal.svg)"><h1 class="iDeviceTitle">ACTIVIDADES</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta8_1750_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>BALONCESTO</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Mete una canasta!</p>
+<p>En este juego, los jugadores tratarán de hacer botar una pelota de ping pong y meterla en una taza. Para ganar, mete cinco puntos. Las anotaciones se registran utilizando un sensor de luz, en este caso, un fototransistor.</p>
+<p style="text-align: center;"><iframe width="560" height="314" src="https://www.youtube.com/embed/d0es1_0NMQQ"></iframe></p>
+<p style="text-align: left;">MATERIALES</p>
+<p style="text-align: left;"><img src="2_34.png" alt="234" title="234" width="580" height="493"></p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x módulo sensor de luz<br>1 x piezo<br>5 x LED<br>5 x resistencia 220 ohm<br>1 x cable de módulo<br>12 x cable de prototipado<br>1 x pelota de ping pong<br>Otros materiales: - 1 x vaso de plástico (puedes necesitar varios si se rompe)</p>
+<p>1 x cinta adhesiva<br>1 x tijeras<br>Nota: El sensor de luz se introduce en el Módulo 3. Si quieres saber más sobre cómo funciona,&nbsp;encuentra más información aquí.</p>
+<p>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar&nbsp;aquí</p>
+<p>. Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub&nbsp;aquí.</p>
+<p>INSTRUCCIONES<br>-</p>
+<p>PASO 1<br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p><img src="2_35.jpg" alt="235" title="235" width="400" height="300"></p>
+<p>PASO 2<br>Conecta cinco ledes a través del puente de la breadboard.</p>
+<p><img src="2_36.png" alt="236" title="236" width="580" height="566"></p>
+<p>PASO 3</p>
+<p><img src="2_37.jpg" alt="237" title="237" width="400" height="300"></p>
+<p>PASO 4<br>Conecta la resistencia de 220 ​​ohm al pin digital 2. A continuación, conecta la resistencia al terminal positivo (el terminal más largo) del primer LED.</p>
+<p><img src="2_38.png" alt="238" title="238" width="580" height="565"></p>
+<p>PASO 5<br>Conecta cada pin digital del 3 al 6 a su LED correspondiente siguiendo el mismo método.</p>
+<p><img src="2_39.png" alt="239" title="239" width="580" height="565"></p>
+<p>PASO 6<br>Conecta el terminal negativo (el terminal más corto) de los ledes a GND.</p>
+<p><img src="2_40.png" alt="240" title="240" width="580" height="565"></p>
+<p>PASO 7</p>
+<p><img src="2_41.jpg" alt="241" title="241" width="400" height="300"></p>
+<p>PASO 8<br>Conecta el piezo a través del puente de la breadboard. A continuación, conecta un terminal del piezo (no importa cual) al pin digital 8 y el otro a GND.</p>
+<p><img src="2_42.png" alt="242" title="242" width="579" height="568"></p>
+<p>PASO 9</p>
+<p><img src="2_43.jpg" alt="243" title="243" width="449" height="337"></p>
+<p>PASO 10<br>Conecta el módulo sensor de luz al conector analógico A1 de la shield.</p>
+<p><img src="2_44.png" alt="244" title="244" width="580" height="689"></p>
+<p>PASO 11<br>Usa el cable del módulo para la conexión a la shield.</p>
+<p><img src="2_45.jpg" alt="245" title="245" width="451" height="338"></p>
+<p>PASO 12</p>
+<p><img src="2_46.jpg" alt="246" title="246" width="451" height="338"></p>
+<p>PASO 13<br>Prepara un poco de cinta adhesiva, tijeras y un vaso de plástico.</p>
+<p>PASO 14<br>Corta un agujero en el fondo del vaso de plástico para que se ajuste al sensor de luz.</p>
+<p>PASO 15<br>Coloca el sensor de luz en el agujero.</p>
+<p>PASO 16<br>Pega el sensor al vaso.</p>
+<p><img src="2_47.jpg" alt="247" title="247" width="600" height="450"></p>
+<p>PASO 17<br>Asegúrate de que el sensor queda dentro del agujero del vaso.</p>
+<p>PASO 18<br>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p><img src="2_48.png" alt="248" title="248" width="580" height="690"></p>
+<p>PASO 19<br>Encuentra el ejemplo&nbsp;LightSensorTest&nbsp;y ábrelo. Con este programa puedes calibrar el sensor de luz para configurar su umbral de detección.</p>
+<p><img src="2_49.png" alt="249" title="249" width="580" height="414"></p>
+<p>PASO 20<br>Descarga el programa en la placa.</p>
+<p>PASO 21<br>Mira la referencia de&nbsp;comunicación serie&nbsp;para aprender cómo funciona. A continuación, abre el monitor de puerto serie.</p>
+<p>PASO 22<br>Toma nota de la lectura del sensor cuando está al descubierto (uncovered), es decir, cuando la pelota no está en el vaso.</p>
+<p>PASO 23<br>Coloca la pelota de ping-pong dentro del vaso, sobre el sensor de luz. Anota el valor cuando el sensor está cubierto (covered). Haz el promedio de los dos números (descubierto y cubierto), el resultado te dará el valor umbral (threshold).</p>
+<p>PASO 24<br>Ahora que tienes los valores para calibrar el sensor, comprueba que tu circuito está terminado y conectado al ordenador.</p>
+<p>PASO 25<br>Encuentra el programa Basketball y ábrelo.</p>
+<p><img src="2_50.png" alt="250" title="250" width="580" height="310"></p>
+<p>PASO 26<br>Busca la línea de código sensor.config ( uncovered , threshold ), y cambia los parámetros por el valor al descubierto (uncovered) y el valor umbral (threshold), respectivamente. Por último, descarga el programa en la placa.</p>
+<p>PASO 27<br>¡Es hora de jugar al baloncesto!</p>
+<p>CÓDIGO<br>Encuentra el programa para calibrar el sensor de luz en Archivo&gt;Ejemplos&gt;EducationShield&gt;Help&gt;LightSensorTest y el del juego en Archivo&gt;Ejemplos&gt;EducationShield&gt;Module2-Sports&gt;Projects&gt;Basketball</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* Basketball
+*
+* Score a goal!
+*
+* In this game, players will try to bounce a ping pong ball
+* into a cup. Make five points to win. The score is tracked
+* using a LightSensor.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+#include "pitches.h"
+/*
+An array of pin numbers to which LEDs are attached
+the defaults are 2 to 6 but you can choose any of the digital pins
+*/
+int ledPins[] = {2, 3, 4, 5, 6};
+int pinCount = 5;
+VUMeter vuMeter;
+
+Melody piezo = Melody(8); // the piezo connected to digital pin 8
+LightSensor sensor = LightSensor(A1); //the LightSensor connected to analog pin 1
+
+int score = 0;
+
+void setup(){
+  //if your are using other pins than 2 to 6 you need to configure that here
+  vuMeter.config(pinCount, ledPins);
+  vuMeter.begin(); //does the same as pinMode, LEDs are outputs
+
+  sensor.config(800, 600); //first run LightSensortest example to see what values you need to put here
+}
+
+void loop(){
+  //if the LightSensor is covered the score increases with 1
+  //and a sounds is played
+    sensor.pressed();
+    score++;
+    vuMeter.fill(score); //Turn on as many LEDs as the score
+
+    int melody[] = { NOTE_GS4, NOTE_C5};
+    int noteDurations[] = { 8, 8};
+    int numberOfNotes = 2;
+    piezo.play(numberOfNotes, melody, noteDurations, 1);
+
+    delay(50);
+
+  if(score&gt;=pinCount) startOver(); //If the score equals the amount of LEDs you start over
+}
+
+
+void startOver(){
+  score=0; //reset the score
+
+  int melody[] = { NOTE_C5, NOTE_G4,NOTE_G4, NOTE_A4, NOTE_G4, 0, NOTE_B4, NOTE_C5};
+  int noteDurations[] = { 4, 8, 8, 4,4,4,4,4 };
+  int numberOfNotes = 8;
+  piezo.play(numberOfNotes, melody, noteDurations, 1);
+
+  vuMeter.blinkAll(50,10);
+
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p style="text-align: left;">CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se incluye pitches.h, el archivo que contiene las definiciones de las notas.<br>Se declaran las variables,&nbsp;ledPins\[\]&nbsp;y&nbsp;pinCount&nbsp;y el objeto&nbsp;vuMeter&nbsp;de la clase VUMeter.<br>Se declara el objeto&nbsp;piezo&nbsp;de la clase Melody.<br>Se declara el objeto&nbsp;sensor&nbsp;de la clase LightSensor.<br>Se declara la variable&nbsp;score.<br>En la función&nbsp;setup(), se configuran e inicializan el VU-meter y el sensor.<br>En la función&nbsp;loop(), el programa espera hasta que el sensor esté cubierto.<br>La variable&nbsp;score&nbsp;se incrementa en 1. Es decir, se suma un punto.<br>Se encienden tantos ledes como puntos tenemos.<br>Se define una melodía corta declarando e inicializando las variables&nbsp;melody\[\],&nbsp;noteDurations\[\]&nbsp;y&nbsp;numberOfNotes.<br>Se toca esa melodía.<br>El programa espera durante 50 milisegundos.<br>Si la variable&nbsp;score&nbsp;es mayor o igual que&nbsp;pinCount, el número de ledes en el VU–Meter, el programa llama a la función&nbsp;startOver().<br>En la función&nbsp;startOver(), se reinicia la puntuación asignando el valor 0 a la variable&nbsp;score.<br>Se define una melodía declarando e inicializando las variables&nbsp;melody\[\],&nbsp;noteDurations\[\]&nbsp;y&nbsp;numberOfNotes.<br>Se toca esa melodía.<br>Todos los ledes del VU–Meter parpadean.<br>Repite la función&nbsp;loop().</p>
+<p style="text-align: left;"><img src="2_51.png" alt="251" title="251" width="760" height="1617"></p>
+<p style="text-align: left;">¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz clic&nbsp;aquí&nbsp;para ver su funcionamiento). Comprueba la polaridad de los ledes para asegurarte de que están correctamente conectados.<br>¿No anota tus puntos? Intenta cambiar el&nbsp;threshold&nbsp;(umbral) más cerca de&nbsp;baseValue&nbsp;(lectura cuando nada cubre el sensor). Mira la referencia del&nbsp;sensor de luz.<br>¿El VU–Meter no funciona correctamente? Mira la referencia del&nbsp;VU–Meter.<br>¡Sigue experimentando!<br>¿Puedes añadir más ledes y aumentar la puntuación? ¡No olvides añadirlos tanto físicamente a la placa como al programa!<br>¿No te acaban de gustar los sonidos que emite el piezo? Prueba a hacer tus propias melodías.Aprende más sobre esto en la referencia&nbsp;Melodía.<br>Intenta cambiar la manera en que parpadean los ledes cuando finaliza el juego. Mira el código de ejemplo ‘vuMeter’ de la referencia&nbsp;VU–Meter&nbsp;para ver los comandos que puedes utilizar.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ESGRIMA</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Comprueba tu tiempo de reacción retando a un oponente!</p>
+<p>En este juego, dos jugadores sujetarán sus espadas(sensores tilt). El primero que gire su espada cuando el LED verde se encienda aleatoriamente, gana.</p>
+<p style="text-align: center;"><iframe width="560" height="314" src="https://www.youtube.com/embed/AmCexKfIf-4"></iframe></p>
+<p style="text-align: left;">MATERIALES</p>
+<p style="text-align: left;"><img src="2_52.png" alt="252" title="252" width="579" height="398"></p>
+<p style="text-align: left;">1 x placa controladora<br>1 x Arduino Education Shield<br>2 x módulo sensor tilt<br>1 x LED grande rojo<br>1 x LED grande verde<br>2 x LED grande amarillo<br>4 x resistencia 220 ohm<br>2 x cable de módulo<br>8 x cable de prototipado</p>
+<p>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_2_fencing_uno_28300994850_o.png?_gl=1*1d7nfkm*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjI2MDY0Ni43LjEuMTY4MjI2MDk2NC4wLjAuMA..">aquí</a></p>
+<p>. Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="http://verkstad.cc/urler/ctc-frz-git">aquí.</a></p>
+<p>INSTRUCCIONES<br>-</p>
+<p>PASOS<br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p>Conecta cuatro ledes a través del puente de la breadboard en el siguiente orden: amarillo, rojo, verde, amarillo.</p>
+<p>Conecta una resistencia de 220 ​​ohm al pin digital 2. A continuación, conecta la resistencia al terminal positivo (el terminal más largo) del primer LED.</p>
+<p>Conecta cada pin digital del 3 al 5 a su LED correspondiente siguiendo el mismo método.</p>
+<p>Conecta el terminal negativo (el terminal más corto) de los ledes a GND.</p>
+<p>Conecta los módulos sensor tilt a los conectores D6 y D9 de la shield.</p>
+<p>Usa el cable del módulo para la conexión a la shield.</p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p><img src="2_53.png" alt="253" title="253" width="580" height="822"></p>
+<p><img src="254.jpg" alt="254" title="254" width="700" height="525" style="display: block; margin-left: auto; margin-right: auto;"></p>
+<p>Encuentra el programa Fencing y ábrelo.</p>
+<p><img src="2_55.png" alt="255" title="255" width="580" height="310"></p>
+<p>Descarga el programa en la placa.</p>
+<p>¡Es hora de practicar esgrima!</p>
+<p>CÓDIGO<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module2-Sports&gt;Projects&gt;Fencing</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* Fencing
+*
+*   Test your reaction time against an opponent!
+*
+* In this game, two players will hold tilt switch swords.
+* When the green LED randomly lights up, the first person
+* to swing their sword wins.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+
+#include <educationshield.h>
+
+//Position of the leds in VU-meter is represented
+//by their names here. So we can use names to find LEDs later
+#define YELLOW_LED_1 0
+#define GREEN_LED 1
+#define RED_LED 2
+#define YELLOW_LED_2 3
+
+//An array stores which pins the VU-meter is connected
+int ledPins[]={2,3,4,5};
+//How many pins are used by VU-meter
+int pinCount=4;
+VUMeter lights;
+
+TiltSwitch player_1 = TiltSwitch(6);
+TiltSwitch player_2 = TiltSwitch(9);
+
+void setup(){
+  lights.config(pinCount,ledPins);
+
+  //Initializing components
+  lights.begin();
+  player_1.begin();
+  player_2.begin();
+
+  //We need this for generating random number later
+  randomSeed(analogRead(0));
+}
+void loop(){
+ lights.clear();
+
+ //Red led means both of you should hold the tilt switch sword up right
+ lights.on(RED_LED);
+
+ //Wait for a random period of time, between 3 seconds
+ //And 6 seconds. Get ready!
+ delay(random(3000,6000));
+
+ lights.off(RED_LED);
+ //When the green led turns on, game starts
+ lights.on(GREEN_LED);
+
+ //Swing your swords as fast as you can, the faster one
+ //will be returned by getWinner()
+ int winner=getWinner();
+
+ //The yellow led by side of the winner will light up
+ if(winner==1){
+   lights.on(YELLOW_LED_1);
+ }else{
+   lights.on(YELLOW_LED_2);
+ }
+ delay(5000);
+}
+
+//The function below waits for either of the tilter
+//switch to be swang. The first one to swing
+//will be returned by its number
+int getWinner(){
+  do{
+    if(player_1.pressed(1)){
+      return 1;
+    }else if(player_2.pressed(1)){
+      return 2;
+    }
+  }while(true);
+}
+</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se definen 4 constantes para almacenar los pines a los que están conectados los ledes del VU-Meter.<br>Se declaran las variables,&nbsp;ledPins\[\]&nbsp;y&nbsp;pinCount&nbsp;y el objeto&nbsp;lights&nbsp;de la clase VUMeter.<br>Se declaran los objetos&nbsp;player\_1&nbsp;y&nbsp;player\_2&nbsp;de la clase TiltSwitch.<br>En la función&nbsp;setup(), el VU-Meter y los sensores tilt se configuran e inicializan.<br>Se inicializa el generador de números aleatorios.<br>En la función&nbsp;loop(), se apagan todos los ledes con&nbsp;lights.clear().<br>Se enciende el LED rojo. Esto significa que ambos jugadores deben poner sus espadas en posición vertical.<br>El programa se detiene un tiempo aleatorio, un tiempo entre 3000 y 6000 milisegundos.<br>Se apaga el LED rojo.<br>Se enciende el LED verde. Esto significa que los jugadores pueden mover sus espadas.<br>El programa llama a la función&nbsp;getWinner().<br>En la función&nbsp;getWinner(), el bucle while espera hasta que una de las espadas ataque. Si el jugador 1 inclina primero su sensor tilt, la función devuelve un 1. Si lo hace el jugador 2, la función devuelve un 2.<br>El programa vuelve a la función&nbsp;loop()&nbsp;en la que se almacena el valor que devuelve&nbsp;getWinner()&nbsp;en la variable&nbsp;winner.<br>Si la variable&nbsp;winner&nbsp;es igual a 1, se enciende el primer LED amarillo.<br>Si la variable&nbsp;winner&nbsp;es igual a 2, se enciende el segundo LED amarillo.<br>El programa espera durante 5000 milisegundos.<br>Repite la función&nbsp;loop()</p>
+<p style="text-align: center;">.<img src="2_56.png" alt="256" title="256" width="760" height="2052"></p>
+<p>¿No funciona?<br>Revisa las ilustraciones y comprueba tus conexiones. Asegúrate de que los cables están firmemente conectados (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento). Comprueba la polaridad de los ledes para asegurarte de que están correctamente conectados.<br>¿Has sido el primero en darle pero ha ganado tu amigo? Intercambiar vuestras espadas.<br>¿Sigue sin pasar nada? Asegúrate de que sigues las reglas y mira la referencia del&nbsp;sensor tilt.<br>¿El VU–Meter no funciona correctamente? Mira la referencia&nbsp;VU-Meter.<br>¡Sigue experimentando!<br>Crea un par de espadas para ponerles los interruptores tilt dentro.<br>Cambia las reglas del juego. ¿Puedes modificarlo de forma que la persona que agite la espada arriba y abajo cinco veces sea el ganador?</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>PONG</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Juega a una versión simplificada del clásico juego arcade, Pong!</p>
+<p>En este juego, un "pong" se moverá a través de cinco ledes (VU-Meter). Según los jugadores vayan pulsando el botón, rebotará de un lado a otro. Los jugadores deben pulsar el botón en el momento preciso con el fin de devolver el pong.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/WSzWBfl0y1s"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>2 x módulo botón<br>5 x LED<br>5 x resistencia 220 ohm<br>2 x cable de módulo<br>10 x cable de prototipado<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_2_pong_101_27969561473_o.png?_gl=1*1gtvmub*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjI2MDY0Ni43LjEuMTY4MjI2MTY5OS4wLjAuMA..">aquí</a></p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí.</a></p>
+<p>Instrucciones<br>PASOS</p>
+<p>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p>Conecta cinco ledes a través del puente de la breadboard.</p>
+<p>Conecta la resistencia de 220 ​​ohm al pin digital 2. A continuación, conecta la resistencia al terminal positivo (el terminal más largo) del primer LED.</p>
+<p>Conecta cada pin digital del 3 al 5 a su LED correspondiente y el último LED al pin 7 siguiendo el mismo método.</p>
+<p>Conecta el terminal negativo (el terminal más corto) de los ledes a GND.</p>
+<p>Conecta los módulos botón a los conectores D6 y D9 de la shield.</p>
+<p>Usa el cable del módulo para la conexión a la shield.</p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p><img src="2_58.jpg" alt="258" title="258" width="800" height="600"></p>
+<p><img src="2_57.png" alt="257" title="257" width="580" height="822"></p>
+<p>Encuentra el programa Pong y ábrelo.</p>
+<p><img src="2_59.png" alt="259" title="259" width="580" height="310"></p>
+<p>Descarga el programa en la placa.</p>
+<p>¡Es hora de jugar a pong!</p>
+<p>Código<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module2-Sports&gt;Projects&gt;Pong</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* Pong
+*
+* Play a simplified version of the classic arcade game, Pong!
+*
+* In this game, a “pong” will move across five LEDs (VU-meter)
+* and bounce back and forth as players press the button.
+* Players must press the button at the right time in order to
+* return the pong.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+/*
+  An array of pin numbers to which LEDs are attached
+  the defaults are 2 to 6 but you can choose any of the digital
+  pins. Just remember to leave digital pin 9 and 6 for the buttons.
+*/
+int ledPins[] = {2, 3, 4, 5, 7};
+int pinCount = 5;
+VUMeter vuMeter;
+
+Button button1 = Button(9); //the button connected to digital pin 9
+Button button2 = Button(6); //the button connected to digital pin 6
+
+int ledTime = 100; //determines how fast the LEDs will switch
+int pressTime = 200; //determines how long time a player has to press the button
+int buttonNotPressed = 0; //this keep track on who missed to press the button
+
+void setup(){
+  //if your are using other pins than 2 to 6 you need to configure that here
+  vuMeter.config(pinCount, ledPins);
+
+  vuMeter.begin(); //does the same as pinMode, LEDs are outputs
+  button1.begin(); //does the same as pinMode, buttons are inputs
+  button2.begin(); //does the same as pinMode, buttons are inputs
+
+  vuMeter.scrollLeft(ledTime, 1); //The game starts by scrolling the LEDs to the left
+}
+
+void loop(){
+  /*
+  if button1 is pressed within the press time, the game will continue
+  by scrolling the LEDs to the right
+  else if button1 is not pressed, the program will jump to gameOver()
+  */
+  if(button1.released(pressTime)){
+    vuMeter.scrollRight(ledTime, 1);
+  }
+  else{
+    buttonNotPressed = 1; //Keep track on where we are in the game
+    gameOver();
+  }
+
+  /*
+  if button2 is pressed within the press time, the game will continue
+  by scrolling the LEDs to the left
+  else if button2 is not pressed, the program will jump to gameOver()
+  */
+  if(button2.released(pressTime)){
+    vuMeter.scrollLeft(ledTime, 1);
+  }
+  else{
+    buttonNotPressed = 2; //Keep track on where we are in the game
+    gameOver();
+  }
+}
+
+/*
+  When a player doesn't press the right button within the right
+  time it is game over. Inside the function gameOver() you can
+  decide how the LEDs should blink.
+  Use vuMeter.blink(LED,delayTime,numberOfBlinks) to make one specific LED blink
+  Use vuMeter.blinkAll(delayTime,numberOfBlinks) to make all LEDs blink
+*/
+void gameOver(){
+  vuMeter.blinkAll(100,10);
+
+  if(buttonNotPressed==1) vuMeter.scrollRight(ledTime, 1); //if button1 was not pressed, scroll LEDs to right to start over
+  else if(buttonNotPressed==2) vuMeter.scrollLeft(ledTime, 1); //if button2 was not pressed, scroll LEDs to left to start over
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se declaran las variables,&nbsp;ledPins\[\]&nbsp;y&nbsp;pinCount&nbsp;y el objeto&nbsp;vuMeter&nbsp;de la clase VUMeter.<br>Se declaran los objetos&nbsp;button1&nbsp;y&nbsp;button2&nbsp;de la clase Button.<br>Se declaran las variables de tiempo y el estado de los botones,&nbsp;ledTime,&nbsp;pressTime&nbsp;y&nbsp;buttonNotPressed.<br>En la función&nbsp;setup(), se configuran e inicializan el VU-Meter y los botones.<br>El juego comienza con la última línea de código en la función&nbsp;setup(). El juego comienza con el desplazamiento de los ledes a la izquierda.<br>En la función&nbsp;loop(), se comprueba si el botón 1 (button1) se suelta en el tiempo establecido (pressTime). La razón por la que se comprueba si se ha soltado y no si se ha pulsado es porque de otra manera podrías engañar al programa manteniendo siempre el botón apretado.<br>Si el botón 1 se suelta a tiempo, los ledes se desplazan a la derecha.<br>Se comprueba si el botón 2 (button2) se suelta en el tiempo establecido.<br>Si el botón 2 se suelta a tiempo, los ledes se desplazan a la izquierda de nuevo.<br>Cuando uno de los botones no se suelta a tiempo, el número de ese botón se almacena en la variable&nbsp;buttonNotPressed, y el programa llama a la función&nbsp;gameOver().En la función&nbsp;gameOver(), todos los ledes del VU-Meter parpadean.<br>Si fue el botón 1 el que no fue pulsado a tiempo, los ledes se desplazan a la derecha. Si fue el botón 2 el que no fue pulsado a tiempo, los ledes se desplazan a la izquierda.<br>Después de la función&nbsp;gameOver()&nbsp;el programa vuelve a la función&nbsp;loop()&nbsp;y continua ejecutándose.</p>
+<p><img src="2_60.png" alt="260" title="260" width="760" height="1593"></p>
+<p>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento). Comprueba la polaridad de los ledes para asegurarte de que están correctamente conectados.<br>¿No puedes golpear el pong? Intenta intercambiar los botones, si sigue sin funcionar, mira la referencia&nbsp;módulo botón.<br>¿El VU-Meter no funciona correctamente? Mira la referencia&nbsp;VU-Meter.<br>¡Sigue experimentando!<br>Intenta cambiar el parpadeo de los ledes cuando finaliza el juego. Mira la referencia&nbsp;VU-Meter&nbsp;para ver los comandos que puedes utilizar.<br>Haz una caja para la placa. Utiliza un material que permita que los ledes brillen a través de él. Prueba también a hacer unas cajas para los botones.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>CARRERAS</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Corre con tus dedos lo más rápido que puedas!</p>
+<p>En este juego, el corredor tiene que golpear dos sensores repetidamente con el fin de completar vueltas. Se encenderá un LED por vuelta. Cuando todas las vueltas se hayan completado, los ledes parpadearán celebrando la victoria.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/vKfxKmOFF_E"></iframe></p>
+<p><img src="2_61.jpg" alt="261" title="261" width="800" height="600"></p>
+<p><img src="2_62.png" alt="262" title="262" width="580" height="1058"></p>
+<p><img src="2_63.png" alt="263" title="263" width="580" height="310"></p>
+<p>¡Prueba y corre lo más rápido que puedas!</p>
+<p><img src="2_64.jpg" alt="264" title="264" width="800" height="600"></p>
+<p>CÓDIGO<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module2-Sports&gt;Projects&gt;Racing</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* Racing
+*
+*  Run with your fingers as fast as you can.
+*
+* In this game, the player must tap two sensors repeatedly
+* in order to run laps. One LED will light up per lap.
+* When all laps are completed, LEDs will blink in victory.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+
+/*
+  An array of pin numbers to which LEDs are attached
+  the defaults are 2 to 6 but you can choose any of the digital pins
+  just remember to leave digital pin 2,3 and 4 for the capacitive switches
+*/
+int ledPins[] = {8, 9, 10, 11, 13};
+int pinCount = 5;
+//This variable will let us keep track on which LED to turn on
+int LED = 0;
+VUMeter scoreBoard;
+
+//Configure the capacitive sensors
+int capacitiveSensorThreshold=400;
+CapacitiveSwitch leftFoot=CapacitiveSwitch(2,3);
+CapacitiveSwitch rightFoot=CapacitiveSwitch(2,4);
+
+int score;
+
+void setup(){
+  //initializing the game, set up all the components and variables
+  score=0;
+
+  //Connect scoreboard
+  scoreBoard.config(pinCount,ledPins);
+  scoreBoard.begin();
+
+  //initialize left and right "foot"
+  leftFoot.config(capacitiveSensorThreshold);
+  rightFoot.config(capacitiveSensorThreshold);
+}
+
+void loop(){
+  //Wait for the left foot to be pressed
+   leftFoot.pressed();
+   scoreBoard.on(LED);
+
+  //Wait for the right foot to be pressed
+  rightFoot.pressed();
+  scoreBoard.off(LED);
+
+  score=score+1; //After both feet are pressed, add one point
+
+  //Every 20 points light up a led
+  LED =score/20;
+  scoreBoard.fill(LED);
+
+ //When you get 100 points, you win
+  if(score&gt;100){
+    //if you win, blink all leds for celebration
+    //See vuMeter in refence list to make your own blink animation
+    scoreBoard.blinkAll(50,5);
+    //and reset the game
+    score=0;
+  }
+}
+</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluyen las librerías CapacitiveSensor y EducationShield.<br>Se declaran las variables,&nbsp;ledPins\[\],&nbsp;pinCount&nbsp;y&nbsp;LED, y el objeto&nbsp;scoreBoard&nbsp;de la clase VUMeter.<br>Se declaran las variables y los objetos para el sensor capacitivo,&nbsp;capacitiveSensorThreshold,&nbsp;leftFoot&nbsp;y&nbsp;rightFoot.<br>Se declara la variable&nbsp;score&nbsp;para almacenar la puntuación.<br>En la función&nbsp;setup(), se configuran e inicializan el VU-Meter y el sensor capacitivo.<br>En la función&nbsp;loop(), el programa espera hasta que el sensor capacitivo&nbsp;leftFoot&nbsp;se toca.<br>El LED del VU-Meter que está en la posición que marca la variable&nbsp;LED&nbsp;se enciende. La primera vez que se ejecuta la función&nbsp;loop()&nbsp;esta variable vale 0.<br>El programa espera hasta que el sensor capacitivo&nbsp;rightFoot&nbsp;se toca.<br>Se apaga el LED que se había encendido.<br>La variable&nbsp;score&nbsp;se incrementa 1.<br>Se calcula de nuevo la variable&nbsp;LED, esta vez se iguala a&nbsp;score/20. Las primeras 20 veces que se ejecuta la función&nbsp;loop(), la variable&nbsp;LED&nbsp;será igual a 0, las siguientes 20 veces será igual a 1 y así sucesivamente.<br>Se encienden tantos ledes como el valor de la variable&nbsp;LED. Esto significa que cada 20 pasos se enciende un LED más.<br>Si la variable&nbsp;score&nbsp;es mayor que 100, parpadean todos los ledes y la variable&nbsp;score&nbsp;se iguala a 0.<br>Si la variable&nbsp;score&nbsp;no es mayor que 100, el programa vuelve al principio de la función&nbsp;loop().</p>
+<p><img src="2_65.png" alt="265" title="265" width="763" height="1920"></p>
+<p>¿No funciona?<br>Revisa las ilustraciones y comprueba tus conexiones. Asegúrate de que la shield y los cables están firmemente conectados (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>¿Al golpear los sensores no ocurre nada? Mira la referencia del&nbsp;sensor capacitivo.<br>¿El VU-Meter no funciona correctamente? Mira la referencia&nbsp;VU-Meter.<br>¡Sigue experimentando!<br>Intenta cambiar el parpadeo de los ledes cuando finaliza el juego. Mira la referencia&nbsp;VU-Meter&nbsp;para ver los comandos que puedes utilizar.<br>¿El juego es demasiado sencillo? ¡Intenta hacer que dure más!<br>¿Puedes utilizar otra cosa que reemplace el papel de aluminio? ¿Tal vez tus amigos?</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>REACCIONA</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Pon a prueba tu capacidad de reacción! En este juego, un LED de los tres se iluminará aleatoriamente. Tienes que golpear el sensor capacitivo correspondiente dentro del tiempo de reacción. Si no lo consigues, el juego finaliza.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/jp2HKWGrjNA"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x breadboard<br>1 x piezo<br>3 x LED<br>3 x resistencia 220 ohm<br>3 x resistencia 1 Mohm<br>18 x cable de prototipado (3 largos)<br>Otros materiales:</p>
+<p>3 x pieza de papel de aluminio<br>1 x cinta adhesiva<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar&nbsp;aquí</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub&nbsp;aquí.</p>
+<p>Instrucciones</p>
+<p><img src="2_66.jpg" alt="266" title="266" width="800" height="600"></p>
+<p><img src="2_67.png" alt="267" title="267" width="580" height="1058"></p>
+<p>Encuentra el programa React y ábrelo.</p>
+<p><img src="2_68.png" alt="268" title="268" width="580" height="310"></p>
+<p>Descarga el programa en la placa.</p>
+<p>¡Juega y pon a prueba tu capacidad de reacción!</p>
+<p>Código<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module2-Sports&gt;Projects&gt;React</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* React
+*
+*  Test your reaction time!
+*
+* In this game, one of three LEDs will randomly light up.
+* You must tap the corresponding capacitive sensor as quick
+* as possible. If you don’t react fast enough, the game is over.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+#include "pitches.h"
+
+//Define the 3 LEDs
+int ledPins[] = {9, 10, 11};
+int pinCount = 3;
+VUMeter LEDs;
+
+//There're 3 pads for pressing
+CapacitiveSwitch pad[3];
+
+//You have 500 milliseconds to press the pad
+int reactTime = 500;
+
+// the piezo connected to digital pin 8
+Melody piezo = Melody(8);
+
+void setup(){
+  LEDs.config(pinCount, ledPins);
+  LEDs.begin();
+
+  //Configure the pads
+  pad[0] = CapacitiveSwitch(2,3);
+  pad[1] = CapacitiveSwitch(2,4);
+  pad[2] = CapacitiveSwitch(2,5);
+  pad[0].config(100);
+  pad[1].config(100);
+  pad[2].config(100);
+}
+
+void loop(){
+  //Wait for a random time before each turn begins
+  delay(random(50, 2000));
+
+  //pick a target between the 3 pads
+  int target = random(0, 3);
+  //Light up the LED
+  LEDs.on(target);
+
+  //If the pad corresponding to the LED is pressed
+  if(pad[target].pressed(reactTime)){
+    LEDs.off(target);
+
+    //Play the winning sound
+    int melody[] = { NOTE_GS4, NOTE_C5};
+    int noteDurations[] = { 8, 8};
+    int numberOfNotes = 2;
+    piezo.play(numberOfNotes, melody, noteDurations, 1);
+  }
+  else{
+    //Else if the reaction is too slow, run the function gameOver()
+    gameOver();
+  }
+}
+
+void gameOver(){
+  //Turn all LEDs on
+  LEDs.fill(pinCount);
+
+  //Play a melody
+  int melody[] = { NOTE_E2, NOTE_C2};
+  int noteDurations[] = { 2, 1};
+  int numberOfNotes = 2;
+  piezo.play(numberOfNotes, melody, noteDurations, 1);
+
+  LEDs.blinkAll(100, 10);
+  LEDs.fill(0); //Tun all LEDs off
+}
+</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluyen las librerías CapacitiveSensor y EducationShield.<br>Se incluye pitches.h, el archivo que contiene las definiciones de las notas.<br>Se declaran las variables,&nbsp;ledPins\[\]&nbsp;y&nbsp;pinCount, y el objeto&nbsp;LEDs&nbsp;de la clase VUMeter.<br>Se declara un array para almacenar los objetos de los tres sensores capacitivos.<br>Se declara la variable&nbsp;reactTime&nbsp;para almacenar el tiempo de reacción en milisegundos.<br>Se declara el objeto&nbsp;piezo&nbsp;de la clase Melody.<br>En la función&nbsp;setup(), se configuran e inicializan el VU-Meter y el sensor capacitivo.<br>En la función&nbsp;loop(), el programa espera durante un tiempo aleatorio entre 50 y 2000 milisegundos.<br>Se declara la variable&nbsp;target&nbsp;y se le asigna un valor aleatorio entre 0 y 3.<br>El número de LED que está en la posición que marca la variable&nbsp;target&nbsp;se enciende.<br>Si el sensor capacitivo que está en la posición que marca la variable&nbsp;target&nbsp;se toca a tiempo, el LED que encendimos se apaga.<br>Se define una melodía corta declarando e inicializando las variables&nbsp;melody\[\],&nbsp;noteDurations\[\]&nbsp;y&nbsp;numberOfNotes.<br>Se toca esa melodía.<br>Si el sensor capacitivo que está en la posición que marca la variable&nbsp;target&nbsp;no se toca a tiempo, el programa llama a la función&nbsp;gameOver().En la función&nbsp;gameOver(), se apagan todos los ledes.<br>Se define una melodía corta declarando e inicializando las variables&nbsp;melody\[\],&nbsp;noteDurations\[\]&nbsp;y&nbsp;numberOfNotes.<br>Se toca esa melodía.<br>Todos los ledes del VU–Meter parpadean.<br>Se apagan todos los ledes.<br>El programa vuelve a la función&nbsp;loop().<br>Repite la función&nbsp;loop().</p>
+<p><img src="2_69.png" alt="269" title="269" width="763" height="1475"></p>
+<p>¿No funciona?<br>Consulta la ilustración y vuelve a comprobar las conexiones. Asegúrate de que la shield y los cables estén firmemente conectados (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>Aumenta el tiempo permitido de reacción para hacer el juego más fácil y probar que funcione. ¡Asegúrate de volver a cambiarlos cuando todo esté funcionando!<br>¿El VU–Meter no funciona correctamente? Mira la referencia del&nbsp;VU–Meter.<br>¿Al golpear los sensores no ocurre nada? Mira la referencia del&nbsp;sensor capacitivo.<br>¡Sigue experimentando!<br>¿Se puede hacer el juego más difícil? Cambia el tiempo de reacción y el tiempo de espera.<br>¿No te acaban de gustar los sonidos que emite el piezo? Prueba a hacer tus propias melodías.<br>Intenta cambiar el parpadeo de los ledes cuando finaliza el juego. Mira la referencia&nbsp;VU-Meter&nbsp;para ver los comandos que puedes utilizar.<br>¿Se pueden agregar más ledes y sensores? ¡No olvides agregar ambos tanto a la placa físicamente como al programa!</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>SIMÓN DICE</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Pon a prueba tu memoria con este juego!</p>
+<p>Los ledes parpadearán en una secuencia que deberás recordar y repetir. Si lo haces correctamente, el juego se vuelve más y más desafiante.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/kCP964YqY2w"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x breadboard<br>1 x módulo botón<br>1 x potenciómetro<br>1 x piezo<br>5 x LED<br>5 x resistencia 220 ohm<br>1 x cable de módulo<br>15 x cable de prototipado<br>Nota: El potenciómetro se introduce en el Módulo 3. Si quieres saber más sobre cómo funciona,&nbsp;encuentra <a href="5_espacio.html">más información aquí.</a></p>
+<p>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_2_simon_says_101_27967976124_o.png?_gl=1*1jgiagv*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjI2MDY0Ni43LjEuMTY4MjI2Mzk1OS4wLjAuMA..">aquí</a></p>
+<p>. Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="http://verkstad.cc/urler/ctc-frz-git">aquí.</a></p>
+<p>Instrucciones</p>
+<p>PASOS</p>
+<p><img src="2_70.jpg" alt="270" title="270" width="800" height="600"></p>
+<p><img src="2_71.png" alt="271" title="271" width="579" height="960"></p>
+<p>Encuentra el programa SimonSays y ábrelo.</p>
+<p><img src="2_72.png" alt="272" title="272" width="577" height="310"></p>
+<p>Descarga el programa en la placa.</p>
+<p>¡Prueba y juega a Simon dice!</p>
+<p>Código<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module2-Sports&gt;Projects&gt;SimonSays</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* SimonSays
+* 
+* Test your memory with this game!
+*
+* LEDs will blink in a pattern that you have to remember and repeat. 
+* If you get it right, the game gets more and more challenging. 
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+
+#include <educationshield.h>
+
+/*
+  An array of pin numbers to which LEDs are attached
+  the defaults are 2 to 6 but you can choose any of the digital 
+  pins. 
+*/
+int ledPins[] = {2, 3, 4, 5, 6};
+int pinCount = 5;
+VUMeter vuMeter;
+
+Knob pot=Knob(A0);//a knob is connected to A0
+
+Button button = Button(9); //a button is connected to port D9
+
+Melody piezo=Melody(8);//a piezo is connected to digital pin 8
+
+//Set the game parameters
+int turns_begin=2;//a new game starts with 2 turns
+int turns_max=10;//the most difficult game has 10 turns
+
+int game[10];//array for storing the "simon says"
+int turns=2;//for storing the number of turns in current game
+int blinkTime=500;//how fast does "simon says" blink
+
+void setup(){
+  //initialize the components
+  vuMeter.config(pinCount, ledPins);
+  vuMeter.begin();
+  pot.setLevels(5);
+  button.begin();
+
+  //Create a random seed, so we can call random() later.
+  randomSeed(analogRead(A5));
+}
+void loop(){
+  newGame();
+  simonSays();
+  delay(1000);
+  getInputs();
+}
+
+void newGame(){
+  vuMeter.blinkAll(200, 3);
+  vuMeter.clear();
+  delay(500);
+  //Generate simon says, it'll be stored in an array
+  //So we can compare with player's input later
+  for(int i=0;i&lt;turns;i++){
+    game[i]=random(pinCount);
+  }
+}
+void simonSays(){
+  //Display simon says to the player. 
+  for(int i=0;i&lt;turns;i++){
+    vuMeter.on(game[i]);
+    delay(blinkTime);
+    vuMeter.off(game[i]);
+    delay(blinkTime);
+  }
+}
+void getInputs(){
+  //Get "i" inputs where "i" matches the number of 
+  //simon says in this round.
+  for(int i=0;i&lt;turns;i++){
+    int input;
+    //button.released() stops the program, so
+    //let's do it in short pulses. In between 
+    //we can change the vuMeter display.
+    while(!button.released(10)){
+     vuMeter.clear();
+     vuMeter.on(pot.getLevel());
+    }
+    //When button is released, get the adjusted 
+    //value from the knob
+    input=pot.getLevel();
+    if(input==game[i]){
+      //if your input is right, play a score sound
+      //and continue.
+      piezo.effect_score();
+    }else{
+      //Otherwise, gameover. Stop the function from
+      //continuing by an empty return.
+      gameOver();
+      return ;
+    }
+  }
+  //When all the inputs matched simon says, you win
+  //this round and level up.
+  delay(500);
+  levelUp();
+}
+void gameOver(){
+  //When it's gameover, difficulty resets 
+  turns=turns_begin;
+  //And play the gameover sound
+  piezo.effect_gameover();
+}
+void levelUp(){
+  //When level up, adds more difficulty until it reaches maximum
+  if(turns&lt;turns_max){
+    turns++;
+  }
+  //And play a winning sound
+  piezo.effect_win();
+
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p>Cómo funciona<br>Se incluye la librería EducationShield.<br>Se declaran las variables, `ledPins[]` y `pinCount`, y el objeto `vuMeter` de la clase VUMeter.<br>Se declaran los objetos `pot`, `button` y `piezo` de las clases Knob, Button y Melody respectivamente.Se declaran las variables `turns_begin`, `turns_max`, `game`, `turns[]` y `blinkTime` para almacenar los parámetros del juego.<br>En la función `setup()`, se configura e inicializa el VU-Meter.<br>Se configura el potenciómetro para tener 5 niveles de selección.<br>Se inicializa el botón.<br>Se inicializa el generador de números aleatorios.<br>En la función `loop()`, el programa llama a la función `newGame()`.En la función `newGame()`, todos los ledes del VU–Meter parpadean.<br>Todos los ledes se apagan.<br>El programa espera durante 500 milisegundos.<br>El bucle for se repite tantas veces como indique el valor en la variable `turns`. La primera vez que se ejecuta `newGame()`, la variable `turns` es igual a 2.<br>En cada iteración del bucle for, se genera un número aleatorio entre 0 y el valor en `pinCount`, que se guarda en el array `game[]`.<br>El programa vuelve a la función `loop()`.<br>El programa llama a la función `simonSays()`.<br>En la función `simonSays()`, un bucle for se repite tantas veces como indique el valor en la variable `turns`.<br>En cada iteración del bucle for, se enciende el LED conectado en la posición que marca la variable `game[]`.<br>El programa espera durante el tiempo en la variable `blinkTime`.<br>El mismo LED que fue encendido se apaga.<br>El programa espera de nuevo durante el tiempo en la variable `blinkTime`.<br>​El programa vuelve a la función `loop()`.<br>​El programa espera durante 1000 milisegundos.<br>​El programa llama a la función `getInputs()`.<br>En la función `getInputs()`, un bucle for se repite tantas veces como indique el valor en la variable `turns`. En cada iteración del bucle ocurre lo siguiente:Se declara la variable `input`.<br>Un bucle while se ejecuta mientras que el botón no se suelte a tiempo. Es decir, se comprueba el estado del botón continuamente pero en pequeños intervalos de tiempo (10 milisegundos). Esto se hace para no parar el programa por completo y poder seguir leyendo el potenciómetro.<br>En el bucle while, se apagan todos los ledes.<br>Se enciende el LED conectado en la posición que marca el valor leído del potenciómetro.<br>Cuando finalmente el botón se suelta, el programa sale del bucle while.<br>Se almacena el valor leído del potenciómetro en la variable `input`.<br>Si el valor en `input` es igual al valor actual en `game[]` (si es la primera vez que el bucle for se ejecuta, esto significa si `input` es igual a `game[0]`), suena un sonido de victoria.<br>El bucle continúa y se comprueba el siguiente.<br>Una vez que el bucle for ha comprobado toda la secuencia, continua el programa y espera durante 500 milisegundos.<br>El programa llama a la función `levelUp()`.En la función `levelUp()`, si la variable `turns` es menor que el valor en `turns_max`, esta se incrementa 1 para hacer el juego un poco más complicado en la siguiente ronda.<br>Se toca con el piezo un sonido de victoria.<br>El programa vuelve a la función `getInputs()`.<br>El programa vuelve a la función `loop()`.<br>La función `loop()` empieza de nuevo y llama a todas las funciones otra vez.<br>En la función `getInputs()`, si el valor en `input` no es igual al valor actual en `game[]`, el programa llama a la función `gameOver()`.<br>En la función `gameOver()`, la variable `turns` se fija al valor de `turns_begin` otra vez.<br>Se toca con el piezo un sonido de fin de juego.<br>El programa vuelve a la función `getInputs()`.<br>El programa sale de la función `getInput()` con el comando `return`, y vuelve a la función `loop()`.<br>La función `loop()` empieza de nuevo y llama a todas las funciones otra vez.<br>![mod02_simonsays_flowchart](https://cdn.arduino.cc/ctc/images/block2_flowcharts_simon_says_28661267186_o.png) ### ¿No funciona?Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento). Comprueba la polaridad de los ledes para asegurarte de que están correctamente conectados.<br>¿El botón no funciona? Mira la&nbsp;módulo botón.<br>¿El VU–Meter no funciona correctamente? Mira la referencia del&nbsp;VU–Meter.<br>Sigue experimentando<br>&nbsp;</p>
+<p>Haz el juego más desafiante haciendo que vaya más rápido.<br>Conviértelo en un juego de dos jugadores. Graba la secuencia del primer jugador y deja que el segundo la repita.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>DADO DIGITAL</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Utiliza este dado digital la próxima vez que juegues a un juego de mesa!</p>
+<p>"Lanzas" el dado agitando el sensor tilt (sensor de inclinación). Los ledes mostrarán diferentes números, cambiando cada vez más lentamente, hasta que se detiene en un número específico.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/8JEbm5Mm1Lo"></iframe></p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x módulo sensor tilt<br>1 x cable de módulo<br>9 x LED<br>9 x resistencia 220 ohm<br>15 x cable de prototipado<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_2_digitial_die_101_28620544234_o.png?_gl=1*1xkteei*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjI2MDY0Ni43LjEuMTY4MjI2NDYwMi4wLjAuMA..">aquí</a></p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí.</a></p>
+<p>Instrucciones</p>
+<p><img src="2_72.jpg" alt="272b" title="272b" width="800" height="600"></p>
+<p><img src="2_73.png" alt="273" title="273" width="579" height="692"></p>
+<p>Encuentra el programa DigitalDie y ábrelo.</p>
+<p><img src="2_74.png" alt="274" title="274" width="577" height="310"></p>
+<p>¡Comienza y lanza el dado!</p>
+<p>Código<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module2-Sports&gt;Projects&gt;DigitalDie</p>
+
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* DigitalDie
+* 
+*   Use this digital die next time you play a board game. 
+*
+* You "throw" the die by shaking a tilt sensor. The LEDs 
+* will show different numbers, waiting a longer and longer 
+* time for each number, until it finally stops. Don't be 
+* too fast to cheer believing it stopped on your desired 
+* number or you might get disappointed ...
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;EducationShield.h&gt;
+
+//declare the pins used for LEDs, 9 LEDs in total
+int pinCount=9;
+int ledPins[] = {2, 3, 4, 5, 6, 7, 8, 11, 13};
+
+/*
+declare the tilt switch, it's connected to TinkerKit 
+port 9
+*/
+TiltSwitch ts=TiltSwitch(9);
+
+/*
+  Define the patterns of die values. Each pattern is
+  an array of 9 integers, indicating the on/off state
+  of each LED.
+  And because there're 6 possible patterns, we need a 
+  2-dimensional array to define all the data. It's a 
+  big array of 6 elements, each element is an array of
+  9 integers.
+*/
+int die[6][9]={
+  //1
+  {
+  0,0,0,
+  0,1,0,
+  0,0,0 
+  },
+
+  //2
+  {
+  1,0,0,
+  0,0,0,
+  0,0,1 
+  },
+
+  //3
+  {
+  1,0,0,
+  0,1,0,
+  0,0,1 
+  },
+
+  //4
+  {
+  1,0,1,
+  0,0,0,
+  1,0,1 
+  },
+
+  //5
+  {
+  1,0,1,
+  0,1,0,
+  1,0,1 
+  },
+
+  //6
+  {
+  1,1,1,
+  0,0,0,
+  1,1,1 
+  }
+};
+
+/*
+  wait time between the die rolls to a different face.
+  Notice it's using float type here? Read on!
+*/
+float waitTime=1;
+
+void setup(){
+  //Configure each pin as an output. 
+  for(int i=0;i&lt;pinCount;i++){
+    pinMode(ledPins[i],OUTPUT);
+  }
+
+  //initialize the tilt switch.
+  ts.begin();
+
+  //generate the random seed. We use the value from
+  //A0, since it's not connected to anything, it should
+  //generate some random noises. Perfect for our purpose
+  randomSeed(analogRead(A0));
+}
+void loop(){
+  //Reset the wait time
+  waitTime=2;
+
+  /*
+    Imagine when you throw a die, it'll bounce around, 
+    showing a few values before laying still. 
+
+    Let's keep generating new values until it's stable
+    (when time between new values become long enough)
+  */
+  while(waitTime&lt;1000){
+    /*
+      Generate a random die value.
+      The die value can be 1 to 6, in the array it's
+      die[0] to die[5]. random(0,6) generate a value
+      between 0 to 6, that would be 0 to 5 in effect.
+    */
+    int value;
+    value=random(0,6);
+
+    //Display the die value
+    displayDie(value);
+
+    /*
+      See why waitTime has to be float? If it's an integer,
+      multiplying it by 1.3 will make it lose everything behind
+      the decimal mark. We use 2 as the starting value, 
+      2*1.3 should be 2.6, losing the fractional parts means
+      it'll be 2 in the end, so 2*1.3=2!
+    */
+    waitTime=waitTime*1.3;    
+    delay(waitTime);
+  }
+
+  /*
+    Now the die is stable, wait until the tilt switch is 
+    activated again. ts.pressed() stops the whole program 
+    until it's activated.
+  */
+  ts.pressed();
+}
+
+void displayDie(int num){
+  //Show the die value by turning on/off the right LEDs
+  for(int i=0;i&lt;pinCount;i++){
+    digitalWrite(ledPins[i],die[num][i]);
+  }</code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se declaran las variables para los ledes,&nbsp;pinCount&nbsp;y&nbsp;ledPins\[\].<br>Se declara el objeto&nbsp;ts&nbsp;de la clase TiltSwitch.<br>Se definen las figuras del dado en el array de dos dimensiones&nbsp;dice\[6\]\[9\]. Un dado tiene 6 caras diferentes, cada una tiene 9 puntos.<br>Los patrones del dado están definidos de manera que es fácil visualizarlos. En cada patrón (cada cara del dado) hay 9 ceros y unos. Un 1 representa un LED encendido (un punto), y un 0 representa un LED apagado(blanco).<br>Se declara la variable&nbsp;waitTime&nbsp;para almacenar el tiempo que esperamos en milisegundos desde que se muestra un número hasta que se muestra otro.<br>En la función&nbsp;setup(), se configuran los pines a los que están conectados los ledes como salida.<br>Se inicializa el objeto&nbsp;ts.<br>Se inicializa el generador de números aleatorios.<br>En la función&nbsp;loop(), la variable&nbsp;waitTime&nbsp;se fija a 2.<br>Mientras la variable&nbsp;waitTime&nbsp;es menor que 1000, ocurre lo siguiente.Se declara la variable&nbsp;value&nbsp;y se le asigna un número aleatorio entre 0 y 6.<br>Se pasa la variable&nbsp;value&nbsp;a la función&nbsp;displayDice()&nbsp;y el programa salta a esa función.<br>En la función&nbsp;displayDice(), un bucle for recorre los ledes encendiendo y apagando los mismos según las figuras del array&nbsp;dice\[\]\[\]. Cuando la variable&nbsp;value&nbsp;vale 2, los 9 ceros y unos del array&nbsp;dice\[2\]\[\]&nbsp;(el patrón que muestra un 3) se han recorrido.<br>El programa vuelve al bucle while.<br>La variable&nbsp;waitTime&nbsp;se incrementa siendo multiplicada por 1.3. Esto significa que la vez 25 que se ejecuta el bucle while, la variable&nbsp;waitTime&nbsp;será mayor que 1000.<br>El programa espera durante el tiempo en la variable&nbsp;waitTime.<br>Si la variable&nbsp;waitTime&nbsp;es menor que 1000, el bucle while continua ejecutándose y mostrando el siguiente número aleatorio.<br>Cuando finalmente la variable&nbsp;waitTime&nbsp;no es menor que 1000, el programa sale del bucle while.<br>El programa se detendrá hasta que detecte una nueva agitación del sensor. Cuando el sensor es agitado, el programa comienza de nuevo.<br>Repite la función&nbsp;loop().</p>
+<p><img src="2_75.png" alt="275" title="275" width="760" height="2038"></p>
+<p>¿No funciona?<br>¿El dado no muestra la combinación correcta de los ledes encendidos? Revisa las ilustraciones y comprueba tus conexiones (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento). Asegúrate de que los cables están firmemente conectados. Comprueba la polaridad de los ledes para asegurarte de que están correctamente conectados.<br>¿No funciona correctamente el sensor? Asegúrate de que no está boca abajo cuando el dado se esté "agitando" todavía. Mira la referencia del&nbsp;sensor tilt.<br>¡Sigue experimentando!<br>Haz que los ledes muestren algo más que sólo las figuras de un dado.<br>Usa una pila de 9V para alimentar la placa controladora y crea una caja que incorpore todos los componentes de forma que la tengas que agitar entera para "lanzar" el dado.</p></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="1_processing.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="3_magia.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_escolares_js.js"></script></body></html>

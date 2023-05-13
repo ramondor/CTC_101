@@ -1,0 +1,3107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>5. Espacio | Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="José Ramón Dorado Repiso" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.8 Portable - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-5"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield</a></li>
+   <li><a href="1_processing.html" class="no-ch">1. Processing</a></li>
+   <li><a href="2_deportes.html" class="no-ch">2. Deportes</a></li>
+   <li><a href="3_magia.html" class="no-ch">3. Magia</a></li>
+   <li><a href="4_robots.html" class="no-ch">4. Robots</a></li>
+   <li id="active"><a href="5_espacio.html" class="active no-ch">5. Espacio</a></li>
+   <li><a href="recursos.html" class="no-ch">Recursos</a></li>
+   <li><a href="gua_didctica.html" class="no-ch">Guía didáctica</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="4_robots.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="recursos.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">5. Espacio</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id25">
+<div class="iDevice emphasis0" >
+<div id="ta25_1763_2" class="block iDevice_content">
+<div class="exe-text"><p>Aprende sobre la conectividad bluetooth, el giróscopo y el acelerómetro integrados. Vas a crear juguetes divertidos para explorar el espacio utilizando un robot explorador o la información del giróscopo.</p></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id26">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">5.1 QUÉ ES UNA IMU</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta26_1764_2" class="block iDevice_content">
+<div class="exe-text"><p>Tu placa controladora tiene una IMU o unidad de medición inercial. Una IMU (Inertial Measurement Unit) es un dispositivo electrónico que calcula el movimiento en varias direcciones, vertical, horizontal y en rotación angular. La IMU integrada en la placa tiene un giróscopo y un acelerómetro de 6 ejes, donde las direcciones verticales y horizontales se calculan con el acelerómetro, y la rotación angular con el giróscopo.</p>
+<p><strong>Giróscopo</strong></p>
+<p><strong><img src="5_01.png" alt="501" title="501" width="580" height="200" /></strong></p>
+<p>El giróscopo de la IMU mide la inclinación y el giro de la placa. La velocidad con la que giras o inclinas tu placa, afecta a las medidas.</p>
+<p><strong>Acelerómetro</strong></p>
+<p><strong><img src="5_02.png" alt="502" title="502" width="579" height="201" /></strong></p>
+<p><strong>Pitch y roll (cabeceo y alabeo)</strong></p>
+<p><strong><img src="5_03.png" alt="503" title="503" width="580" height="265" /></strong></p>
+<p>Al combinar el giróscopo y el acelerómetro es posible calcular el ángulo en el que se encuentra la placa. El resultado de este cálculo son dos valores llamados “pitch” (cabeceo en Español) y “roll” (alabeo en Español). Pitch indica el ángulo de inclinación del dispositivo hacia delante y hacia atrás, en cambio roll indica el ángulo de inclinación hacia la izquierda o la derecha.</p>
+<p><strong>Usando las medidas de la IMU</strong><br />En estos ejemplos vas a usar las medidas de la IMU para generar sonidos.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x piezo<br />2 x cable de prototipado</p>
+<p>INSTRUCCIONES</p>
+<p><img src="5_04.png" alt="504" title="504" width="580" height="428" /></p>
+<p><strong>Ejemplo 5.1</strong><br />En este ejemplo vas a obtener y usar las medidas del giróscopo.</p>
+<p>CÓDIGO<br />Encuentra el código en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Concepts&gt;_5.1gyrodemo</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _5.1_gyro_demo
+*
+* The Piezo will play sound based on how fast you tilt the board in the X and Y axes.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;educationshield.h&gt;
+
+
+IMU imu; // the IMU
+
+const int piezoPin = 8; //piezo
+
+const int ledPin = 13;      // activity LED pin
+boolean blinkState = false; // state of the LED
+
+
+void setup() {
+  // configure Arduino LED for activity indicator
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
+
+
+  Serial.begin(9600); // initialize Serial communication
+  while (!Serial);    // wait for the serial port to open
+
+
+  imu.begin();
+
+
+
+
+  // blink the led agein to show that the calibration is done
+  blinkState = !blinkState;
+  digitalWrite(ledPin, blinkState);
+
+  pinMode(piezoPin, OUTPUT);
+}
+
+void loop() {
+  // start the IMU read
+  imu.run();
+
+  // read raw gyro measurements from the IMU device
+  int gx = imu.getGyroX();
+  int gy = imu.getGyroY();
+
+  // map the raw value to be on a smaller scale
+  gx = map(gx, -36044 , 36043 , -360, 360);
+  gy = map(gy, -36044 , 36043 , -360, 360);
+
+
+  // print the measurements
+  Serial.print(gx);
+  Serial.print("\t");
+  Serial.println(gy);
+
+
+
+  //Computes the absolute value of the IMU read
+  gx = abs(gx);
+  gy = abs(gy);
+
+
+
+  // add together the 2 values and use them for setting the frequency for the speaker to play
+  int frequency = gx  + gy;
+  frequency = frequency / 2;
+  frequency = map(frequency, 0, 360, 0, 1000);
+
+  // only plgy a sound if the frequency is not to low/ the IMU is still
+  if (frequency &gt; 50) {
+    tone(piezoPin, frequency);
+  } else {
+    noTone(piezoPin);// stop the sound
+  }
+
+  // blink LED to indicate activity
+  blinkState = !blinkState;
+  digitalWrite(ledPin, blinkState);
+  delay(30);
+}</code></pre>
+</div>
+</div>
+<p>RESULTADO<br />Gracias al giróscopo, el piezo reproducirá sonidos según lo rápido que inclines la placa en los ejes X e Y.</p>
+<p>CÓMO FUNCIONA<br />Se incluye la librería EducationShield.<br />Se declara el objeto imu de la clase IMU.<br />Se declara la variable ledPin para almacenar el número 13, al que está conectado el LED integrado en la placa, y el piezo se configura en el pin 8.<br />En la función setup(), se espera hasta que se abre el monitor de puerto serie y entonces se hace la inicialización de la IMU.<br />El programa se detiene durante 5000 milisegundos para calibrar la IMU mientras ocurre la inicialización.<br />Cuando la calibración está hecha, el LED parpadea y se configura el pin del piezo como salida.<br />En la función loop() se obtienen los valores correspondientes a la IMU.<br />Se utiliza imu.getGyroX/imu.getGyroY para leer los valores en los ejes X/Y del giróscopo.<br />Se ajusta el rango de los valores a una escala más pequeña, para facilitar su uso.<br />Se imprimen los resultados de las medidas de la IMU en el monitor de puerto serie.<br />Se obtiene el valor absoluto para cada medición.<br />La función de valor absoluto ( abs()) convierte cualquier número en positivo. Por ejemplo, abs(-13) será igual a 13 y abs(13) será también 13.<br />Se suman los dos valores absolutos para crear un valor único.<br />Se divide ese valor entre 2 para obtener la media de los dos valores.<br />El valor obtenido es el que se utiliza como frecuencia para el sonido del piezo.<br />Si esta frecuencia es menor que 50, el piezo no suena.<br />El LED parpadea para mostrar que el programa sigue funcionando.<br />El programa vuelve a la función loop() y continúa el bucle.</p>
+<p><strong>Ejemplo 5.2</strong><br />En este ejemplo vas a obtener y usar las medidas del acelerómetro.</p>
+<p>CÓDIGO<br />Encuentra el código en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Concepts&gt;_5.2accdemo</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _5.2_acc_demo
+*
+* The Piezo will play sound based on how fast you move the board in the X and Y axes.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;educationshield.h&gt;
+
+
+
+IMU imu; // the IMU
+
+const int piezoPin = 8; //piezo
+
+const int ledPin = 13;      // activity LED pin
+boolean blinkState = false; // state of the LED
+
+
+void setup() {
+  // configure Arduino LED for activity indicator
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
+
+
+  Serial.begin(9600); // initialize Serial communication
+  while (!Serial);    // wait for the serial port to open
+
+
+  imu.begin();
+
+
+
+
+  // blink the led agein to show that the calibration is done
+  blinkState = !blinkState;
+  digitalWrite(ledPin, blinkState);
+
+  pinMode(piezoPin, OUTPUT);
+}
+
+void loop() {
+  // start the IMU read
+  imu.run();
+
+  // read raw accel measurements from the IMU device
+  int ax = imu.getAccelerometerX();
+  int ay = imu.getAccelerometerY();
+
+  // map the raw value to be on a smaller scale
+  ax = map(ax, -36044 , 36043 , -360, 360);
+  ay = map(ay, -36044 , 36043 , -360, 360);
+
+
+  // print the measurements
+  Serial.print(ax);
+  Serial.print("\t");
+  Serial.println(ay);
+
+
+
+  //Computes the absolute value of the IMU read
+  ax = abs(ax);
+  ay = abs(ay);
+
+
+
+  // add together the 2 values and use them for setting the frequency for the speaker to play
+  int frequency = ax  + ay;
+  frequency = frequency / 2;
+  frequency = map(frequency, 0, 360, 0, 1000);
+
+  // only play a sound if the frequency is not to low/ the IMU is still
+  if (frequency &gt; 50) {
+    tone(piezoPin, frequency);
+  } else {
+    noTone(piezoPin);// stop the sound
+  }
+
+  // blink LED to indicate activity
+  blinkState = !blinkState;
+  digitalWrite(ledPin, blinkState);
+  delay(30);
+}
+</code></pre>
+</div>
+</div>
+<p>RESULTADO<br />En este caso, el piezo reproducirá sonidos según mueves la placa en los ejes X e Y.</p>
+<p>CÓMO FUNCIONA<br />Se incluye la librería EducationShield.<br />Se declara el objeto imu de la clase IMU.<br />Se declara la variable ledPin para almacenar el número 13, al que está conectado el LED integrado en la placa, y el piezo se configura en el pin 8.<br />En la función setup(), se espera hasta que se abre el monitor de puerto serie y entonces se hace la inicialización de la IMU.<br />El programa se detendrá durante 5000 milisegundos para calibrar la IMU mientras ocurre la inicialización.<br />Cuando la calibración está hecha, el LED parpadea y se configura el pin del piezo como salida.<br />En la función loop() se obtienen los valores correspondientes a la IMU.<br />Se utiliza imu.getAccelerometerX/imu.getAccelerometerY para leer la aceleración al mover la placa en los ejes X/Y.<br />Se ajusta el rango de los valores a una escala más pequeña, para facilitar su uso.<br />Se imprimen los resultados de las medidas de la IMU en el monitor de puerto serie.<br />Se obtiene el valor absoluto para cada medición.<br />Se suman los dos valores absolutos para crear un valor único.<br />Se divide ese valor entre 2 para obtener la media de los dos valores.<br />El valor obtenido es el que se utiliza como frecuencia para el sonido del piezo.<br />Si esta frecuencia es menor que 50, el piezo no suena.<br />El LED parpadea para mostrar que el programa sigue funcionando.<br />El programa vuelve a la función loop() y continúa el bucle.</p>
+<p><strong>Ejemplo 5.3</strong><br />En este ejemplo, vas a obtener y usar los valores de pitch y roll.</p>
+<p>CÓDIGO<br />Encuentra el código en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Concepts&gt;_5.3pitchrolldemo</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _5.3_pitchroll_demo
+*
+* The Piezo will now play sound based on how you angle the board in the two axes
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;educationshield.h&gt;
+
+
+
+IMU imu; // the IMU
+
+const int piezoPin = 8; //piezo
+
+const int ledPin = 13;      // activity LED pin
+boolean blinkState = false; // state of the LED
+
+
+void setup() {
+  // configure Arduino LED for activity indicator
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
+
+
+  Serial.begin(9600); // initialize Serial communication
+  while (!Serial);    // wait for the serial port to open
+
+
+  imu.begin();
+
+
+
+
+  // blink the led agein to show that the calibration is done
+  blinkState = !blinkState;
+  digitalWrite(ledPin, blinkState);
+
+  pinMode(piezoPin, OUTPUT);
+}
+
+void loop() {
+  // start the IMU read
+  imu.run();
+
+  // get the pitch and roll result from the filter
+  int pitch = imu.getPitch();
+  int roll = imu.getRoll();
+
+  // print the measurements
+  Serial.print(pitch);
+  Serial.print("\t");
+  Serial.println(roll);
+
+
+
+  //Computes the absolute value of the IMU read
+  pitch = abs(pitch);
+  roll = abs(roll);
+
+
+
+  // add together the 2 values and use them for setting the frequency for the speaker to play
+  int frequency = pitch  + roll;
+  frequency = frequency / 2;
+  frequency = map(frequency, 0, 360, 0, 1000);
+
+  // only plroll a sound if the frequency is not to low/ the IMU is still
+  if (frequency &gt; 50) {
+    tone(piezoPin, frequency);
+  } else {
+    noTone(piezoPin);// stop the sound
+  }
+
+  // blink LED to indicate activity
+  blinkState = !blinkState;
+  digitalWrite(ledPin, blinkState);
+  delay(30);
+}</code></pre>
+</div>
+</div>
+<p>RESULTADO<br />El piezo reproducirá sonidos según los valores de pitch y roll en los dos ejes.</p>
+<p>CÓMO FUNCIONA<br />Se incluye la librería EducationShield.<br />Se declara el objeto imu de la clase IMU.<br />Se declara la variable ledPin para almacenar el número 13, al que está conectado el LED integrado en la placa, y el piezo se configura en el pin 8.<br />En la función setup(), se espera hasta que se abre el monitor de puerto serie y entonces se hace la inicialización de la IMU.<br />El programa se detiene durante 5000 milisegundos para calibrar la IMU mientras ocurre la inicialización.<br />Cuando la calibración está hecha, el LED parpadea y se configura el pin del piezo como salida.<br />En la función loop() se obtienen los valores correspondientes a la IMU.<br />Se utiliza imu.getPitch/imu.getRoll para leer los valores de pitch y roll.<br />Se ajusta el rango de los valores a una escala más pequeña, para facilitar su uso.<br />Se imprimen los resultados de las medidas de la IMU en el monitor de puerto serie.<br />Se obtiene el valor absoluto para cada medición.<br />Se suman los dos valores absolutos para crear un valor único.<br />Se divide ese valor entre 2 para obtener la media de los dos valores.<br />El valor obtenido es el que se utiliza como frecuencia para el sonido del piezo.<br />Si esta frecuencia es menor que 50, el piezo no suena.<br />El LED parpadea para mostrar que el programa sigue funcionando.<br />El programa vuelve a la función loop() y continúa el bucle.<br />¡Sigue experimentando!<br />Abre el monitor del puerto serie y comprueba las diferentes versiones del programa. Fíjate como los valores de los ejes cambian a la vez que mueves la placa.<br />Escribe un programa que detecte los movimientos de la placa (emplea la sentencia if) en una dirección o ángulo y que haga algo cuando esto ocurre, por ejemplo, mandar algo por el puerto serie o encender un LED.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id27">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">5.2 BLE</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta27_1765_2" class="block iDevice_content">
+<div class="exe-text"><p>La tecnología Bluetooth es una tecnología inalámbrica extensamente utilizada que facilita el envío de información entre dos dispositivos que están cerca. Piensa en los dispositivos con bluetooth que utilizamos cada día: altavoces inalámbricos, teclados, ratones, teléfonos y ordenadores.</p>
+<p><img src="5_05.png" alt="505" title="505" width="579" height="539" /></p>
+<p>La última versión de Bluetooth es Bluetooth 4, también conocido como Bluetooth Low Energy o BLE. Es muy eficiente energéticamente y con una batería pequeña puede funcionar por mucho tiempo. Se ha utilizado para muchos dispositivos modernos: pulseras de entrenamiento, relojes inteligentes, auriculares, etc.</p>
+<p>El potencial del Bluetooth no tiene límite y se puede utilizar en sensores de medio ambiente para hacer granjas inteligentes, colocarlos en tiendas, en edificios para dar información sobre la localización e incluso para crear ciudades inteligentes en el futuro.</p>
+<p>La placa controladora tiene la función BLE integrada. En este módulo aprenderás a programar la placa para comunicarte con smartphones con Android.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id28">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">5.3 INSTALA LA APP CTC</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta28_1766_2" class="block iDevice_content">
+<div class="exe-text"><p><strong>Requisitos</strong><br />Se necesita un teléfono Android que soporte BLE, preferiblemente con una versión de Android 4.3 o más avanzada. Normalmente puedes comprobar las especificaciones de tu teléfono y mirar si BLE está en la lista. Si no estás seguro, instala BLE Checker desde “Google Play” y compruébalo.</p>
+<p>Para usar los ejemplos y los proyectos en CTC, tienes que instalar la aplicación de CTC (llamada "CTC Advanced Technologies”) en tu teléfono.</p>
+<p>Ve a este <a href="https://play.google.com/store/apps/details?id=cc.arduino.education.ctc">enlace</a> , o busca en “Google Play” por “CTC Advanced Technologies” para descargar e instalar la app.</p>
+<p><strong>BLE en Acción</strong><br />Después de instalar la aplicación, vamos a ver el BLE en acción. En el ejemplo del mensajero, usarás la aplicación para enviar un mensaje a la placa y almacenarlo allí. El mensaje puede ser leído por el mismo teléfono o por uno diferente. Desaparecerá si tu envías otro mensaje, o reinicias la placa.</p>
+<p>Antes de empezar, aprenderemos algunos conceptos y términos. Un dispositivo que permite que otros dispositivos se conecten a él es llamado periférico, la placa controladora es un periférico en nuestros proyectos. El dispositivo que activamente establece la conexión, se llama central, tu teléfono Android es la central. Una central puede conectarse a múltiples periféricos, mientras que un periférico solo se puede conectar a una central.</p>
+<p><img src="5_06.png" alt="506" title="506" width="580" height="341" /></p>
+<p>Un periférico transmitirá su identificación cuando no está conectado, por lo que la central puede encontrarlo e iniciar una conexión. El periférico transmitirá la identidad del hardware, lo que es único para el dispositivo, junto al “nombre local”. En el ejemplo puedes poner el nombre local que tu quieras, siempre que tenga menos de 8 caracteres.</p>
+<p><img src="5_07.png" alt="507" title="507" width="580" height="697" /></p>
+<p>Con el objetivo de ser enérgicamente eficientes, los dispositivos BLE no hablan entre ellos continuamente. Ellos mismos son los que deciden cuando es el mejor momento para intercambiar datos. Así que tal vez hay un pequeño retraso entre el envío y la recepción, sin embargo es imperceptible en la mayoría de los casos.</p>
+<p><strong>Ejemplo 5.4</strong></p>
+<p>MATERIALES</p>
+<p>1 x placa controladora</p>
+<p>Otros materiales:</p>
+<p>1 x Teléfono Android con Bluetooth</p>
+<p>INSTRUCCIONES</p>
+<p>Si varios grupos están haciendo el mismo ejercicio a la vez en clase, es necesario utilizar diferentes nombres para los dispositivos: en el código, encuentra la línea ble.setName que te permite cambiar el nombre de tu dispositivo.<br />Descarga el programa en la placa.<br />Activa el bluetooth en tu teléfono.<br />Inicia la aplicación en tu teléfono.<br />Pulsa “connect” y elige el dispositivo con el mismo nombre que tu has configurado en el paso 1.<br />Escribe algo con menos de 20 caracteres en el campo de texto, y pulsa “send”.<br />Desconecta tu dispositivo y conéctale de nuevo, o bien conéctale a una placa diferente, pulsa “read” y mira que valores hay almacenados.</p>
+<p>CÓDIGO<br />Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Concepts&gt;_5.4bledemo</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _5.4_ble_demo
+* 
+* The board will now store a message that is sent to it and send it back to anyone connecting to it
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;EducationShield.h&gt;
+
+BLEuart ble=BLEuart(TYPE_MESSENGER);
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  ble.setName("Message");
+  ble.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if(ble.searchCentral()){
+    Serial.println("Connected to central ");
+    while(ble.connected()){
+
+      //When receiving data from mobile app, write it 
+      //back to the sender
+      if(ble.dataReceived()){
+        ble.fetchData();
+        Serial.println(ble.receivedString());
+        char data[20];
+        int length=ble.getReceivedLength();
+        for(int i=0;i&lt;length;i++){
+          data[i]=ble.receivedString()[i];
+        }
+        ble.sendString(data,length);
+      }
+
+    }
+    Serial.println(F("Disconnected from central "));
+
+  }
+}</code></pre>
+</div>
+</div>
+<p>Cómo funciona<br />Se incluye la librería EducationShield.<br />Se crea un objeto de la clase `BLEuart`, y se configura como `TYPE_MESSENGER`. La clase `BLEuart` se encarga de hacer todo con BLE. Al configurar el tipo a `TYPE_MESSENGER` la aplicación es capaz de reconocer la placa que estás utilizando.<br />Fija el nombre de tu dispositivo BLE. Puedes ponerle el nombre que quieras, con tal de que tenga menos de 8 caracteres. Asegúrate que es diferente que el de tus compañeros.<br />Empieza la comunicación BLE.<br />Busca el dispositivo central (un teléfono Android en este caso), y ejecuta el siguiente código una vez que hayas establecido la comunicación.<br />Repite el código mientras el dispositivo central se conecta.<br />Extrae los datos enviados por el dispositivo central. Fíjate que aunque el dispositivo central haya enviado datos nuevos, los datos extraídos no cambiarán hasta que tu llames de nuevo a `uart.fetchData()`.<br />Muestra los datos extraídos en el monitor de puerto serie.<br />Crea un array de tipo char para almacenar los datos.<br />Puedes conocer la longitud(número de caracteres) de los datos extraídos llamando a `uart.getReceivedLength()`.<br />Recorre los datos extraídos con un bucle, y almacena cada caracter en el array de datos.<br />Envía el array de datos al dispositivo central. No se produce ningún cambio en los datos originales, así que el dispositivo central recibirá el mismo mensaje que se envió antes.</p>
+<p><br />¡Sigue experimentando!<br />En los dispositivos, los mensajes son almacenados en forma de valores ASCII. Por ejemplo el código ASCII de la letra “A” es 65, así que si envías “A” desde la aplicación, la placa obtendrá un valor decimal de 65. Aprende más sobre el código ASCII en Internet. Ahora fíjate en el programa, si envías “ABCD”, el array “data” tendrá el valor [65,66,67,68]. Puedes manipular estos valores para hacer que el mensaje sea diferente, por ejemplo, si cambias la línea `data[i]=uart.receivedString()[i];` a `data[i]=uart.receivedString()[i]+1;`, ABCD será BCDE, y HELLO será IFMMP.<br />Así es cómo funciona la encriptación, nadie puede leer lo que tu mensaje secreto dice, a menos que sepa tus reglas de encriptación.<br />Crea tus propias reglas de encriptación, y cambia el código acorde a éstas. Dale las reglas a tu mejor amigo(¡a nadie más!) ¡así puedes mandar mensajes secretos!<br />Presta atención a cómo funciona el código ASCII, tiene que ser entre 0 y 127, y no todos los caracteres se pueden visualizar. Desde 0 al 32 y el 127 no se pueden, o se muestran como un espacio en blanco. Si el mensaje encriptado cae en estos rangos, pueden ocurrir errores.</p>
+<p> </p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id29">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">5.4 ENVIANDO DESDE EL DISPOSITIVO BLE</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta29_1767_2" class="block iDevice_content">
+<div class="exe-text"><p>Con la placa controladora puedes enviar o recibir datos fácilmente empleando BLE. En esta sección te explicaremos cómo enviar datos desde tu placa a una aplicación del teléfono.</p>
+<p>A veces los dispositivos BLE se crean para desarrollar tareas específicas como en el caso del monitor de ritmo cardíaco o el contador de pasos. Se necesitan diferentes aplicaciones para controlar diferentes dispositivos y valores.</p>
+<p>Para hacer las cosas más flexibles, la aplicación CTC proporciona un protocolo y un interfaz para la visualización de valores genéricos. Tú decides qué valores y cuáles de ellos quieres enviar desde la placa, y en la aplicación configuras una serie de valores para mostrar. Lo único que necesitas para realizar un seguimiento, es la secuencia de valores.</p>
+<p><img src="5_08.png" alt="508" title="508" width="577" height="459" /></p>
+<p>Con la aplicación CTC puedes fácilmente usar BLE en tus proyectos. Tanto si quieres monitorear el estado de tu proyecto de una casa inteligente, o hacer tu propio robot de control remoto, puedes hacer muchas cosas con "Value Display" y "Custom Control".</p>
+<p><strong>Formato de datos</strong><br />BLE envía y recibe datos con un array de bytes. Un byte puede representar valores entre 0 y 255, y puedes representar cualquier tipo de dato con un byte, o una combinación de bytes. Por ejemplo, un tipo “char” tiene un byte, y puede representar un caracter de texto. O un entero (integer) en arduino se hace con 2 bytes, y puede representar un valor más grande.</p>
+<p><img src="5_09.png" alt="509" title="509" width="580" height="155" /></p>
+<p>Para que la comunicación funcione, ambos, el receptor y el emisor tienen que estar de acuerdo en qué tipo de datos se envían.</p>
+<p>Por ejemplo, si ambos lados están de acuerdo en que es un”array” de caracteres lo que se envia, y el emisor envía los siguientes valores: 72,101,108,108,111. El receptor convertirá cada valor en un caracter según el código ASCII, el resultado será “Hello”.</p>
+<p><img src="5_10.png" alt="510" title="510" width="580" height="121" /></p>
+<p>Por el contrario, si el emisor quiere enviar un entero, 512, y el receptor piensa que son 2 bytes, éste lo leerá como dos números: 2, 0.</p>
+<p><img src="5_11.png" alt="511" title="511" width="580" height="121" /></p>
+<p>Con "Value Display", todos los bytes recibidos son considerados como bytes. BLE soporta un máximo de 20 bytes, así que la interfaz sólo puede mostrar un máximo de 20 valores. Por lo tanto, asegúrate de que envías los datos de forma correcta.</p>
+<p><strong>Ejemplo 5.5</strong><br />Este ejemplo te muestra cómo utilizar "Value Display". La placa monitorea el estado de un botón conectado al pin digital 9, el contador de las veces que ha sido presionado, y un sensor de luz conectado al pin A0. Los 3 valores se envían empleando BLE en este orden, y la aplicación los lee en el mismo orden.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x módulo botón<br />1 x módulo sensor de luz<br />2 x cable de módulo</p>
+<p>Otros materiales:</p>
+<p>1 x Teléfono Android con Bluetooth</p>
+<p>INSTRUCCIONES</p>
+<p><img src="5_12.png" alt="512" title="512" width="580" height="685" /></p>
+<p>Si varios grupos están haciendo el mismo ejercicio a la vez en clase, es necesario utilizar diferentes nombres para los dispositivos: en el código, encuentra la línea ble.setName que te permite cambiar el nombre de tu dispositivo.<br />Descarga el código en la placa.<br />Activa el Bluetooth en tu teléfono.<br />Inicia la aplicación en tu teléfono.<br />Pulsa “connect” y elige el dispositivo con el mismo nombre que configuraste en el paso 1.<br />Pulsa al botón de configuración.<br />Pulsa “Add New Value” un par de veces para que haya 3 valores.<br />Pulsa al primer valor, cámbiale el nombre a “Button”.<br />Pulsa al segundo valor, cámbiale el nombre a “Counter”.<br />Pulsa al tercer valor, cámbiale el nombre a “Light”.<br />Pulsa al botón de configuración para terminar de configurarlo.</p>
+<p>CÓDIGO<br />Encuentra el código en Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Concepts&gt;_5.5blevalueDisplay</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _5.5_ble_valueDisplay
+*
+* The 101 board monitors the status of a button connected to digital pin 9,
+* a press counter, and a light sensor connected to pin A0.
+* The 3 values are sent through the BLE in such sequence,
+* and the app reads the values in the same sequence.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+
+#include &lt;educationshield.h&gt;
+
+BLEuart ble=BLEuart();
+
+Button button(9);
+
+int count;
+
+void setup() {
+  Serial.begin(9600);
+
+  // Curie BLE setup
+  // set advertised local name
+  ble.setName("valDisp");
+  ble.begin();
+
+  button.begin();
+
+  count=0;
+}
+
+void loop() {
+  // if a central is connected to peripheral:
+  if(ble.searchCentral()){
+    Serial.println("Connected to central ");
+    // while the central is still connected to peripheral:
+    while(ble.connected()){
+      //Get readings from sensors
+      int buttonValue=button.getState();
+      int lightValue=analogRead(A1);
+
+      //Value Display can only pass numbers smaller than 255
+      lightValue=map(lightValue,0,1023,0,255);
+
+      //Check if the button is being pressed, and update the
+      //counter accordingly
+      if(button.isPressed()){
+        count++;
+      }
+
+
+      //Note the sequence of data being sent, the phone app displays
+      //the values in the same squence.
+      ble.addValue(buttonValue);
+      ble.addValue(count);
+      ble.addValue(lightValue);
+      ble.send();
+
+    }
+    // when the central disconnects, print it out:
+    Serial.println(F("Disconnected from central "));
+
+  }
+
+}</code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br />Incluye la librería EducationShield.<br />Crea un objeto de la clase BLEuart.<br />Declara una variable counter y una variable btnPressed. La primera es para almacenar el número de veces que se presiona el botón, y la segunda para comprobar si el botón ha sido presionado.<br />Configura el nombre del dispositivo BLE.<br />Empieza la comunicación BLE.<br />Busca el dispositivo central, y ejecuta el código siguiente una vez que se ha establecido la conexión.<br />Repite el código siguiente mientras el dispositivo central es conectado.<br />Lee el valor del sensor de luz y del botón.<br />Ajusta el rango de valores del sensor de luz desde 0 - 1023 a 0-255. Sólo se pueden enviar valores entre 0 y 255 a la aplicación.<br />Comprueba si el botón ha sido pulsado. Incrementa la variable counter si esto ocurre.<br />Añade 3 valores(button reading, counter value, y light sensor reading) al BLE, y envía los datos.<br />¡Sigue experimentando!<br />Añade más sensores al proyecto, y envía sus valores empleando BLE. </p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id30">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">5.5 RECIBIENDO EN EL DISPOSITIVO BLE</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta30_1768_2" class="block iDevice_content">
+<div class="exe-text"><p>Si quieres hacer un proyecto y controlarlo a distancia, es importante ser capaz de recibir datos en tu placa controladora. Esta sección explica cómo enviar datos a la placa desde la aplicación del teléfono empleando BLE.</p>
+<p>La aplicación CTC tiene algunos botones que puedes personalizar, y con ellos enviarás datos a la placa.</p>
+<p><strong>Ejemplo 5.6</strong><br />Este ejemplo muestra cómo recibir datos en la placa. Cuando pulsas los botones en la aplicación CTC, los valores asociados a los botones serán recibidos por tu placa en un array del tamaño de un "char". Después el valor se mostrará en el monitor de puerto serie.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora</p>
+<p>Otros materiales:</p>
+<p>1 x Teléfono Android con Bluetooth</p>
+<p>INSTRUCCIONES</p>
+<p>Si varios grupos están haciendo el mismo ejercicio a la vez en clase, es necesario utilizar diferentes nombres para los dispositivos: en el código, encuentra la línea ble.setName que te permite cambiar el nombre de tu dispositivo.<br />Descarga el código en la placa.<br />Abre el monitor de puerto serie.<br />Activa Bluetooth en tu teléfono.<br />Inicia la aplicación en tu teléfono.<br />Pulsa “connect” y elige el dispositivo con el mismo nombre que configuraste en el paso 1.<br />Pulsa los botones que aparecen, y fíjate en el monitor de puerto serie.</p>
+<p>CÓDIGO<br />Encuentra el código en Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Concepts&gt;_5.6bleCustomControl</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _5.5_ble_valueDisplay
+*
+* This example shows how to receive data in 101. When you tap the buttons in CTC app Custom
+* Control interface, the values associated with the buttons will be received by 101 in the form of a
+* one char sized array. The value is displayed to serial monitor afterwards.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;educationshield.h&gt;
+
+BLEuart ble=BLEuart();
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+
+  // Curie BLE setup
+  // set advertised local name
+  ble.setName("CustomC");
+  ble.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if(ble.searchCentral()){
+    Serial.println("Connected to central ");
+    while(ble.connected()){
+
+      //If data is sent through BLE to 101 board
+      if(ble.dataReceived()){
+        //Fetch all data from BLE
+        ble.fetchData();
+
+        //Read the 1 byte data received
+        unsigned char data=ble.getValueAt(0);
+        Serial.println(data);
+      }
+    }
+    Serial.println(F("Disconnected from central "));
+
+  }
+}
+</code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br />Se incluye la librería EducationShield.<br />Se crea un objeto de la clase BLEuart.<br />Fija el nombre de tu dispositivo BLE.<br />Empieza la comunicación BLE.<br />Busca el dispositivo central y ejecuta el siguiente código una vez que se ha establecido la comunicación.<br />Repite el código mientras el dispositivo central se conecta.<br />Si se reciben datos de la comunicación BLE, se hace lo siguiente.<br />Extrae los datos enviados por el dispositivo central. Cuando se extraen todos los datos, se almacenan con el objeto BLEuart, los datos no cambian hasta que se extraigan otra vez.<br />Lee los datos, 1 byte, del objeto BLEuart.<br />Muestra los datos en el monitor de puerto serie.<br />¡Sigue experimentando!<br />Utiliza un botón específico para controlar el LED integrado en la placa.<br />Si quieres cambiar el valor del botón, ve a configuración, y después pulsa sobre el que quieres cambiar. En esta ventana, configura un valor entre 0 y 255. Después pulsa el botón de configuración de nuevo para terminar. La próxima vez que pulses el botón, el nuevo valor se enviará a la placa.<br />Un dato del tipo unsigned char tiene un tamaño de 1 byte, y puede almacenar un valor entre 0 y 255. Si quieres utilizarlo para cálculos, asegúrate guardar el resultado final en una variable más grande (cómo un entero).</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id31">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">5.6 PROGRAMACIÓN AVANZADA</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta31_1769_2" class="block iDevice_content">
+<div class="exe-text"><p>En este módulo echaremos un vistazo a la programación orientada a objetos, y profundizaremos en la programación de gráficos.</p>
+<p>Puedes revisar el <a href="1_processing.html">Módulo 1</a> para recordar algunos conceptos básicos sobre programación y Processing.</p>
+<p><strong>Clases y objetos</strong><br />Generalmente es más fácil entender las clases y los objetos haciendo metáforas con el mundo real, por lo tanto empezaremos viendo las clases como un grupo de contenedores.</p>
+<p><img src="5_13.png" alt="513" title="513" width="580" height="422" /></p>
+<p>La clase establece que todos estos contenedores pueden contener diferentes fluidos.</p>
+<p>Para llenar uno de estos contenedores, tendremos que elegir cuál y definir una regla para el tipo de fluido que debería ir dentro de él.</p>
+<p><img src="5_14.png" alt="514" title="514" width="580" height="423" /></p>
+<p>¡Vamos a elegir un vaso! El vaso es un nuevo objeto, también llamado "vaso".</p>
+<p>Ahora, vamos a decir que el vaso solo puede contener agua, zumo o leche. Esta es una regla que solo aplica a los vasos, lo que quiere decir, que los otros contenedores no pueden contener esos líquidos. Mientras que el vaso puede contener agua, la taza puede contener té, por ejemplo.</p>
+<p><img src="5_15.png" alt="515" title="515" width="577" height="420" /></p>
+<p>Para resumir, todos los contenedores pertenecen a la misma clase con la regla que los contenedores pueden contener un tipo de fluido, y los diferentes tipos de contenedores son objetos con sus propias reglas como qué tipo de fluido pueden contener.</p>
+<p><strong>Variables y Métodos</strong><br />Una clase puede tener variables privadas o públicas. Se puede acceder a las variables públicas desde cualquier lugar del programa, pero las privadas no son accesibles desde fuera de la clase específica a la que pertenecen. Con el fin de acceder a las variables de las clases, se emplean métodos. Los métodos son la manera para cambiar lo que está dentro de un objeto, por ejemplo para llenar un vaso con un fluido específico. Algunos métodos sólo llevan a cabo acciones, mientras que otros pueden retornar variables. Tomemos la clase IMU que vimos anteriormente como un ejemplo. Cuando declaramos nuestra variable imu como un objeto de la clase IMU, nos permitió usar los métodos de la clase que retornan los valores del giróscopo con imu.getGyro().</p>
+<p>Volvamos a algunas metáforas con el mundo real.</p>
+<p>Los conejos pertenecen a la clase global animales, con los perros, los pájaros y los gatos. Entonces, al igual que un vaso es un objeto de la clase contenedores, los gatos son objetos en la clase animales.</p>
+<p>Aquí tenemos dos animales, los dos son clases con reglas y métodos. En el siguiente ejemplo usaremos estas reglas y métodos en un pequeño programa.</p>
+<p><strong>1. Ejemplo 5.7</strong><br />Nota: Este ejemplo está hecho en Processing</p>
+<p>Processing ejemplos, clica aquí</p>
+<p>En este ejemplo vas a descubrir como funcionan las clases y objetos en un programa. Fíjate que los ejemplos tienen dos pestañas para las clases de animal, y una pestaña donde creamos nuestros objetos y llamamos a las funciones correspondientes de las clases. La pestaña donde ocurre la acción es lo que llamamos programa principal.</p>
+<p>VERSIÓN DEL CÓDIGO: CLASES</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>   /*
+  *  _5.7_classes_demo
+  *
+  * In this example, you will be introduced to how classes and objects work in actual code.
+  * Note that the example has two tabs for the animal classes and one tab where we create our
+  * objects and call the classes’ corresponding functions.
+  * The tab where the action happens is what we will here on refer to as the main program.
+  *
+  * (c) 2013-2016 Arduino LLC.
+  */
+
+  Bird myBird;
+  Rabbit myRabbit;
+
+  void setup() {
+    myBird = new Bird(true);
+    myRabbit = new Rabbit(false);
+  }
+
+  void draw() {
+    myBird.flapWings();
+    myRabbit.eatCarrot();
+  }
+</code></pre>
+</div>
+</div>
+<p>Y sus dos clases</p>
+<p> </p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>    class Bird {
+
+    boolean canFly;
+
+    Bird(boolean _canFly) {
+      canFly = _canFly;
+    }
+
+    void flapWings() {
+      println("Flap, flap, flap");
+    }
+  }
+</code></pre>
+</div>
+</div>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code> class Rabbit {
+
+    boolean canFly;
+
+    Rabbit(boolean _canFly) {
+      canFly = _canFly;
+    }
+
+    void eatCarrot() {
+      println("Yum, yum, yum");
+    }
+  }</code></pre>
+</div>
+</div>
+<p>RESULTADO<br />Ejecuta el código, y observa cómo el programa principal llama a los métodos de los objetos correspondiendo a las clases a las que pertenecen.</p>
+<p>CÓMO FUNCIONA<br />Se declaran dos objetos de cada clase.<br />Los dos objetos son instanciados en el setup()<br />Al método flapWings() (que pertenece a la clase Bird) se le llama en la función draw()<br />Al método eatCarrot() (que pertenece a la clase Rabbit) se le llama en la función draw()<br />A medida que el programa es ejecutado, el resultado es “flap, flap, flap” y “yum,yum,yum”</p>
+<p><strong>2. Programación de gráficos</strong></p>
+<p><strong><img src="5_18.png" alt="518" title="518" width="580" height="273" /></strong></p>
+<p>En Processing, todo se dibuja en base a posiciones en una rejilla de coordenadas. Esta rejilla se puede emplear para cambiar la posición y la rotación de los elementos gráficos en ella.</p>
+<p>Para mover un elemento, usamos el método translate(x,y) y para la rotación usamos rotate(angle). Estos métodos son aditivos, lo que quiere decir que translate(20, 0) seguido de translate(25, 0) es igual a translate(45, 0). De la misma manera que fill(), los cambios hechos por translate() y rotate() afectan a todo el código que escribamos después.</p>
+<p>Posicionando elementos</p>
+<p><img src="5_19.png" alt="519" title="519" width="580" height="273" /></p>
+<p>A menudo, un elemento dibujado en Processing tiene una entrada que define las coordenadas de inicio al principio de la línea de código, por ejemplo: rect(x, y, width,height). La “x” e “y” son las coordenadas de inicio.</p>
+<p>Puede que quieras mover varios rectángulos pero otra manera de hacerlo, es usando translate() en vez de las coordenadas iniciales. Así es mas fácil monitorear dónde están los elementos en la rejilla.</p>
+<p>Para usar translate(), las coordenadas iniciales en la rejilla se definen con un elemento, manteniendo las coordenadas iniciales del elemento en 0. De esta manera obtenemos una rejilla compartida entre los elementos y es más fácil moverlos, uno en relación a los otros.</p>
+<p><strong>Ejemplo 5.8</strong><br />Nota: Este ejemplo está hecho en Processing</p>
+<p>En este ejemplo, vas a situar dos rectángulos en diferentes coordenadas usando translate().</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>   /*
+  *  _5.8_translate_demo
+  *
+  *
+  * In this example, you will get a demonstration of how the
+  * translate() method
+  *
+  * (c) 2013-2016 Arduino LLC.
+  */
+
+  fill(0);
+  translate(40, 20); //40, 20
+  rect(0, 0, 20, 20);  //black rectangle
+  fill(100);
+  translate(40, 20); //40, 20
+  rect(0, 0, 20, 20);  //grey rectangle
+</code></pre>
+</div>
+</div>
+<p>COMANDOS<br />translate(x,y): Mueve las coordenadas de inicio de un elemento.<br />CÓMO FUNCIONA<br />fill() es usado para dar el color negro al primer rectángulo.<br />translate(x,y) define los puntos de inicio para el rectángulo negro.<br />rect() dibuja el rectángulo negro, usando las coordenadas de translate() como punto de inicio.<br />fill() es usado para dar el color gris al segundo rectángulo.<br />Otro translate(x,y) define las coordenadas de inicio para el rectángulo gris, adicionando al valor de las coordenadas del primer translate().<br />rect() dibuja el rectángulo gris usando las coordenas combinadas de translate() como punto de inicio.<br />RESULTADO<br />El código dibuja dos rectángulos, ambos con el mismo valor de coordenadas en su línea de código. Antes de cada rectángulo, translate() se usa para mover el punto de inicio y así se dibujan en dos posiciones diferentes.</p>
+<p><strong>Elementos rotatorios</strong></p>
+<p><strong><img src="5_20.png" alt="520" title="520" width="580" height="273" /></strong></p>
+<p>El método rotate(angle) nos permite rotar un elemento, como un rectángulo, alrededor de las coordenadas relativas a la posición de origen de si mismo. Los ángulos tienen que ser especificados en radianes, pero también se puede convertir de grados a radianes con el método radians(). Igual que el método translate(x,y), el método rotate(angle) se añade a las transformaciones anteriores, sin embargo hay una excepción: cuando se usa rotate(angle), la grilla completa rotará. Esto mueve la posición de los elementos desde la posición original no rotada, por ende para contrarrestrar esto, debemos usar translate() para mover el origen de las coordenadas y así cuando el elemento en la siguiente línea de código es rotado, tendrá el mismo origen de coordenadas que el no rotado.</p>
+<p><strong>Ejemplo 5.9</strong><br />Nota: Este ejemplo está hecho en Processing</p>
+<p>En este ejemplo usarás rotate() para rotar un rectángulo pero mantendrá sus coordenadas de origen iniciales con translate(x,y).</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>   /*
+  *  _5.9_rotate_demo
+  *
+  *
+  * In this example, you will get a demonstration of how the
+  * rotate() method
+  *
+  * (c) 2013-2016 Arduino LLC.
+  */
+
+  fill(0);
+  rect(20, 20, 20, 20);  //black rectangle
+  fill(100);
+  rotate(radians(45));
+  translate(20,0);
+  rect(20, 20, 20, 20);  //grey rectangle
+</code></pre>
+</div>
+</div>
+<p>COMANDOS<br />rotate(): Rota la grilla con los elementos en ella.<br />radians(degrees): Convierte radianes en grados.<br />CÓMO FUNCIONA<br />fill() es usado para darle el color al primer rectángulo negro.<br />rect() dibuja el rectángulo negro, usando sus propias coordenadas para tener una posición en la grilla.<br />fill() es usado para darle el color gris al segundo rectángulo.<br />translate(x,y) define las coordenadas de origen para el rectángulo gris, cambiando las coordenadas para compensar el efecto de translate().<br />rotate(radians(degree)) rota la gilla, moviendo todo dependiendo del valor de los grados que es convertido por el método radians().<br />rect() dibuja el rectángulo gris usando las coordenadas de translate() como el punto de origen y rota en base al valor en translate().<br />RESULTADO<br />Dos rectángulos son creados, el negro es ubicado en la grilla usando sus propias coordenadas para determinar su posición. La posición del rectángulo gris es primero rotada usando rotate(), quedando en un ángulo diferente al primer rectángulo. Luego es movida de coordenadas mediante la función translate().</p>
+<p>¡Sigue experimentando!</p>
+<p><br />Añade una clase con tu mascota favorita y crea tus propios métodos en ella.<br />Dibuja la representación gráfica de las clases de animales. Ubicalos usando los métodos translate() y rotate().<br />Revisa como mover la grilla completa alrededor de los elementos, haciendo más fácil la manipulación de multiples elementos en todas las direcciones, <a href="https://processing.org/tutorials/transform2d/">aquí</a>.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id32">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">ACTIVIDADES</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta32_1770_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ATAQUE DE ASTEROIDES</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>En este proyecto, vas a crear un juego en el espacio con un estilo “retro”. Al final, serás capaz de cambiar algunos valores y escribir el programa de nuevo para hacer que el juego funcione a tu gusto.</p>
+<p>Vas a crear el juego paso a paso, cada vez un poco más complicado. El objetivo del juego es acabar con los asteroides para ganar puntos, y al mismo tiempo evitar colisiones.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/2tiEsvJrYTM"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x módulo botón<br>1 x cable de módulo<br>1 x kit ataque de asteroides<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_5_asteroid_attack_101_28552564016_o.png?_gl=1*1tgl972*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4Mjg0MTY2MC4xNC4xLjE2ODI4NDE2NzQuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541159-2018marlogospace.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541158-2018marlogospace.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí</a>.</p>
+<p><strong>Instrucciones</strong></p>
+<p><strong>1. Construyendo la nave</strong></p>
+<p>Prepara todos los materiales de construcción de la nave y constrúyela.</p>
+<p>Conecta la&nbsp;shield&nbsp;en la parte superior de tu placa controladora. Junto con la pieza de soporte entre la shield y la placa.<img src="5_21.jpg" alt="521" title="521" width="800" height="600"></p>
+<p>Conecta el módulo botón al conector D6 de la shield.</p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p><img src="5_22.png" alt="522" title="522" width="580" height="689"></p>
+<p>Encuentra el programa Asteroidattack y ábrelo.</p>
+<p><img src="5_23.png" alt="523" title="523" width="577" height="310"></p>
+<p>Descarga el programa en la placa.</p>
+<p>Ahora, tu nave para atacar a los Asteroides está lista, es momento de contruir el resto.</p>
+<p><img src="5_24.png" alt="524" title="524" width="580" height="366"></p>
+<p>En el IDE, haz clic en Programa &gt; Mostrar carpeta del programa. Abre las carpetas Processing &gt; Asteroidattack.</p>
+<p>Abre la primera parte de Asteriodattack.pde y sigue las instrucciones de programación para construir el resto del ataque de los asteroides.</p>
+<p>Código<br>Encuentra el código en Archivo&gt;Ejempos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;AsteroidAttack</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>   /*
+  * AsteroidAttack
+  *
+  * You will create a retro style space
+  * shooter game, and learn about how to use classes and functions. In the end you will be able to
+  * tweak values and rewrite the program to redesign the game so it suits your taste.
+  *
+  * (c) 2013-2016 Arduino LLC.
+  */
+
+  #include <educationshield.h>
+
+
+  IMU imu; // the IMU
+
+  Button button(6);
+  int buttonState = 0;
+
+
+  const int ledPin = 13;      // activity LED pin
+  boolean blinkState = false; // state of the LED
+
+  void setup() {
+    Serial.begin(9600); // initialize Serial communication
+
+    imu.begin();
+    button.begin();
+
+    // configure Arduino LED for activity indicator
+    pinMode(ledPin, OUTPUT);
+    digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
+  }
+
+  void loop() {
+
+    // read raw gyro measurements from device
+    imu.run();
+
+
+    // get the gyro result from the filter and convert them into INT
+    int pitch = imu.getPitch();
+    int roll = imu.getRoll();
+
+    //Check buttons
+    if(button.isPressed()){
+      buttonState=true;
+    }
+
+    // when Serial is open, send a "s" to processing
+    if (Serial.available() &gt; 0) {
+      int val = Serial.read();
+      if (val == 's') { // if incoming serial is "s"
+        Serial.print(roll); Serial.print(",");
+
+
+        Serial.print(buttonState);  Serial.print(",");
+        Serial.println("");
+
+        buttonState=0;
+
+      }
+    }
+
+
+
+
+    // blink LED to indicate activity
+    blinkState = !blinkState;
+    digitalWrite(ledPin, blinkState);
+    delay(30);
+  }</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se declara el objeto&nbsp;imu&nbsp;de la clase IMU.<br>Se declaran las variables para el estado botón, el pin del LED y el estado del parpadeo.<br>En la función&nbsp;setup(), se inicializa la comunicación por el puerto serie a una velocidad de 9600 bits por segundo.<br>Se inicializa la IMU.<br>Se configura el pin del LED como salida.<br>Se enciende el LED para indicar que la placa está lista.<br>En la función&nbsp;loop(), se emplea la&nbsp;IMU&nbsp;y se obtienen el cabeceo (pitch) y el alabeo (roll). Los resultados se almacenan en variables tipo&nbsp;int.<br>Se comprueba si el botón está pulsado.<br>Para poder enviar el cabeceo (pitch), el alabeo (roll) y el estado del botón a Processing, primero comprueba si la comunicación serie con Processing está disponible.<br>Para ello, se leen los datos que vienen desde Processing, y se comprueba si recibe una letra “s”.<br>Una vez que se recibe la “s”, envía el cabeceo (pitch), el alabeo (roll) y el estado del botón a Processing añadiendo “,” entre medias.<br>Establece de nuevo el estado del botón después de enviarlo por el puerto serie.<br>El LED parpadea para mostrar que el programa sigue funcionando.</p>
+<p><strong>2. Crea el video juego en Processing</strong><br>Ahora que ya has construido la nave, necesitas crear el juego en Processing que controlarás con la misma.</p>
+<p>En el IDE, haz clic en Programa &gt; Mostrar carpeta del programa. Abre las carpetas Processing&gt;AsteroidAttackpart2, a continuación abre el archivo AsteroidAttackpart2.pde.</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>   /*
+  * AsteroidAttack
+  *
+  * You will create a retro style space
+  * shooter game, and learn about how to use classes and functions. In the end you will be able to
+  * tweak values and rewrite the program to redesign the game so it suits your taste.
+  *
+  * (c) 2013-2016 Arduino LLC.
+  */
+
+  import processing.serial.*;
+
+  // Serial communication
+  Serial myPort; // Serial port variable
+  int newLine = 13; // New line character in ASCII
+  float angleVal; // Stores the incoming angle value
+  int buttonState; // Stores the incoming button state
+  String message; // String that stores all incoming data
+
+  String [] valArray = new String [2]; // Array to store all incoming values
+
+  //player variables
+  float playerWidth=100; // Width of the player
+  float playerHeight=20; // Height of the player
+  float playerX; // Player x position
+  float playerY; // Player y position
+  float posVar=0; // Variable for angle based position
+
+  void setup()
+  {
+    size(800, 600);
+    smooth();
+    fill(180);
+    noStroke();
+
+   // List all the available serial ports
+    println(Serial.list());
+
+    // Open the port you are using at the rate you want:
+    myPort = new Serial(this, Serial.list()[2], 9600);
+
+    //We write an 's' to receive data from the board
+    myPort.write("s");
+  }
+
+  void draw() {
+      //We read the incoming serial message
+      serialEvent();
+
+      //We update the visuals
+      updateVisuals();
+
+      //We want the following changes to apply to the same matrix only
+      pushMatrix();
+
+      //Update player position
+      playerPos();
+
+      //Update player rotation
+      playerRotation();
+
+      //Draw the player
+      drawPlayer();
+
+      popMatrix();
+  }
+
+  void serialEvent() {
+    message = myPort.readStringUntil(newLine); // Read from port until new line (ASCII code 13)
+    if (message != null) {
+      valArray = split(message, ","); // Slit message by commas and store in String array
+      angleVal = float(valArray[0]); // Convert to float angeVal
+      buttonState = int(valArray[1]); // Convert to int buttonState
+
+      myPort.write("s"); // Write an "s" to receive more data from the board
+
+    }
+  }
+
+  void playerPos() {
+
+    //Add position every frame
+    posVar+=angleVal;
+
+    //Position the player avatar
+    playerX=width/2+posVar; // Set center as the players starting x position
+    playerY=height-100; // Set the y position of the player
+
+    // Limit the X coordinates
+    if (playerX  width) {
+      playerX = width;
+    }
+
+    translate(playerX, playerY);
+  }
+
+  void playerRotation() {
+    //We add the current rotation
+    rotate(radians(angleVal));
+  }
+
+  void drawPlayer() {
+
+    rectMode(CENTER);
+    fill(200);
+
+    //Draw the player
+    rect(0, 0, playerWidth, playerHeight);
+
+  }
+
+  void updateVisuals() {
+    background(40);
+  }</code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se crean las variables de la comunicación serie para recibir y almacenar los datos que llegan.<br>Se emplean dos variables tipo&nbsp;float&nbsp;para almacenar la posición y el tamaño de la nave dentro del juego.<br>En la función&nbsp;setup()&nbsp;se definen el tamaño de la ventana y el estilo de los gráficos. A continuación, se muestran los puertos serie disponibles, con esto podemos ajustar el número del puerto serie basado en la información mostrada en la consola de Processing.<br>Una vez que el puerto correcto está configurado, utilizamos&nbsp;myPort.write(“s”)&nbsp;para enviar una “s” a la placa.<br>En la función&nbsp;draw(), llamamos a todos nuestros métodos en el orden que queremos que se ejecutan. Utilizamos&nbsp;pushMatrix()&nbsp;y&nbsp;popMatrix()&nbsp;para controlar qué transformaciones aplicar y a qué elementos gráficos.<br>En la función&nbsp;serialEvent(), leemos el puerto y lo guardamos en nuestra variable message.<br>Si el mensaje contiene información, y no es igual a null, el contenido será dividido en partes usando las comas en el String entrante. Las partes divididas son clasificadas y almacenadas en variables dependiendo del orden de llegada. Antes de que sean almacenadas, son convertidas de String a float y int.<br>Después de que la información de puerto ha sido almacenada, enviamos una nueva “s” para preguntar a la placa sobre los valores actualizados.<br>En&nbsp;playerPos(), actualizamos la posición de los jugadores usando&nbsp;angeVal&nbsp;que recibimos desde la lectura del puerto.<br>Restringimos el movimiento de los jugadores a la pantalla.<br>Utilizamos&nbsp;translate(playerX, playerY)&nbsp;para posicionar al jugador.<br>En&nbsp;playerPos(), Los&nbsp;rotation(angle)&nbsp;de los jugadores son actualizado usando&nbsp;angeVal&nbsp;el cual recibimos de la lectura del puerto.<br>En&nbsp;drawPlayer(), simplemente creamos una representación gráfica del jugador.<br>Creamos la función&nbsp;updateVisuals()&nbsp;para redibujar el fondo al principio del bucle&nbsp;draw().</p>
+<p><strong>3. Creando un universo infinito</strong><br>Con tal de de obtener la más innovadora experiencia espacial, queremos que el fondo se mueva a la vez que lo jugadores se mueven. En este paso, crearemos un número infinito de estrellas. Entonces podremos viajar cuán lejos queramos a la derecha y a la izquierda, sin acabar en un espacio vacío sin estrellas.</p>
+<p>Encuentra el código en Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;AsteroidAttack&gt;processing&gt;AsteroidAttack_part3</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* AsteroidAttack
+* 
+* You will create a retro style space
+* shooter game, and learn about how to use classes and functions. In the end you will be able to
+* tweak values and rewrite the program to redesign the game so it suits your taste.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+import processing.serial.*;
+
+// ArrayList where we can put our objects
+ArrayList<star> starArr = new ArrayList<star>(); // Array of stars
+
+// Serial communication
+Serial myPort; // Serial port variable
+int newLine = 13; // New line character in ASCII
+float angleVal; // Stores the incoming angle value
+int buttonState; // Stores the incoming button state
+String message; // String that stores all incoming data
+
+String [] valArray = new String [2]; // Array to store all incoming values
+
+// Star variables
+float nbrOfStars=40; // Number of stars
+float starVal; // Used as star counter
+
+// player variables
+float playerWidth=100; // Width of the player
+float playerHeight=20; // Height of the player
+float playerX; // Player x position
+float playerY; // Player y position
+float posVar=0; // Variable for angle based position
+
+void setup()
+{
+  size(800, 600);
+  smooth();
+  fill(180);
+  noStroke();
+
+  // List all the available serial ports
+  println(Serial.list());
+
+  // Open the port you are using at the rate you want:
+  myPort = new Serial(this, Serial.list()[2], 9600); 
+
+  // We write an 's' to receive data from the board
+  myPort.write("s"); 
+
+  // Create stars
+  while (starVal&lt;nbrOfStars) {
+    createNewStar();
+    starVal++;
+  }
+}
+
+void draw() 
+{
+  // We read the incoming serial message
+  serialEvent();  
+
+  // We update the visuals
+  updateVisuals(); 
+
+  // We want the following changes to apply to the same matrix only
+  pushMatrix();
+
+  // Update player position
+  playerPos();
+
+  // Update player rotation
+  playerRotation(); 
+
+  // Draw the player
+  drawPlayer();
+
+  popMatrix();
+} 
+
+void serialEvent() {
+  message = myPort.readStringUntil(newLine); // Read from port until new line (ASCII code 13)
+  if (message != null) {
+    valArray = split(message, ","); // Split message by commas and store in String array 
+    angleVal = float(valArray[0]); // Convert to float angleVal
+    buttonState = int(valArray[1]); // Convert to int buttonState
+
+    myPort.write("s"); // Write an "s" to receive more data from the board
+  }
+}
+
+void playerPos() {
+
+  // Add position every frame
+  posVar+=angleVal;
+
+  // Position the player avatar
+  playerX=width/2+posVar; // Set center as the player's starting x position
+  playerY=height-100; // Set the y position of the player
+
+  // Limit the X coordinates
+  if (playerX &lt;= 0) {
+    playerX = 0;
+  }
+  if (playerX &gt; width) {  
+    playerX = width;
+  }
+
+  translate(playerX, playerY);
+}
+
+void playerRotation() {
+  // We add the current rotation
+  rotate(radians(angleVal));
+}
+
+void drawPlayer() {
+
+  rectMode(CENTER);
+  fill(200);
+
+  // Draw the player
+  rect(0, 0, playerWidth, playerHeight);
+}
+
+void updateVisuals() {
+  background(40);
+
+  createStars();
+}
+
+void createNewStar() {
+  // We add a new star to the star array
+  starArr.add(new Star(random(0, width), random(0, height), random(1, 4)));
+}
+
+void createStars() {
+
+  translate(0, 0);
+
+  // We create a for loop that loops through all stars
+  for (int i=0; i&lt;starArr.size(); i++) {
+    // We create a local instance of the star object
+    Star star = starArr.get(i);
+    star.move(angleVal);
+    star.display();
+  }
+}
+</star></star></code></pre>
+</div>
+</div>
+<p>Comandos<br>`ArrayList()`: Un array flexible que se puede redimensionar dinámicamente. Tiene los métodos como `size()`, `add()`, `remove()` y `get()`.<br>`random(min, max)` retorna un valor aleatorio entre un valor mínimo y un máximo definido.<br>Cómo funciona<br>Creamos una nueva clase llamada “`Star`”.<br>Declaramos las variables float para nuestra clase, para almacenar posición y tamaño.<br>Creamos un constructor que necesita algunas variables definidas al momento de crear un nuevo objeto.<br>Creamos una función llamada `display()`, para dibujar las estrellas. Un `if(xpos&gt;width)` y else `if(xpos&lt;0)` son utilizados para realizar un seguimiento de cuando las estrellas en la posición x del eje, se encuentran fuera de la ventana. Cada vez que el jugador se mueva y las estrellas desaparezcan, aparecerán en el lado opuesto de la pantalla. La estrella se dibuja cómo un `ellipse(xpos, ypos, starSize, starSize)`.<br>`move()` es utilizado para añadir la variable `xpos` y animar la estrella acorde con el movimiento del jugador.<br>En nuestro programa principal , utilizamos `ArrayList&nbsp;starArr` para declarar nuestro array de estrellas..<br>Declaramos una variable para decidir el número de estrellas , y otro usado para contar a través del array de estrellas.<br>En `setup()`, utilizamos un bucle `while()` para dibujar las estrellas. Por cada bucle añadimos una nueva estrella utilizando `createNewStar()` e incrementamos en 1 el contador por cada bucle hasta que lleguemos al límite establecido por nuestra variable `nbrOfStars`.<br>En el método `updateVisuals()` que hemos creado antes, añadimos `createStars()`, el cual se refiere al método más abajo en el código.<br>En el método `createNewStar()` añadimos una nueva estrella a nuestro array con `starArr.add(new Star( width , height , size ))`. En vez de asignar una posición específica, lo hacemos utilizando `random(min, max)`, asi que las estrellas son distribuidas en un patrón asimétrico.<br>En el `createStars()`, hacemos un bucle a través del array para acceder a cada estrella con el método `get(i)`. Después creamos un objeto temporal star para llamar a los métodos `move()` y `display()`. De este modo cada estrella recibe un único comportamiento.</p>
+<p><strong>4. Añade algo de acción</strong><br>Flotar a través del universo es agradable, pero pasar estrella tras estrella puede ser algo aburrido después de un rato. Añadamos un poco de acción y creemos algunos disparos, ¡estilo retro!</p>
+<p>Encuentra el código en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;AsteroidAttack&gt;processing&gt;AsteroidAttack_part4</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>   /*
+  * AsteroidAttack
+  *
+  * You will create a retro style space
+  * shooter game, and learn about how to use classes and functions. In the end you will be able to
+  * tweak values and rewrite the program to redesign the game so it suits your taste.
+  *
+  * (c) 2013-2016 Arduino LLC.
+  */
+
+  import processing.serial.*;
+
+  // Arraylists where we can put our objects
+  ArrayList<star> starArr = new ArrayList<star>(); // Array of stars
+  ArrayList<shot> shotArr = new ArrayList<shot>(); // Array of shots
+
+  // Serial communication
+  Serial myPort; // Serial port variable
+  int newLine = 13; // New line character in ASCII
+  float angleVal; // Stores the incoming angle value
+  int buttonState; // Stores the incoming button state
+  String message; // String that stores all incoming data
+
+  String [] valArray = new String [2]; // Array to store all incoming values
+
+  // Star variables
+  float nbrOfStars=40; // Number of stars
+  float starVal; // Used as star counter
+
+  // Timer variables
+  float timeSinceStart;
+
+  float shotTimer; // Shot timer
+  float lastShotCheck; // Recording last check
+  float shotInterval=100; // The interval between shots, in milliseconds
+
+  //player variables
+  float playerWidth=100; // Width of the player
+  float playerHeight=20; // Height of the player
+  float playerX; // Player x position
+  float playerY; // Player y position
+  float posVar=0;   // Variable for angle based position
+
+  void setup()
+  {
+    size(800, 600);
+    smooth();
+    fill(180);
+    noStroke();
+
+    // List all the available serial ports
+    println(Serial.list());
+
+    // Open the port you are using at the rate you want:
+    myPort = new Serial(this, Serial.list()[2], 9600);
+
+    // We write an 's' to receive data from Arduino
+    myPort.write("s");
+
+    // Create stars
+    while (starVal<nbrofstars an="" and="" angeval="" angleval="float(valArray[0]);" apply="" array="" as="" avatar="" board="" buttonstate="int(valArray[1]);" by="" center="" changes="" code="" commas="" convert="" coordinates="" createnewstar="" data="" draw="" drawplayer="" every="" float="" following="" frame="" from="" game="" gamecontroller="" if="" in="" incoming="" int="" limit="" line="" logic="" matrix="" message="" more="" myport="" write="" new="" null="" of="" only="" player="" playerpos="" playerrotation="" players="" playerx="width/2+posVar;" playery="height-100;" popmatrix="" port="" position="" posvar="" pushmatrix="" read="" receive="" rotation="" same="" serial="" serialevent="" set="" split="" starting="" starval="" store="" string="" the="" to="" until="" update="" updatevisuals="" valarray="split(message," visuals="" void="" want="" we="" x="" y=""> width) {
+      playerX = width;
+    }
+    translate(playerX, playerY);
+  }
+
+  void playerRotation() {
+    //We add the current
+    rotate(radians(angleVal));
+  }
+
+  void drawPlayer() {
+
+    rectMode(CENTER);
+    fill(200);
+
+    //Draw the player
+    rect(0, 0, playerWidth, playerHeight);
+  }
+
+  void updateVisuals() {
+    background(40);
+
+    createStars();
+    createShots();
+  }
+
+  void createNewStar() {
+    //We add a new star to the star array
+    starArr.add(new Star(random(0, width), random(0, height), random(1, 4)));
+  }
+
+  void createStars() {
+
+    translate(0, 0);
+
+    //We create a for loop that loops through all stars
+    for (int i=0; i<stararr.size a="" add="" all="" and="" array="" button="" create="" createshots="" for="" gamecontroller="" has="" i="" if="" instance="" interval="" is="" j="0;" local="" loop="loop" loops="" new="" newshot="" object="" of="" playery="" pressed="" reached="" shot="" show="" shotarr="" shots="" shottimer="" star="" display="" move="" that="" the="" through="" to="" translate="" variable="" void="" we="">shotInterval) {
+      newShot(); // We add a new shot
+      lastShotCheck=timeSinceStart; // We save the current time since start
+    } else {
+      shotTimer=0; // The timer is reset
+    }
+
+    timeSinceStart=millis(); // Assign current time
+    shotTimer=timeSinceStart-lastShotCheck; // Assign time since last shot
+  }
+</stararr.size></nbrofstars></shot></shot></star></star></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Creamos una nueva clase que llamamos “Shot”.<br>Declaramos variables float para nuestra clase, para tal de almacenar posición y tamaño.<br>Creamos un constructor que necesita algunas variables definidas cuando creamos un nuevo objeto.<br>En&nbsp;show(), animamos y dibujamos los disparos. Utilizamos&nbsp;translate(x,y)&nbsp;para animar la posición de los disparos en cada fotograma, y dibujamos el disparo utilizando&nbsp;ellipse(0, 0, size, size).<br>move()&nbsp;se utiliza para añadir a la variable&nbsp;xpos&nbsp;y animar la estrella conforme el jugador se mueve.<br>getXPos(),&nbsp;getYPos(),&nbsp;getSize()&nbsp;y&nbsp;getShotInterval()&nbsp;son métodos que utilizamos para hacer fácilmente accesibles variables específicas en nuestra clase desde el programa principal.<br>En el programa principal , empezamos añadiendo&nbsp;ArrayList<shot> shotArr&nbsp;para declarar nuestro array de disparos.<br>Declaramos las variables de posición y tamaño para nuestros disparos.<br>Las variables de tiempo son declaradas para seguir el intervalo de los nuevos disparos creados.<br>En&nbsp;draw(), añadimos el nuevo método llamado&nbsp;gameController()&nbsp;que nos permite añadir algo de lógica a nuestro juego.<br>En el método&nbsp;updateVisuals()&nbsp;que hemos creado antes, añadimos&nbsp;createShots(), el cual se refiere a un método más abajo en nuestro código.<br>En el método&nbsp;newShot()&nbsp;añadimos un nuevo disparo a nuestro array con&nbsp;shotArr.add(new Shot(x, y)). Ya que queremos que los disparos sean creados en la misma posición que se encuentra el jugador, utilizamos&nbsp;playerX&nbsp;y&nbsp;playerY&nbsp;a nuestras posiciones x e y.<br>En la función&nbsp;createShots(), tenemos un bucle for para recorrer el array que contiene el número de disparos (veces que hemos pulsado el botón), al recorrer el array, dibujamos en la pantalla cada una de las bolas blancas (balas) con el método&nbsp;get(j), a continuación se muestran y disparan con el método&nbsp;show().<br>En&nbsp;gameController(), utilizamos la variable&nbsp;shotInterval&nbsp;para esperar algo de tiempo entre los disparos. Comprobamos si el botón ha sido apretado, y si el contador ha alcanzado el umbral del intervalo. Cuando alcanza el umbral, creamos un nuevo disparo, y después actualizamos el valor&nbsp;lastShotCheck&nbsp;con tal de poderlo utilizar otra vez. Si no, reseteamos la variable&nbsp;shotTimer.<br>Después de la declaración if, asignamos el tiempo actual a la variable&nbsp;timeSinceStart&nbsp;y asignamos el tiempo desde el último disparo a&nbsp;shotTimer</shot></p>
+<p><strong>5. Añadiendo algo de tensión</strong><br>Lanzando disparos aleatorios al espacio infinito puede ser divertido, pero proporcionemos una amenaza para añadir algún sentido a los disparos y ¡a la tensión del juego!</p>
+<p>Encuentra el código en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;AsteroidAttack&gt;processing&gt;AsteroidAttack_part5</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>    /*
+  * AsteroidAttack
+  *
+  * You will create a retro style space
+  * shooter game, and learn about how to use classes and functions. In the end you will be able to
+  * tweak values and rewrite the program to redesign the game so it suits your taste.
+  *
+  * (c) 2013-2016 Arduino LLC.
+  */
+
+  import processing.serial.*;
+
+  //Arraylists where we can put our objects
+  ArrayList<star> starArr = new ArrayList<star>(); // Array of stars
+  ArrayList<shot> shotArr = new ArrayList<shot>(); // Array of shots
+  ArrayList<asteroid> asteroidArr = new ArrayList<asteroid>(); // Array of asteroids
+
+  // Serial communication
+  Serial myPort; // Serial port variable
+  int newLine = 13; // New line character in ASCII
+  float angleVal; // Stores the incoming angle value
+  int buttonState; // Stores the incoming button state
+  String message; // String that stores all incoming data
+
+  String [] valArray = new String [2]; // Array to store all incoming values
+
+  // Star variables
+  float nbrOfStars=40; // Number of stars
+  float starVal; // Used as star counter
+
+  //Shot variables
+  float shotX; // Shot x position
+  float shotY; // Shot y position
+  float shotSize; // Shot size
+
+  //Asteroid variables
+  float asteroidX; // Asteroid position x
+  float asteroidY; // Asteroid position y
+  float asteroidSize; // Asteroid size
+  float asteroidSpeed=2; // Asteroid speed
+  float asteroidMinSize=30; // Min size for random method
+  float asteroidMaxSize=80; // Max size for random method
+
+  // Timer variables
+  float timeSinceStart; // Time since start
+
+  float shotTimer; // Shot timer
+  float lastShotCheck; // Recording last check
+  float shotInterval=100; // The interval between shots, in milliseconds
+
+  float asteroidTimer; // Asteroid timer
+  float lastAsteroidCheck; // Recording last check
+  float asteroidInterval=1000; // The interval between asteroids, in milliseconds
+
+  //player variables
+  float playerWidth=100; // Width of the player
+  float playerHeight=20; // Height of the player
+  float playerX; // Player x position
+  float playerY; // Player y position
+  float posVar=0;
+
+  void setup()
+  {
+    size(800, 600);
+    smooth();
+    fill(180);
+    noStroke();
+
+    // List all the available serial ports
+    println(Serial.list());
+
+    // Open the port you are using at the rate you want:
+    myPort = new Serial(this, Serial.list()[2], 9600);
+
+    // We write an 's' to receive data from Arduino
+    myPort.write("s");
+
+    // Create stars
+    while (starVal<nbrofstars add="" an="" and="" angeval="" angleval="float(valArray[0]);" any="" apply="" array="" asteroid="" board="" buttonstate="int(valArray[1]);" by="" center="" changes="" check="" checkhits="" code="" commas="" convert="" coordinates="" createnewstar="" data="" draw="" drawplayer="" every="" float="" following="" frame="" from="" gamecontroller="" hit="" if="" in="" incoming="" int="" limit="" line="" make="" matrix="" message="" more="" myport="" write="" new="" null="" only="" player="" playerpos="" playerrotation="" playerx="width/2+posVar;" playery="height-100;" popmatrix="" port="" position="" posvar="" pushmatrix="" read="" receive="" rotation="" same="" serial="" serialevent="" shot="" split="" starval="" store="" string="" sure="" the="" to="" until="" update="" updatevisuals="" valarray="split(message," visuals="" void="" want="" we="" window="" x=""> width) {
+      playerX = width;
+    }
+    translate(playerX, playerY);
+  }
+
+  void playerRotation() {
+    //We add the current
+    rotate(radians(angleVal));
+  }
+
+  void drawPlayer() {
+
+    rectMode(CENTER);
+    fill(200);
+
+    // Draw the player
+    rect(0, 0, playerWidth, playerHeight);
+  }
+
+  void updateVisuals() {
+
+    background(40);
+
+    createStars();
+    createShots();
+    createAsteroids();
+  }
+
+  void createNewStar() {
+    // We add a new star to the star array
+    starArr.add(new Star(random(0, width), random(0, height), random(1, 4)));
+  }
+
+  void createStars() {
+
+    translate(0, 0);
+
+    // A for loop that loops through all stars
+    for (int i=0; i<stararr.size a="" access="" add="" all="" and="" apple="" array="" assign="" asteroid="" visualize="" asteroidarr="" asteroidmaxsize="" asteroids="" asteroidsize="random(asteroidMinSize," asteroidspeed="" asteroidx="asteroid.getXPos();" asteroidxpos="random(0," asteroidy="asteroid.getYPos();" at="" based="" boundaries="" call="" check="" checkhits="" class="" compare="" create="" createasteroids="" created="" createshots="" declare="declare" each="" existing="" float="" for="" full="" functions="" have="" i="" if="" in="" instance="" j="0;" just="" k="0;" l="0;" like="" local="" loop="loop" loops="" m="0;" max="" min="" nestled="" new="" newasteroid="" newshot="" object="" of="" on="" one="" our="" playery="" position="" random="" return="" shot="" show="" shotarr="" shots="" shotsize="shot.getSize();" shotx="shot.getXPos();" shoty="shot.getYPos();" size="" star="" display="" move="" statements="" that="" the="" through="" time="" to="" translate="" using="" values="" variable="" variables="" void="" want="" we="" width="" window="" with="" x="" zero="">shotY&amp;&amp;asteroidY<shoty if="">shotX&amp;&amp;asteroidX<shotx an="" and="" array="" asteroid="" asteroidhit="" asteroidarr="" remove="" been="" button="" else="" from="" function="" gamecontroller="" has="" hit="" if="" interval="" is="" know="" once="" pressed="" reached="" set="" shottimer="" the="" to="" variable="" void="" we="">shotInterval) {
+      newShot(); // We add a new shot
+      lastShotCheck=timeSinceStart; // We save the current time since start
+    } else {
+      shotTimer=0; // The timer is reset
+    }
+
+    // If the asteroidTimer variable has reached the interval
+    if (asteroidTimer&gt;asteroidInterval) {
+      newAsteroid(); // We add a new asteroid
+      lastAsteroidCheck=timeSinceStart; // We save the current time since start
+    } else {
+      asteroidTimer=0; // The timer is reset
+    }
+
+    timeSinceStart=millis(); // Assign current time
+    shotTimer=timeSinceStart-lastShotCheck; // Assign time since last shot
+    asteroidTimer=timeSinceStart-lastAsteroidCheck; // Assign time since last asteroid
+  }</shotx></shoty></stararr.size></nbrofstars></asteroid></asteroid></shot></shot></star></star></code></pre>
+</div>
+</div>
+<p>COMANDOS<br>Nested for loops es básicamente un bucle en un bucle. Un bucle "for" anidado contiene un bucle interno dentro de uno externo. Cuando el bucle externo se encuentra en su primera iteración, activa el bucle interno que recorre todo el contenido en ese ciclo. Una vez el bucle interno ha finalizado, el bucle externo se activa de nuevo y realiza su siguiente iteración. Se repite de este modo hasta que el bucle externo realiza todas sus iteraciones.<br>CÓMO FUNCIONA<br>Creamos una nueva clase que llamamos “Asteroid”.<br>Declaramos las variables float y boolean para nuestra clase, para almacenar posición, tamaño, velocidad, y para contar el número impactos.<br>Creamos un constructor que necesita algunas variables definidas cuando creamos un nuevo objeto.<br>En&nbsp;visualize(), animamos y dibujamos los asteroides. Utilizamos&nbsp;translate(x,y)&nbsp;para animar la posición de lo disparos en cada fotograma, y dibujamos los asteroides utilizando&nbsp;ellipse(0, 0, size, size). Utilizamos el booleano&nbsp;isShot&nbsp;en nuestra declaración if para cuando sean los asteroides disparados o no.<br>La variable&nbsp;ypos&nbsp;es actualizada cada fotograma para mover el asteroide.<br>asteroidHit(hit),&nbsp;getXPos(),&nbsp;getYPos()&nbsp;y&nbsp;getSize()&nbsp;son métodos que utilizamos para acceder fácilmente desde el programa principal a variables y funciones específicas en nuestra clase..<br>En el programap principal, empezamos añadiendo nuestro&nbsp;ArrayList<asteroid> asteroidArr&nbsp;para declarar nuestro array de asteroides.<br>Declaramos variables de posición, tamaño y velocidad para nuestros asteroides.<br>Las variables de tiempo son declaradas para hacer seguimiento del intervalo en el cual los nuevos asteroides son creados.<br>En&nbsp;updateVisuals(), añadimos&nbsp;createAsteroids(), al cual se refiere a un método que encontramos más abajo en el código.<br>En el método&nbsp;newAsteroid()&nbsp;añadimos un nuevo asteroide a nuestro array con&nbsp;asteroidArr.add(new Asteroid(x, y, size)). Utilizamos&nbsp;random(0, width)&nbsp;para distribuir los asteroides en patrones asimétricos. Para asignar el tamaño, lo hacemos aleatoriamente entre nuestras variables&nbsp;asteroidMinSize&nbsp;y&nbsp;asteroidMaxSize.<br>En&nbsp;createAsteroids()&nbsp;hacemos un bucle a través del array para tal de acceder a cada asteroide con el método&nbsp;get(k). Después creamos un objeto temporal asteroid para llamar al método&nbsp;visualize().<br>En&nbsp;checkHits(), ejecutamos una detección de colisión básica para comprobar si algún asteroide ha impactado con un disparo. Hacemos esto comparando cada disparo individual con cada asteroide individual, cada fotograma. Hacemos un bucle a través de todos los disparos con nuestra&nbsp;shotArr, y dentro de este bucle hacemos un bucle a través de todos los asteroides, utilizando nuestra&nbsp;asteroidArr. Utilizando la posición y el tamaño para determinar el área completa del disparo, podemos comparar esto con el área completa del asteroide. Comprobamos un disparo contra todos los asteroides, paso a paso. Declaramos una variable para acceder a un objeto shot de la clase&nbsp;Shot&nbsp;cada vez, y después almacenamos la posición y el tamaño del disparo. Lo mismo se hace con la variable asteroide, se accede a la posición y al tamaño, se almacenan y comparan. Una vez un asteroide ha sido impactado, llamamos&nbsp;asteroid.asteroidHit(true)&nbsp;y lo quitamos de la lista array. Si la declaración “else” es verdadera, se ejecuta&nbsp;asteroid.asteroidHit(false).<br>En&nbsp;gameController(), utilizamos la variable&nbsp;asteroidInterval&nbsp;para esperar algún tiempo entre los lanzamientos de nuevos asteroides. Comprobamos si el contador ha alcanzado el intervalo umbral. Cuando alcanza el umbral, creamos un nuevo asteroide, y despues actualizamos el valor de&nbsp;lastAsteroidCheck&nbsp;para poder utilizarlo otra vez. Sino reseteamos la variable&nbsp;asteroidTimer.<br>Después de la declaración if, asignamos el tiempo actual a la variable&nbsp;timeSinceStart&nbsp;y asignamos el tiempo desde el último disparo a nuestro&nbsp;asteroidTimer.</asteroid></p>
+<p><strong>6. Haciendo el juego divertido</strong><br>Para hacer que el juego sea divertido, tenemos que añadir algunos aspectos a nuestra aplicación interactiva. Añadamos algunos puntos, vidas, y una pantalla “game over”.</p>
+<p>Encuentra el código en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;AsteroidAttack&gt;processing&gt;AsteroidAttack_part6</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* AsteroidAttack
+* 
+* You will create a retro style space
+* shooter game, and learn about how to use classes and functions. In the end you will be able to
+* tweak values and rewrite the program to redesign the game so it suits your taste.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+import processing.serial.*;
+
+//Arraylists where we can put our objects
+ArrayList<star> starArr = new ArrayList<star>(); // Array of stars
+ArrayList<shot> shotArr = new ArrayList<shot>(); // Array of shots
+ArrayList<asteroid> asteroidArr = new ArrayList<asteroid>(); // Array of asteroids
+
+// Serial communication
+Serial myPort; // Serial port variable
+int newLine = 13; // New line character in ASCII
+float angleVal; // Stores the incoming angle value
+int buttonState; // Stores the incoming button state
+String message; // String that stores all incoming data
+
+String [] valArray = new String [2]; // Array to store all incoming values
+
+// Star variables
+float nbrOfStars=40; // Number of stars
+float starVal; // Used as star counter
+
+//Shot variables
+float shotX; // Shot x position
+float shotY; // Shot y position
+float shotSize; // Shot size
+
+//Asteroid variables
+float asteroidX; // Asteroid position x
+float asteroidY; // Asteroid position y
+float asteroidSize; // Asteroid size
+float asteroidSpeed=2; // Asteroid speed
+float asteroidMinSize=30; // Min size for random method
+float asteroidMaxSize=80; // Max size for random method
+
+//Game state variables
+int points=0; // Point variable
+PFont pointText; // Text for displaying points
+boolean gameOver=false; // Boolean keeps track of game state
+
+// Timer variables
+float timeSinceStart; // Time since start
+
+float shotTimer; // Shot timer
+float lastShotCheck; // Recording last check
+float shotInterval=100; // The interval between shots, in milliseconds
+
+float asteroidTimer; // Asteroid timer
+float lastAsteroidCheck; // Recording last check
+float asteroidInterval=1000; // The interval between asteroids, in milliseconds
+
+//player variables
+float playerWidth=100; // Width of the player
+float playerHeight=20; // Height of the player
+float playerX; // Player x position
+float playerY; // Player y position
+float posVar=0; 
+boolean playerHit=false; // Use to check if player is hit
+float life=200; // The player's life points
+
+void setup()
+{
+  size(800, 600);
+  smooth();
+  fill(180);
+  noStroke();
+
+  // List all the available serial ports
+  println(Serial.list());
+
+  // Open the port you are using at the rate you want:
+  myPort = new Serial(this, Serial.list()[2], 9600);  
+
+  // We write an 's' to receive data from Arduino
+  myPort.write("s"); 
+
+  // Create stars
+  while (starVal&lt;nbrOfStars) {
+    createNewStar();
+    starVal++;
+  }
+
+  // Create a font
+  pointText = createFont("CourierNewPSMT-48.vlw", 48); // Define font
+  textFont(pointText); // Set font
+}
+
+void draw()
+{
+
+  // If statement to check whether the player still has life
+  if (life&gt;0) {
+
+    // We read the incoming serial message
+    serialEvent();  
+
+    // We update the visuals
+    updateVisuals(); 
+
+    // We want the following changes to apply to the same matrix only
+    pushMatrix();
+
+    // Update player position
+    playerPos();
+
+    // Update player rotation
+    playerRotation(); 
+
+    // Draw the player
+    drawPlayer();
+    popMatrix();
+
+    // We make sure to check if any shot hit any asteroid every frame
+    checkHits();
+
+    // Check whether player collided with an asteroid
+    checkDamage();
+
+    // Show points on screen
+    drawPoints();
+
+
+    gameController();
+  } else {
+    // Game over method is run when life is out
+    gameOver();
+  }
+} 
+
+void serialEvent() {
+  message = myPort.readStringUntil(newLine); // Read from port until new line (ASCII code 13)
+  if (message != null) {
+    valArray = split(message, ","); // Split message by commas and store in String array 
+    angleVal = float(valArray[0]); // Convert to float angleVal
+    buttonState = int(valArray[1]); // Convert to int buttonState
+
+    myPort.write("s"); // Write an "s" to receive more data from the board
+  }
+}
+
+void playerPos() {
+
+  // Add position every frame
+  posVar+=angleVal;
+
+  // Center player position in window
+  playerX=width/2+posVar;
+  playerY=height-100;
+
+  // Limit the X coordinates
+  if (playerX &lt;= 0) {
+    playerX = 0;
+  }
+  if (playerX &gt; width) {  
+    playerX = width;
+  }
+  translate(playerX, playerY);
+}
+
+void playerRotation() {
+  // We add the current
+  rotate(radians(angleVal));
+}
+
+void drawPlayer() {
+
+  rectMode(CENTER);
+  fill(200);
+
+  // Draw the player
+  rect(0, 0, playerWidth, playerHeight);
+}
+
+void updateVisuals() {
+
+  if (playerHit==true) {
+    background(random(100, 250), 100, 100); // If the player is hit we make the background flash in red
+  } else {
+    background(40);
+  }
+
+  createStars();
+  createShots();
+  createAsteroids();
+  createLifeBar();
+}
+
+void createNewStar() {
+  // We add a new star to the star array
+  starArr.add(new Star(random(0, width), random(0, height), random(1, 4)));
+}
+
+void createStars() {
+
+  translate(0, 0);
+
+  // We create a for loop that loops through all stars
+  for (int i=0; i&lt;starArr.size(); i++) {
+    //We create a local instance of the star object
+    Star star = starArr.get(i);
+    star.move(angleVal);
+    star.display();
+  }
+}
+
+void newShot() {
+  // We add a new shot to the shot array
+  shotArr.add(new Shot(playerX, playerY));
+}
+
+void createShots() {
+
+  translate(0, 0);
+  // A for loop that loops through all shots  
+  for (int j=0; j&lt;shotArr.size(); j++) {
+
+    Shot shot = shotArr.get(j);
+    shot.show();
+  }
+}
+
+void newAsteroid() {
+
+  //We assign the Asteroid a random x position based on zero and full window width 
+  float asteroidXPos= random(0, width);
+
+  //We assign the Asteroid a random size based on our min and max values
+  float asteroidSize= random(asteroidMinSize, asteroidMaxSize);
+
+  // We add a new asteroid to the asteroid array
+  asteroidArr.add(new Asteroid(asteroidXPos, asteroidSpeed, asteroidSize));
+}
+
+void createAsteroids() {
+
+  translate(0, 0);
+  // A for loop that loops through all asteroids
+  for (int k=0; k&lt;asteroidArr.size(); k++) {
+
+    Asteroid asteroid = asteroidArr.get(k);
+    asteroid.visualize();
+  }
+}
+
+void checkHits() {
+
+  // We loop through all shots we have created
+  for (int l=0; l&lt;shotArr.size(); l++) {
+
+    // We want to compare each shot with all existing asteroids
+    for (int m=0; m&lt;asteroidArr.size(); m++) {
+
+      // We declare a variable to access one shot object of the Class Shot at a time
+      Shot shot = shotArr.get(l);
+
+      // We call the functions in the Shot class to return variables for position and size
+      shotX=shot.getXPos();
+      shotY=shot.getYPos();
+      shotSize=shot.getSize();
+
+      // We declare a variable to access one asteroid object of the Class Asteroid at a time
+      Asteroid asteroid = asteroidArr.get(m);
+
+      // We call the functions in the Asteroid class to return variables for position and size
+      asteroidX=asteroid.getXPos();
+      asteroidY=asteroid.getYPos();
+      asteroidSize=asteroid.getSize();
+
+      // We check the boundaries using nestled if statements, just like in "Catch the Apple"
+      if (asteroidY+asteroidSize&gt;shotY&amp;&amp;asteroidY&lt;shotY+shotSize) {
+        if (asteroidX+asteroidSize&gt;shotX&amp;&amp;asteroidX&lt;shotX+shotSize) {
+
+          // Once we know an asteroid has been hit, we set the function asteroidHit() to "true"
+          asteroid.asteroidHit(true);
+
+          // We remove the asteroid from the array
+          asteroidArr.remove(m);
+          points++; //We add points each time an asteroid is destroyed
+        } else {
+          asteroid.asteroidHit(false);
+        }
+      }
+    }
+  }
+}
+
+void gameController() {
+
+  // If the button is pressed and the shotTimer variable has reached the interval
+  if (buttonState==1&amp;&amp;shotTimer&gt;shotInterval) {
+    newShot(); // We add a new shot
+    lastShotCheck=timeSinceStart; // We save the current time since start
+  } else {
+    shotTimer=0; // The timer is reset
+  }
+
+  // If the asteroidTimer variable has reached the interval
+  if (asteroidTimer&gt;asteroidInterval) {
+    newAsteroid(); // We add a new asteroid
+    lastAsteroidCheck=timeSinceStart; // We save the current time since start
+  } else {
+    asteroidTimer=0; // The timer is reset
+  }
+
+  timeSinceStart=millis(); // Assign current time
+  shotTimer=timeSinceStart-lastShotCheck; // Assign time since last shot
+  asteroidTimer=timeSinceStart-lastAsteroidCheck; // Assign time since last asteroid
+}
+
+void checkDamage() {
+
+  //We loop through all asteroids
+  for (int n=0; n&lt;asteroidArr.size(); n++) {
+
+    //We declare a variable to access one asteroid object of the Class Asteroid at a time
+    Asteroid asteroid = asteroidArr.get(n);
+
+    //We call the functions in the Asteroid class to return variables for position and size
+    asteroidX=asteroid.getXPos();
+    asteroidY=asteroid.getYPos();
+    asteroidSize=asteroid.getSize();
+
+  // We check all asteroids against our player for collision
+    if (asteroidY+asteroidSize&gt;playerY&amp;&amp;asteroidY&lt;playerY+playerHeight) {
+      if (asteroidX+asteroidSize&gt;playerX-playerWidth/2&amp;&amp;asteroidX&lt;playerX+playerWidth/2) {
+
+        //Decrease life on hit
+        life-=1;
+        playerHit=true;
+      } else {
+        playerHit=false;
+      }
+    }
+  }
+}
+
+void createLifeBar() {
+  rectMode(CORNER);
+
+  //Green lifebar
+  fill(24, 148, 154);
+  rect(20, 40, life, 40);
+}
+
+void drawPoints() {
+  fill(200); 
+  textAlign(CENTER, TOP); // Align text
+  text(points, width/2, 30); // Assign text content
+}
+
+void gameOver() {
+  background(100);
+  fill(40);
+
+  textAlign(CENTER, BOTTOM); // Align text 
+  text("GAME OVER", width/2, 200); // Assign text content
+
+  textAlign(CENTER, TOP); // Align text
+
+  text("your score was:", width/2, 320); // Assign text content
+  text(points, width/2, 400); // Assign text content
+}</asteroid></asteroid></shot></shot></star></star></code></pre>
+</div>
+</div>
+<p>Cómo funciona<br>Creamos un par de variables: una tipo float para `points`, una tipo String para `pointText` y una tipo boolean para determinar el estado del juego con la variable `gameOver`<br>La variable float llamada `life` y el boolean llamado `playerHit` son utilizados para hacer seguimiento de los puntos de los jugadores y comprobar si se ha producido un impacto.<br>La fuente es creada utilizando `createFont()`, conteniendo el nombre y tamaño de la fuente apropiada. La fuente es entonces establecida utilizando `textFont(pointText)`.<br>En `draw()`, utilizamos una declaración if para comprobar si los jugadores tienen vida o no.Si el jugador tiene vida, ejecutamos los métodos del juego para que empice el juego.<br>En `draw()`, llamamos a `checkDamage()` y `drawPoints()` para manejar los puntos de vida del jugador y dibujar los puntos coleccionados de los impactos a los asteroides.<br>Si los puntos de vida de los jugadores son menor de 0, llamamos al método nombrado `gameOver()`.<br>En `checkDamage()` realizamos una detección de colisión para comprobar si el jugador ha sido impactado por un asteroide. Declaramos una variable para acceder a un objeto asteroide de la clase Asteroid cada vez, y después comprobamos en contra de la posición y el tamaño del jugador. Si el jugador ha sido chocado, establecemos `playerHit` a verdadero, y disminuimos los puntos de life. Si el la declaración “else” es verdadera, establecemos `playerHit` a falso.<br>En `createLifeBar()` utilizamos un `rect(x,y,size,size)` para mostrar los puntos de vida.<br>El método `drawPoints()` se utiliza para mostra los puntos. `textAlign(CENTER, TOP)` es utilizado para ubicar el texto, y en `text(text, x, y)` los points son especificados para ser mostrados relativamente a la posición previa.<br>`gameOver()` se utiliza para mostrar la pantalla de “game over”. `textAlign(CENTER, TOP)` y `textAlign(text, x, y)` se utilizan para el control del contenido del texto y el orden.</p>
+<p><strong>7. ¡Que quede estupendo!</strong><br>El juego puede acabar ahora, y es bastante elegante de una manera minimalista. Pero para ser honestos, la nave espacial no parece una nave espacial, y los asteroides… bueno.¡ Añadamosle algo de sabor! Como en el “Catch the apple project”, ¡añadiremos algunas imágenes al boceto!</p>
+<p>Encuentra el código en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;AsteroidAttack&gt;processing&gt;AsteroidAttack_part7</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* AsteroidAttack
+* 
+* You will create a retro style space
+* shooter game, and learn about how to use classes and functions. In the end you will be able to
+* tweak values and rewrite the program to redesign the game so it suits your taste.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+import processing.serial.*;
+
+//ArrayLists where we can put our objects
+ArrayList<star> starArr = new ArrayList<star>(); // Array of stars
+ArrayList<shot> shotArr = new ArrayList<shot>(); // Array of shots
+ArrayList<asteroid> asteroidArr = new ArrayList<asteroid>(); // Array of asteroids
+
+// Serial communication
+Serial myPort; // Serial port variable
+int newLine = 13; // New line character in ASCII
+float angleVal; // Stores the incoming angle value
+int buttonState; // Stores the incoming button state
+String message; // String that stores all incoming data
+
+String [] valArray = new String [2]; // Array to store all incoming values
+
+// Star variables
+float nbrOfStars=40; // Number of stars
+float starVal; // Used as star counter
+
+//Shot variables
+float shotX; // Shot x position
+float shotY; // Shot y position
+float shotSize; // Shot size
+
+//Asteroid variables
+float asteroidX; // Asteroid position x
+float asteroidY; // Asteroid position y
+float asteroidSize; // Asteroid size
+float asteroidSpeed=2; // Asteroid speed
+float asteroidMinSize=30; // Min size for random method
+float asteroidMaxSize=80; // Max size for random method
+
+//Game state variables
+int points=0; // Point variable
+PFont pointText; // Text for displaying points
+boolean gameOver=false; // Boolean keeps track of game state
+
+// Timer variables
+float timeSinceStart; // Time since start
+
+float shotTimer; // Shot timer
+float lastShotCheck; // Recording last check
+float shotInterval=100; // The interval between shots, in milliseconds
+
+float asteroidTimer; // Asteroid timer
+float lastAsteroidCheck; // Recording last check
+float asteroidInterval=1000; // The interval between asteroids, in milliseconds
+
+//player variables
+float playerWidth=200; // Width of the player
+float playerHeight=100; // Height of the player
+float playerX; // Player x position
+float playerY; // Player y position
+float posVar=0; 
+boolean playerHit=false; // Use to check if player is hit
+float life=200; // The player's life points
+
+//Image array
+String[] imgFiles={"spaceShip.png", "meteor_small.png", "meteor_big.png"};
+PImage[] img = new PImage[3];
+
+void setup()
+{
+  size(800, 600);
+  smooth();
+  fill(180);
+  noStroke();
+
+
+ // List all the available serial ports
+  println(Serial.list());
+
+  // Open the port you are using at the rate you want:
+  myPort = new Serial(this, Serial.list()[2], 9600); 
+
+  // We write an 's' to receive data from Arduino
+  myPort.write("s"); 
+
+  // Create stars
+  while (starVal&lt;nbrOfStars) {
+    createNewStar();
+    starVal++;
+  }
+
+    // Create a font
+  pointText = createFont("CourierNewPSMT-48.vlw", 48);
+  textFont(pointText);
+
+    // Load the images
+  for(int i = 0; i &lt; 3; i = i + 1) {
+    img[i] = loadImage(imgFiles[i]);
+  }
+}
+
+void draw()
+{
+
+    // If statement to check whether the player still has life
+    if (life&gt;0) {
+
+    //We read the incoming serial message
+    serialEvent();  
+
+    //We update the visuals
+    updateVisuals(); 
+
+    //We want the following changes to apply to the same matrix only
+    pushMatrix();
+
+    //Update player position
+    playerPos();
+
+    //Update player rotation
+    playerRotation(); 
+
+    //Draw the player
+    drawPlayer();
+    popMatrix();
+
+    //We make sure to check if any shot hit any asteroid every frame
+    checkHits();
+
+    //Check whether player collided with an asteroid
+    checkDamage();
+
+    // Show points on screen
+    drawPoints();
+
+    gameController();
+  } else {
+    // Game over method is run when life is out
+    gameOver();
+  }
+} 
+
+void serialEvent() {
+  message = myPort.readStringUntil(newLine); // Read from port until new line (ASCII code 13)
+  if (message != null) {
+    valArray = split(message, ","); // Split message by commas and store in String array 
+    angleVal = float(valArray[0]); // Convert to float angleVal
+    buttonState = int(valArray[1]); // Convert to int buttonState
+
+    myPort.write("s"); // Write an "s" to receive more data from the board
+  }
+}
+
+void playerPos() {
+
+  // Add position every frame
+  posVar+=angleVal;
+
+  // Center player position in window
+  playerX=width/2+posVar;
+  playerY=height-100;
+
+  // Limit the X coordinates
+  if (playerX &lt;= 0) {
+    playerX = 0;
+  }
+  if (playerX &gt; width) {  
+    playerX = width;
+  }
+  translate(playerX, playerY);
+}
+
+void playerRotation() {
+  //We add the current
+  rotate(radians(angleVal));
+}
+
+void drawPlayer() {
+
+  rectMode(CENTER);
+  fill(200);
+
+  //Represent the player with an image
+  image(img[0], 0-playerWidth/2, 0-playerHeight/2, playerWidth, playerHeight); 
+}
+
+void updateVisuals() {
+
+  if (playerHit==true) {
+    background(random(100, 250), 100, 100); // If the player is hit we make the background flash in red
+  } else {
+    background(40);
+  }
+
+  createStars();
+  createShots();
+  createAsteroids();
+  createLifeBar();
+}
+
+void createNewStar() {
+  //We add a new star to the star array
+  starArr.add(new Star(random(0, width), random(0, height), random(1, 4)));
+}
+
+void createStars() {
+
+  translate(0, 0);
+
+  // We create a for loop that loops through all stars
+  for (int i=0; i&lt;starArr.size(); i++) {
+    //We create a local instance of the star object
+    Star star = starArr.get(i);
+    star.move(angleVal);
+    star.display();
+  }
+}
+
+void newShot() {
+  // We add a new shot to the shot array
+  shotArr.add(new Shot(playerX, playerY));
+}
+
+void createShots() {
+
+  translate(0, 0);
+  // A for loop that loops through all shots  
+  for (int j=0; j&lt;shotArr.size(); j++) {
+
+    Shot shot = shotArr.get(j);
+    shot.show();
+  }
+}
+
+void newAsteroid() {
+
+  //We assign the Asteroid a random x position based on zero and full window width 
+  float asteroidXPos= random(0, width);
+
+  //We assign the Asteroid a random size based on our min and max values
+  float asteroidSize= random(asteroidMinSize, asteroidMaxSize);
+
+  // We add a new asteroid to the asteroid array
+  asteroidArr.add(new Asteroid(asteroidXPos, asteroidSpeed, asteroidSize));
+}
+
+void createAsteroids() {
+
+  translate(0, 0);
+  // A for loop that loops through all asteroids
+  for (int k=0; k&lt;asteroidArr.size(); k++) {
+
+    Asteroid asteroid = asteroidArr.get(k);
+    asteroid.visualize();
+  }
+}
+
+void checkHits() {
+
+  //We loop through all shots we have created
+  for (int l=0; l&lt;shotArr.size(); l++) {
+
+    //We want to compare each shot with all existing asteroids
+    for (int m=0; m&lt;asteroidArr.size(); m++) {
+
+      //We declare a variable to access one shot object of the Class Shot at a time
+      Shot shot = shotArr.get(l);
+
+      //We call the functions in the Shot class to return variables for position and size
+      shotX=shot.getXPos();
+      shotY=shot.getYPos();
+      shotSize=shot.getSize();
+
+      //We declare a variable to access one asteroid object of the Class Asteroid at a time
+      Asteroid asteroid = asteroidArr.get(m);
+
+      //We call the functions in the Asteroid class to return variables for position and size
+      asteroidX=asteroid.getXPos();
+      asteroidY=asteroid.getYPos();
+      asteroidSize=asteroid.getSize();
+
+      //We check the boundaries using nestled if statements, just like in "Catch the Apple"
+      if (asteroidY+asteroidSize&gt;shotY&amp;&amp;asteroidY&lt;shotY+shotSize) {
+        if (asteroidX+asteroidSize&gt;shotX&amp;&amp;asteroidX&lt;shotX+shotSize) {
+
+          //Once we know an asteroid has been hit, we set the function asteroidHit() to "true"
+          asteroid.asteroidHit(true);
+
+          //We remove the asteroid from the array
+          asteroidArr.remove(m);
+          points++; //We add points each time an asteroid is destroyed
+
+        } else {
+          asteroid.asteroidHit(false);
+        }
+      }
+    }
+  }
+}
+
+void gameController() {
+
+  // If the button is pressed and the shotTimer variable has reached the interval
+  if (buttonState==1&amp;&amp;shotTimer&gt;shotInterval) {
+    newShot(); // We add a new shot
+    lastShotCheck=timeSinceStart; // We save the current time since start
+  } else {
+    shotTimer=0; // The timer is reset
+  }
+
+  // If the asteroidTimer variable has reached the interval
+  if (asteroidTimer&gt;asteroidInterval) {
+    newAsteroid(); // We add a new asteroid
+    lastAsteroidCheck=timeSinceStart; // We save the current time since start
+  } else {
+    asteroidTimer=0; // The timer is reset
+  }
+
+  timeSinceStart=millis(); // Assign current time
+  shotTimer=timeSinceStart-lastShotCheck; // Assign time since last shot
+  asteroidTimer=timeSinceStart-lastAsteroidCheck; // Assign time since last asteroid
+}
+
+void checkDamage() {
+
+  //We loop through all asteroids
+  for (int n=0; n&lt;asteroidArr.size(); n++) {
+
+    //We declare a variable to access one asteroid object of the Class Asteroid at a time
+    Asteroid asteroid = asteroidArr.get(n);
+
+    //We call the functions in the Asteroid class to return variables for position and size
+    asteroidX=asteroid.getXPos();
+    asteroidY=asteroid.getYPos();
+    asteroidSize=asteroid.getSize();
+
+  // We check all asteroids against our player for collision
+    if (asteroidY+asteroidSize&gt;playerY&amp;&amp;asteroidY&lt;playerY+playerHeight) {
+      if (asteroidX+asteroidSize&gt;playerX-playerWidth/2&amp;&amp;asteroidX&lt;playerX+playerWidth/2) {
+
+        //Decrease life on hit
+        life-=1;
+        playerHit=true;
+      } else {
+        playerHit=false;
+      }
+    }
+  }
+}
+
+void createLifeBar() {
+  rectMode(CORNER);
+
+  //Green lifebar
+  fill(24, 148, 154);
+  rect(20, 40, life, 40);
+}
+
+void drawPoints() {
+  fill(200); 
+  textAlign(CENTER, TOP); // Align text
+  text(points, width/2, 30); // Assign text content
+}
+
+void gameOver() {
+  background(100);
+  fill(40);
+
+  textAlign(CENTER, BOTTOM); // Align text 
+  text("GAME OVER", width/2, 200); // Assign text content
+
+  textAlign(CENTER, TOP); // Align text
+
+  text("your score was:", width/2, 320); // Assign text content
+  text(points, width/2, 400); // Assign text content
+}</asteroid></asteroid></shot></shot></star></star></code></pre>
+</div>
+</div>
+<p>Cómo funciona<br>Primero de todo, necesitamos cambiar el ancho y alto de las variables para encajar los gráficos. Configuramos `playerWidth` a 200 y `playerHeight` a 100.<br>Declaramos una String array para nuestras imágenes, y asignamos los nombres “spaceShip.png", "meteor_small.png" y "meteor_big.png”.<br>`PImage[] img = new PImage[3]` es nuestro array `PImage` dónde almacenamos nuestras imágenes actuales.<br>Al final de `setup()`, creamos un bucle for para cargar las imágenes una por una, utilizando `img[i] = loadImage(imgFiles[i])`.<br>En `drawPlayer()`, reemplazamos la anterior representación `rect(x, y, size, size)` con nuestras propias imágenes utilizando la clase `PImage` syntax: `image(PImage, x, y, size, size)`.<br>En la `Asteroid` class, reemplazamos el `ellipse(x, y, size, size)` con una imagen también, pero en este caso también queremos añadir una declaración if, para especificar qué imágenes queremos. Queremos nuestro "meteor_small.png" que sea usado cuando el tamaño de los meteoros sea aleatoriamente pequeño, y el "meteor_big.png” cuando sea grande. Para especificar esto, utilizamos `if(asteroidSize&lt;50)` para elegir la imagen con menos cráteres y `if(asteroidSize&gt;=50)` cuando necesitamos más cráteres para encajar en el tamaño más grande.<br>¿No funciona?<br>Asegurate que tienes el puerto serial correcto conectado. Revisa la lista que&nbsp;println(Serial.list())&nbsp;imprime para encontrar cuál utilizar.<br>El código es largo y complejo. Para hacer la depuración efectiva, es buena idea utilizar comentarios y&nbsp;Serial.println()&nbsp;para determinar qué está mal y dónde. Comenta el código que no estás seguro de él e imprime los valores que estás seguro hacen lo que estás intentado.<br>¡Sigue experimentando!</p>
+<p><br>¿Cómo podrías hacer este juego más dificil? ¿Qué variables podrías retocar?<br>¿Cómo podrías hacer para finalizar el juego en un tiempo concreto, en vez de cuando la vida del jugador se acaba?<br>El juego tiene la misma dificultad desde el principio hasta el final. ¿Cómo podrías hacer el juego más fácil al principio y que fuera cada vez más dificil?<br>Rediseña y cambia el tema del juego. Puedes dibujar tus propias imágenes y programa los gráficos a tu gusto. ¿Qué tal si el juego fuera sobre regar las plantas y tienen que sobrevivir? ¡Usa tu imaginación y pásatelo bien!</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ESPADA LÁSER</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¿Alguna vez te has preguntado cómo sería tener una espada láser? ¡Este proyecto es para ti! Juega con la espada láser en la pantalla, y escucha el increíble sonido que hace.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/cekl9lRefHY"></iframe></p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x botón<br>1 x piezo<br>1 x resistencia 10 Kohm<br>5 x cable de prototipado<br>1 x kit espada láser<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_5_nova_beam_101_27969561883_o.png?_gl=1*ncq1xy*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4Mjg0MTY2MC4xNC4xLjE2ODI4NDMxODMuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541159-2018marlogospace.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541158-2018marlogospace.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí</a>.</p>
+<p><strong>1. Instrucciones</strong><br>Toma la shield pero no la conectes a tu placa controladora todavía.</p>
+<p><img src="5_25.png" alt="525" title="525" width="580" height="566"></p>
+<p>Toma la pieza de soporte de la espada y&nbsp;Conecta el shield en la parte superior de tu placa controladora, con la pieza de soporte con ranuras que va entre el shield y la tarjeta controladora.</p>
+<p><img src="5_26.jpg" alt="526" title="526" width="800" height="600"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p>Encuentra el programa Novabeam y ábrelo.</p>
+<p><img src="5_27.png" alt="527" title="527" width="580" height="310"></p>
+<p>Luego carga el programa en la placa.</p>
+<p>Ahora, tu control del rayo Nova está listo, es momento de contruir el resto del rayo Nova.</p>
+<p>En el IDE, haz clic en Programa &gt; Mostrar carpeta del programa. Abre las carpetas Processing &gt; Novabeam.</p>
+<p><img src="5_28.png" alt="528" title="528" width="580" height="366"></p>
+<p>Abre la primera parte de Novabeam.pde y sigue las instrucciones de programación para construir el resto del rayo Nova.</p>
+<p>Carga el código de la placa<br>Encuentra el código en Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;NovaBeam</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>    /*
+  * NovaBeam
+  *
+  * Ever wondered what it might be like to swing a laser beam? Then this project is for you! See
+  * yourself play with the Nova Beam on screen, and listen to the awesome sounds it makes.
+  *
+  * (c) 2013-2016 Arduino LLC.
+  */
+
+  #include <educationshield.h>
+
+  IMU imu; // the IMU
+  Button toggleButton(10);
+
+  int piezoPin = 8; //piezo
+
+  bool toggleState = false;
+
+  const int ledPin = 13;      // activity LED pin
+  boolean blinkState = false; // state of the LED
+
+  //smoothing function
+  const int numReadings = 50;
+  int readings[numReadings];      // the readings from the analog input
+  int readIndex = 0;              // the index of the current reading
+
+  //int total2,average2;
+
+  void setup() {
+    Serial.begin(9600); // initialize Serial communication
+
+    imu.begin();
+    toggleButton.begin();
+
+    //smoothing function
+    // initialize all the readings to 0:
+    for (int i = 0; i = numReadings) {
+      // ...wrap around to the beginning:
+      readIndex = 0;
+    }
+
+    // get the total of last 10 readings
+    int total=0;
+    for(int i=0;i<numreadings a="" and="" average="total" average:="" ay="" based="" button="" calculate="" check="" convert="" each="" else="" filter="" for="" frequency="" from="" get="" gyro="" if="" int="" into="" is="" its="" map="" notone="" numreadings="" off="" on="" open="" piezo="" pitch="imu.getPitch();" pressed="" procssing="" reading="" result="" roll="imu.getRoll();" scale="" serial="" sound="" the="" them="" time="" to="" togglestate="!toggleState;" tone="" total="" value="" when=""> 0) {
+      int val = Serial.read();
+      if (val == 's') { // if incoming serial is "s"
+
+        // print the roll,pitch and toggleState to the Procssing
+        Serial.print(average);
+        Serial.print(",");
+        Serial.print(pitch);
+        Serial.print(",");
+        Serial.print(toggleState);
+        Serial.print(",");
+        Serial.println("");
+
+      }
+    }
+
+
+    // blink LED to indicate activity
+    blinkState = !blinkState;
+    digitalWrite(ledPin, blinkState);
+    delay(30);
+
+  }
+</numreadings></educationshield.h></code></pre>
+</div>
+</div>
+<p>Cómo funciona<br>La librería EducationShield está incluida<br>El objeto IMU y el objeto del botón son creados.<br>Declara las variables para el botón, el piezo y el LED.<br>Luego, las variables para una función de suavizado son declaradas.<br>En&nbsp;setup(), la comunicación serial se inicia.<br>Inicializa el IMU y el botón.<br>Inicializa la función de suavizado en 0.<br>El led se enciende para indicar que la placa está preparada.<br>En&nbsp;loop(), ejecuta el&nbsp;imu&nbsp;y obtiene el acelerómetro del eje Y y lo configura como un entero.<br>Ajusta el rango de las medidas del eje Y a una escala menor.<br>Usa la función de suavizado con los valores absolutos del eje Y.<br>La función de suavizado es usada para suavizar los valores irregulares o erráticos de los sensores, almacenando 10 mediciones del valor y calculando el promedio de estas mediciones.<br>Ajusta en un rango el promedio de los valores absolutos a una escala que el piezo puede usar como frecuencia.<br>La función para valores absolutos (&nbsp;abs()&nbsp;) convierte un valor en positivo. Por ejemplo,&nbsp;abs(-13)&nbsp;será igual a 13 y&nbsp;abs(13)&nbsp;será 13 también.<br>Si el botón ha sido presionado, la variable&nbsp;toggleState&nbsp;cambia.<br>Si el estado de conmutación es true el sonido del piezo se activa, y utiliza la variable de la frecuencia con el piezo para cambiar el sonido en base a cómo has movido la placa.<br>Para empezar a enviar el movimiento y el estado de conmutación a processing, primero comprueba si la comunicación serial a processing está disponible.<br>Después lee los datos seriales de entrada desde processing, y busca la “s” para entrar.<br>Cuando la “s” ha llegado, envía la variable ay y el estado del botón con una “,” entre éstas a processing.<br>El led parpadea para indicar actividad.</p>
+<p><strong>2. La parte de Processing para la espada láser</strong><br>Ahora crearemos la parte de Processing.</p>
+<p>Encuentra el código en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;NovaBeam&gt;processing&gt;NovaBeam_processing</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>   /*
+ * Nova Beam
+ *
+ * Create an augmented reality application that gives you the opportunity
+ * to play with a nova beam. 
+ *
+ * (c) 2013-2016 Arduino LLC.
+ */
+
+
+import processing.video.*;
+import processing.serial.*;
+
+Capture video; // Object of the Capture class
+
+// Serial communication
+Serial myPort; // Serial port variable
+int newLine = 13; // New line character in ASCII
+int buttonState; // Stores the incoming button state
+float rollVal; // Stores the incoming roll value
+float inVal; // Value to store incoming rollVal after mapping
+float pitchVal; // Stores the incoming pitch value
+String message; // String that stores all incoming data
+
+String [] valArray = new String [2]; // Array to store all incoming values
+
+// Laser sword variables
+float imgWidth=250; // Image size
+float laserHeight=400; // Image size
+float adjustedY; // Position y
+boolean laserOn=false; // Variable to set state
+float laserGlowSize=300; // The size of the uplit area 
+float lightposx; // Light x position
+float lightposy; // Light y position
+
+String[] imgFiles = {"laserSwordHandle.png", "laserSwordBeam.png"}; // Array of image names
+PImage[] img = new PImage[2]; // PImage object array
+
+void setup() {
+  size(640, 480);
+  smooth();
+  rectMode(CORNERS);
+
+  // List all the available serial ports
+  println(Serial.list());
+
+  /*Set my serial port to same as the board, baud rate 9600*/
+  myPort = new Serial(this, Serial.list()[0], 9600); 
+
+  // We write an 's' to receive data from Arduino
+  myPort.write("s");
+
+  // Setup the camera
+  initializeCamera(0);
+
+  // Load the images
+  for (int i = 0; i &lt; 2; i = i + 1) {
+    img[i] = loadImage(imgFiles[i]);
+  }
+}
+
+void draw() {
+  // Read the incoming serial message
+  serialEvent();   
+
+  // Handle video processing
+  videoHandler();
+
+  // Draw the laser sword
+  drawSword();
+}
+
+void serialEvent() {
+  message = myPort.readStringUntil(newLine); // read from port until new line (ASCII code 13)
+  if (message != null) {
+    valArray = split(message, ","); // split message by commas and store in String array 
+    rollVal = float(valArray[0]); // convert to float rollVal
+    pitchVal = float(valArray[1]); // convert to float pitchVal
+    buttonState= int(valArray[2]); // convert to int buttonState
+
+    myPort.write("s"); // write an "s" to receive more data from Arduino
+
+    // If statement to constrain values within certain range
+    rollVal=constrain(rollVal,-90,90);
+    // Map to constrain values and avoid movement jitter  
+    inVal=map(rollVal, 90, -90, 50, -50);
+
+    // If statement to constrain values within certain range
+    pitchVal=constrain(pitchVal,-90,10);
+    //Map to adapt range to laser sword and window height 
+    laserHeight=map(pitchVal, 90, -90, 0, 400);
+
+  }
+}
+
+void drawSword() {
+
+  calculateLight();
+
+  pushMatrix();
+
+  // We place the image in the middle, and at suitable height 
+  translate(width/2, 670-adjustedY/2);
+
+  // We rotate the image
+  rotate(radians(inVal));
+
+  /*We move the image back so that the rotation pivot 
+   is aligned in the center and bottom of the handle*/
+
+  // We move up the handle 110 units
+  translate(-imgWidth/2, -110);
+
+  // Sword handle image
+  image(img[0], 0, 0, imgWidth, 110); 
+
+  // Visually adjust the laser beam
+  adjustedY=laserHeight-10;
+
+  // We move up the beam 380 units
+  translate(0, -adjustedY);
+
+  // Only draw laser beam when it is toggled "ON"
+  if (buttonState==1) {
+    // Laser width is constant, but height is dynamic 
+    image(img[1], 0, 0, imgWidth, laserHeight);
+  }
+
+  popMatrix();
+}
+
+void videoHandler() {
+
+  // If video is available and button is toggled "ON"
+  if (video.available()&amp;&amp;buttonState==1) {
+
+    // Start reading the video
+    video.read();
+
+    // Load the pixel data of the display window
+    video.loadPixels();
+
+    // Nested for loop runs through all display window pixels
+    for (int x = 0; x &lt; video.width; x++) {
+      for (int y = 0; y &lt; video.height; y++) {
+
+        // Take video size into account
+        int videoLoc = x + y*video.width;
+
+        // Take window size into account
+        int displayLoc = x + y*width;
+
+        // Get the R, G and B values from the video pixels
+        float r = red   (video.pixels[videoLoc]);
+        float g = green (video.pixels[videoLoc]);
+        float b = blue  (video.pixels[videoLoc]);
+
+        // Calculate to change brightness of an area based on distance
+        float distance = dist(x, y, lightposx, lightposy);
+        float adjustBrightness = (laserGlowSize-distance)/laserGlowSize;  
+        r *= adjustBrightness;
+        g *= adjustBrightness;
+        b *= adjustBrightness;
+
+        // Constrain RGB to between 0-255
+        r = constrain(r, 0, 255);
+        g = constrain(g, 0, 255);
+        b = constrain(b, 0, 255);
+
+        // Set the r, g and b values for color to replace the old pixel
+        color c = color(r, g, b);
+
+        // Set the new pixel color(r, g, b) value for current pixel
+        video.pixels[displayLoc] = c;
+      }
+    }
+
+    // Display the video
+    set(0, height - video.height, video);
+  } else if (buttonState==0) {
+    // Display black background
+    background(0);
+  }
+}
+
+void calculateLight() {
+
+  // Calculate x position for light based on window size and incoming value
+  lightposx=width/2+(inVal*3);
+
+  // Calculate y position for light based on laser center and visual result
+  lightposy=480/2;
+}
+
+void initializeCamera(int camNum) {
+  String[] cameras = Capture.list();
+
+  if (cameras.length == 0) {
+    println("There are no cameras available for capture.");
+    exit();
+  } else {
+    println("Available cameras:");
+    for (int i = 0; i &lt; cameras.length; i++) {
+      println("["+i+"] "+cameras[i]);
+    }
+
+    // The camera can be initialized directly using an element
+    // from the array returned by list():
+    video = new Capture(this, width, height, cameras[camNum]);
+    video.start();
+  }   
+
+  // we need the camera at full blast
+  frameRate(30);
+}
+</code></pre>
+</div>
+</div>
+<p>Cómo funciona<br>Declaramos el objeto video en la clase&nbsp;Capture<br>Las variables seriales son creadas para recibir y almacenar datos entrantes, e incluir ints, floats, Strings, un array y un objeto de clase&nbsp;Serial.<br>imgWidth&nbsp;almacena la anchura de las imágenes del láser.&nbsp;laserHeight,&nbsp;adjustedY,&nbsp;laserGlowSize,&nbsp;lightposx&nbsp;y&nbsp;lightposy&nbsp;son variables dinámicas utilizadas para hacer el láser interactivo basado en los movimientos de la placa.<br>Declaramos String array para nuestras imágenes, y asignamos los nombres “NovaBeamHandle.png" y "NovaBeamLaser.png".<br>PImage\[\] img = new PImage\[2\]&nbsp;es nuestro array&nbsp;PImage&nbsp;dónde almacenamos las imágenes.<br>En&nbsp;setup()&nbsp;definimos el tamaño de la ventana y el estilo de los gráficos. Luego, imprimimos los puertos seriales disponibles así podremos ajustar el número del puerto serial en base a la información impresa. Cuando el puerto correcto es configurado, utilizamos&nbsp;myPort.write(“s”)&nbsp;para enviar una “s” a nuestra placa. La cámara es inicializada utilizando&nbsp;initializeCamera(), y al final del setup&nbsp;setup(), un bucle carga las PImages una por una, utilizando&nbsp;img\[i\] = loadImage(imgFiles\[i\]).<br>En&nbsp;draw(), llamamos a nuestros métodos&nbsp;serialEvent(),&nbsp;videoHandler()&nbsp;y&nbsp;drawNovaBeam()&nbsp;en el orden específico que queramos que se ejecute.<br>En la función&nbsp;serialEvent(), leemos el puerto y lo guardamos en nuestra variable message.<br>Si el mensaje contiene información, y no es igual a null, el contenido será dividido en partes utilizando las comas en el String entrante. Las partes divididas son separadas para almacenarse en variables acordes al mismo orden que llegaron. Antes de que sean almacenadas, son convertidas de String a float y int.<br>Después de que la información del puerto ha sido almacenada, enviamos una nueva “s” para preguntar a la placa por los valores actualizados.<br>En&nbsp;drawNovaBeam(), utilizamos&nbsp;translate(x,y)&nbsp;y&nbsp;rotate(angle)&nbsp;para posicionar nuestra empuñadura láser y el haz. Ambos usan las variables dinámicas&nbsp;laserHeight&nbsp;y&nbsp;adjustedY&nbsp;que son actualizadas a la vez que la placa se mueve. Una declaración “if” se usa para determinar si el botón es conmutado o no. La imagen del haz es mostrada sólo si el botón es pulsado en “ON.<br>En&nbsp;videoHandler(), el video sucede en Processing. El video se muestra solo cuando está disponible y el botón es pulsado en “ON”. El video es&nbsp;read()&nbsp;(leído) y usando un bucle “for” anidado, los pixeles se almacenan y analizan uno a uno. Cada pixel es analizado por sus valores por color determinado R, G y B, y se reemplazan por una actualización del valor del color. El valor del color se basa en la ubiación actual del haz láser utilizando&nbsp;lightposx,&nbsp;lightposy&nbsp;y el tamaño de la parte iluminada de la ventana es definido por&nbsp;laserGlowSize. Cuanto más lejos del centro, los valores R, G y B se harán más oscuros. Esto hará algunas partes de la pantalla parecer oscura, mientras que el área del haz láser estará iluminado. Si buttonState está “OFF”, todo el fondo será negro.<br>En&nbsp;calculateLight(), la posición de la luz es calculada principalmente basándose en cálculos del punto central.<br>El método&nbsp;initializeCamera(camNum)&nbsp;recibe el número de la cámara. Este método puede ser utilizado para encontrar la cámara correcta si el ordenador tiene diferentes o para corregir algún error.<br>3. ¿No funciona?<br>Asegurate que tienes el puerto serial correcto conectado. Comprueba la lista que&nbsp;println(Serial.list())&nbsp;imprime para encontrar cuál utilizar.<br>Si la cámara no funciona, comprueba la lista de cámaras impresa por el método&nbsp;initializeCamera(). Comprueba la lista que&nbsp;println("\["+i+"\] "+cameras\[i\])&nbsp;imprime y elige el que intentas utilizar.<br>¡Sigue experimentando!<br>Añade algunos leds a la placa de pruebas, y haz que se enciendan o apaguen dependiendo si el botón es presionado o no.<br>¡Añade más efectos a Processing! Crea más efectos visuales que se accionen cuando mueves el Nova Beam.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>BUSCADOR DE PLANETAS</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>El universo es grande, muy grande, por ende vas a necesitar una herramienta que encuentre los planetas por ti.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/065fFxcJIWY"></iframe></p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x piezo<br>4 x cable prototipado<br>1 x LED<br>1 x resistencia 220 ohm<br>1 x pila 9 V<br>1 x conector de alimentación con jack<br>1 x kit buscador de planetas<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_5_planet_finder_101_28552563876_o.png?_gl=1*1nwjbb3*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4Mjg0MTY2MC4xNC4xLjE2ODI4NDQwMTMuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541159-2018marlogospace.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541158-2018marlogospace.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí.</a></p>
+<p><strong>Instrucciones</strong></p>
+<p>Empieza con el&nbsp;shield.</p>
+<p><img src="5_29.png" alt="529" title="529" width="580" height="565"></p>
+<p><img src="5_30.jpg" alt="530" title="530" width="800" height="600"></p>
+<p>Prepara todos los materiales de construcción del buscador de planetas.</p>
+<p>Conecta el shield en la parte superior de tu placa controladora, con la pieza de soporte con ranuras que va entre el shield y la tarjeta controladora.</p>
+<p><img src="5_31.jpg" alt="531" title="531" width="800" height="600"></p>
+<p><img src="5_32.jpg" alt="532" title="532" width="800" height="600"></p>
+<p><img src="5_33.jpg" alt="533" title="533" width="800" height="600"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p>Encuentra el programa Planetfinder y ábrelo.</p>
+<p><img src="5_34.png" alt="534" title="534" width="580" height="310"></p>
+<p>Luego carga el programa en la placa.</p>
+<p>Conecta la bateria de 9 V usando el conector de poder a la tarjeta controladora.</p>
+<p><img src="5_35.jpg" alt="535" title="535" width="800" height="600"></p>
+<p>Ahora es momento de encontrar esos planetas!</p>
+<p>Código<br>Encuentra el codigo en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;PlanetFinder</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+*  PlanetFinder
+* 
+* The universe is big, really big, so if you are ever going to be able to find any planets then you'll
+* need a tool track them down for you.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+
+
+IMU imu; // the IMU
+
+bool blinkState = false; // state of the LED
+const int ledPin = 13;      // activity LED pin
+const int piezoPin = 8; //piezo
+const int redPin = 6; // the red LED
+int piezoState = LOW;             // piezoState used to set the piezo
+
+bool newGame = true;
+int x = 0;
+int y = 0;
+const int errorMargin=10;
+
+unsigned long previousMillis = 0;   // last time the click played, in ms
+
+
+// notes in the melody:
+int melody[] = {
+  196,  196, 262
+};
+
+// note durations: 4 = quarter note, 8 = eighth note, etc.:
+int noteDurations[] = {
+  8, 8, 4
+};
+
+
+void setup() {
+  Serial.begin(9600); // initialize Serial communication
+
+
+  imu.begin();
+
+
+  // configure Arduino LED for activity indicator
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH); // turn on LED to show that the board has executed
+
+  pinMode(piezoPin, OUTPUT); // sets piezo
+  pinMode(redPin, OUTPUT); // sets red LED
+  randomSeed(analogRead(0)); // initializes the pseudo-random number generator
+
+}
+
+void loop() {
+
+  // start the IMU read
+  imu.run();
+
+  // get the pitch and roll result from the filter
+  int pitch = imu.getPitch();
+  int roll = imu.getRoll();
+
+
+  // new round the game
+  if (newGame) {
+
+    //pick goal
+    x = random(-180, 180);
+    y = random(-90, 90);
+    newGame = false;
+  }
+
+
+  // print the roll/pitch and the target roll/pitch needed for debugging only
+  Serial.print("roll:");
+  Serial.print(roll);
+  Serial.print("\t");
+  Serial.print("pitch:");
+  Serial.print(pitch);
+  Serial.print("\t");
+
+  Serial.print("Target roll:");
+  Serial.print(x);
+  Serial.print("\t");
+  Serial.print("Target pitch:");
+  Serial.println(y);
+
+
+  // calculate how close the gyro is to the goal values
+
+  //Computes the value of the IMU reads and the goal target
+  int absoluteRollDiff = abs(roll - x);
+  int absolutePitchDiff = abs(pitch - y);
+  int closeTogoal = absoluteRollDiff + absolutePitchDiff;
+
+
+
+  // click in shorter intervals the closer the gyro read is to the goal
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis &gt;= closeTogoal ) {
+    // save the last time you clicked the piezo
+    previousMillis = currentMillis;
+
+    // if the piezo is off turn it on and vice-versa:
+    if (piezoState == LOW) {
+      piezoState = HIGH;
+    } else {
+      piezoState = LOW;
+    }
+
+    digitalWrite(piezoPin, piezoState);
+    digitalWrite(redPin, piezoState);
+  }
+
+  // if the gyro value is at the goal
+  if (closeTogoal &lt;= errorMargin) {
+
+    Serial.print("Win");
+
+
+    // play the win tune
+    for (int thisNote = 0; thisNote &lt; 3; thisNote++) {
+
+      // to calculate the note duration, take one second
+      // divided by the note type.
+      //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+      int noteDuration = 1000 / noteDurations[thisNote];
+      tone(piezoPin, melody[thisNote], noteDuration);
+
+      // to distinguish the notes, set a minimum time between them.
+      // the note's duration + 30% seems to work well:
+      int pauseBetweenNotes = noteDuration * 1.30;
+      delay(pauseBetweenNotes);
+      // stop the tone playing:
+      noTone(piezoPin);
+
+    }
+    // a new goal and new game round is needed
+    newGame = true;
+  }
+
+
+  // blink LED to indicate activity
+  blinkState = !blinkState;
+  digitalWrite(ledPin, blinkState);
+
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p>Cómo funciona<br>&nbsp;</p>
+<p>La librería EducationShield está incluida<br>El objeto IMU es declarado<br>La variable&nbsp;ledPin&nbsp;es declarada para almacenar el valor 13, un variable&nbsp;blinkState&nbsp;es declarada para cambiar el estado de parpadeo del LED en el&nbsp;loop()&nbsp;y una variable&nbsp;redPin&nbsp;para almacenar el valor 6.<br>La variable&nbsp;piezoPin&nbsp;se declara para almacenar el valor 8, un variable&nbsp;piezoState&nbsp;es declarada para controlar el piezo y el LED rojo, y una variable de tipo Long para almacenar el valor&nbsp;millis()<br>Más variables para comprobar si un juego nuevo es necesario, las variables enteras son para almacenar los valores objetivo de las coordenadas x, y, y una variable del tipo Long para guardar los&nbsp;millis()&nbsp;para el temporizador.<br>Son declaradas dos arrays pequeñas para manipular la afinación del tono y la duración de la nota para la melodía de victoria.<br>En&nbsp;setup(), espera a que el monitor serial se abra, después se inicializará el IMU.<br>El programa se pausa 5000 milisegundos para calibrar la IMU durante la inicialización del IMU.<br>El led integrado parpadea para mostrar cuando la calibración fue realizada y configura el piezo como salida.<br>Una descendencia aleatoria es inicializada, para mantener la función aleatoria, aleatoria.<br>En&nbsp;loop(), ejecuta el&nbsp;imu&nbsp;y obten el cabeceo (pitch) y alabeo (roll), establece los resultados como enteros.<br>Si es una nueva ronda juego, usa el&nbsp;random()&nbsp;para obtener dos coordenadas de destino.<br>Obtén el valor absoluto de la diferencia entre el alabeo (roll) y cabeceo (pitch) y valores del objetivo.<br>El valor de la función absoluta (&nbsp;abs()&nbsp;) convierte un valor a positivo . Por ejemplo.&nbsp;abs(-13)&nbsp;será igual a 13 y&nbsp;abs(13)&nbsp;será también 13.<br>Después las diferencias son sumadas y el resultado es la diferencia combinada.<br>La diferencia entre ambos, cabeceo (pitch) y alabeo (roll) son sumandas para crear un valor que representa cuán cerca está la lectura actual del objetivo, el entero “closeTogoal”.<br>Lee&nbsp;millis(), el tiempo actual que la placa controladora ha estado encendida en milisegundos.<br>Comprueba si el tiempo actual/Millis()&nbsp;substraido por el anterior&nbsp;Millis()&nbsp;es más grande que “closeTogoal”<br>La primera vez que está hecho, el&nbsp;Millis()&nbsp;anterior es 0, y será actualizado después de este punto.<br>Si “closeTogoal” es más pequeño, entonces configura la actualización anterior de los&nbsp;Millis()&nbsp;para ser igual al actual, luego cambia el “piezoState” para ser&nbsp;LOW&nbsp;si antes era&nbsp;HIGH&nbsp;y viceversa. Entre más pequeño el entero&nbsp;closeTogoal” es el click del piezo será más rápido.<br>La misma variable “piezoState” es también usado para encender y apagar el led rojo.<br>Luego, comprueba si “closeTogoal” está lo suficientemente cerca.<br>Si es 0, tú ganas. La melodía de victoria suena mediante la creación de dos arrays que deciden el tono y la duración de las notas con el fin de crear una corta melodía.<br>Es necesario establecer una nueva ronda de juego, para ello un nuevo objetivo debe ser establecido en la siguiente iteración.<br>El led parpadea para indicar la actividad de la placa.</p>
+<p><br>¿No funciona?<br>Abre el monitor serial, y comprueba cómo los valores cambian cuando inclinas la placa y fíjate cómo necesitas moverlo para que la placa conozca la dirección.</p>
+<p>¡Sigue experimentando!<br>&nbsp;</p>
+<p>Establece tus propias coordenadas de destino, y cambia las melodías y crea melodías basándote en cómo mueves la placa.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>SHIP NAVIGATOR</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Para hallar un camino seguro en el espacio, tu nave necesitará un navegador. Sigue las instrucciones del AI de tu nave para navegar con este sin estrellarte contra cualquier cosa.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/ay_BDrxs05Q"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x tarjeta microSD<br>1 x altavoz<br>1 x pila 9 V<br>1 x conector de alimentación con jack<br>1 x kit ship navigator</p>
+<p><strong>Instrucciones</strong><br>Prepara todos los materiales de construcción del navegador de la nave. Archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541159-2018marlogospace.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541158-2018marlogospace.ai">AI</a>.</p>
+<p>Construye tu nave</p>
+<p><img src="5_36.jpg" alt="536" title="536" width="800" height="600"></p>
+<p>Conecta el&nbsp;shield&nbsp;en la parte superior de tu placa controladora, con la pieza de soporte con ranuras que va entre el shield y la tarjeta controladora.</p>
+<p><img src="5_37.jpg" alt="537" title="537" width="800" height="600"></p>
+<p>Fija el conector de poder a la batería. No conectes la otra punta de la tarjeta aún!</p>
+<p><img src="5_38.jpg" alt="538" title="538" width="800" height="600"></p>
+<p>Para conectar el altavoz, revisa la referencia&nbsp;Prepara el altavoz, cuando esté listo conectalo al conector para altavoces.</p>
+<p><img src="5_40.png" alt="540" title="540" width="579" height="771"></p>
+<p>Guarda 5 archivos de sonido .wav in la tarjeta microSD. En el IDE, los archivos están ubicados en Programa &gt; Mostrar carpeta del programa &gt; sound_files. Guarda "down.wav", "left.wav", "right.wav", "slow.wav" y "up.wav" en el directorio raíz de la tarjeta microSD. Si quieres grabar tus propios sonidos, revisa la referencia&nbsp;Prepara Sonidos Wav.</p>
+<p><img src="5_39.jpg" alt="539" title="539" width="800" height="600"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador. Conecta la tarjeta microSD a la placa controladora.</p>
+<p>Encuentra el programa ShipNavigator y ábrelo.</p>
+<p><img src="5_41.png" alt="541" title="541" width="577" height="310"></p>
+<p>Luego carga el programa en la placa. Desconecta el cable USB, no ejecutarás este proyecto con la placa conectada.</p>
+<p>Conecta la bateria de 9 V y ¡empieza a navergar!</p>
+<p><img src="5_42.jpg" alt="542" title="542" width="800" height="600"></p>
+<p>Código<br>Encuentra el código en Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;ShipNavigator</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+*  ShipNavigator
+*
+* To find your way around space safely, your ship will need a navigator. Follow your ship’s AI
+* instructions to navigate your ship without crashing it into anything.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+
+Player player = Player(); // for playing sounds
+IMU imu; // the IMU
+
+
+const int ledPin = 13;      // activity LED pin
+boolean blinkState = false; // state of the LED
+
+bool up, down, left, right; //used for checking if the board has been moved in any direction
+int moveTask = 1; //used for picking what direction should be done
+bool newMove = false; // used for checking if a newMove is needed
+
+long lastTimer; //used for saveing millis()
+
+void setup() {
+
+  // configure Arduino LED for activity indicator
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH); // turn on led to show that the board has executed
+
+
+  Serial.begin(9600); // initialize Serial communication
+
+
+  imu.begin();
+
+
+  //Initialize the sound player
+  player.begin();
+
+  randomSeed(analogRead(0));// initializes the pseudo-random number generator
+
+
+}
+
+void loop() {
+  // read raw rollro measurements from device
+  imu.run();
+  // get the pitch and roll result from the filter
+  int pitch = imu.getPitch();
+  int roll = imu.getRoll();
+
+  Serial.print("roll:");
+  Serial.print(pitch);
+  Serial.print("\t");
+  Serial.print("pitch:");
+  Serial.println(roll);
+
+  // short pause before the next round start
+  if (!newMove) {
+    Serial.println("New round");
+
+    delay(1000);
+
+  }
+
+
+
+
+  // check if the board has been tilted in any direction and set the direction bools accordingly
+  if (pitch  45) {
+    up = false;
+    down = true;
+    left = false;
+    right = false;
+  } else if (roll   45) {
+    up = false;
+    down = false;
+    left = false;
+    right = true;
+  } else {
+    up = false;
+    down = false;
+    left = false;
+    right = false;
+  }
+
+
+  // if a new move is needed, generate random direction and play the sound for that direction
+  if (!newMove) {
+    // picks a random number from 1 to 4
+    moveTask = random(1, 5);
+
+    //Playsound
+    if (moveTask == 1) {
+      Serial.println("move up");
+      player.play("up.wav");
+
+    } else if  (moveTask == 2) {
+      Serial.println("move down");
+      player.play("down.wav");
+
+    } else if (moveTask == 3) {
+      Serial.println("move left");
+      player.play("left.wav");
+
+    } else if (moveTask == 4) {
+      Serial.println("move right");
+      player.play("right.wav");
+
+    }
+
+    newMove = true; // a new move is created
+    lastTimer = millis(); // reset the 3 sec timer
+
+  }
+
+  // check if the random direction and the direction the board moved in is the same
+  if (up &amp;&amp; moveTask == 1) {
+    Serial.println("up");
+    newMove = false;
+  }
+  if (down &amp;&amp; moveTask == 2) {
+    Serial.println("down");
+    newMove = false;
+  }
+  if (left &amp;&amp; moveTask == 3) {
+    Serial.println("left");
+    newMove = false;
+  }
+  if (right &amp;&amp; moveTask == 4) {
+    Serial.println("right");
+    newMove = false;
+  }
+
+
+  // if the right move is not done before the 3 sec timer, reset the newMove bool and the timer to start a new round
+  if (millis() - lastTimer &gt;= 3000) {
+
+    if (newMove) {
+      Serial.println("To slow");
+      //Play the sound for being to slow
+      player.play("slow.wav");
+      newMove = false;
+    }
+
+    lastTimer = millis();
+
+  }
+
+
+
+
+
+  // blink LED to indicate activity
+  blinkState = !blinkState;
+  digitalWrite(ledPin, blinkState);
+
+  delay(250);
+}
+</educationshield.h></code></pre>
+</div>
+</div>
+<p>COMO FUNCIONA<br>las librerías EducationShield y SD estan incluidas.<br>El objeto&nbsp;Player&nbsp;llamado player se declara.<br>El objeto IMU llamado mu es declarado.<br>La variable&nbsp;ledPin&nbsp;es declarada para contener el valor 13, y una varaible&nbsp;blinkState&nbsp;para cambiar luego en el&nbsp;loop()&nbsp;el estado de parpadeo del led.<br>Se declaran las variables para las direcciones y el temporizador.<br>En&nbsp;setup(), una vez el monitor serial es abierto la inicialización del IMU comenzará.<br>El programa se pausa por 5000 milisegundos para calibrar el IMU durante la fase de inicialización.<br>El jugador es configurado e inicializado, y una semilla aleatoria es inicializada, para mantener la función aleatoria, aleatoria<br>En&nbsp;loop(), se ejecuta la IMU y se obtienen los valores pitch y roll (cabeceo y alabeo en español), establece los resultados en variables enteras.<br>Imprime cabeceo (pitch) y alabeo (roll).<br>Si es un nuevo ronda espera 1 segundo.<br>Comprueba si las medidas del IMU muestran que la placa ha sido inclinada en algún ángulo.<br>Si el programa necesita un nuevo movimiento, escoge un número aleatorio entre el 1 y el 4.<br>Reproduce el archivo de sonido con tal que coincida con la dirección de los números aleatorios<br>Resetea 3 segundos el temporizador<br>Comprueba si el número aleatorio encaja con el ángulo en el que la placa se mueve.<br>- Si encaja, resetea el temporizador y prepara para un nuevo movimientoSi el temporizador alcanza 3 segundos antes de que los números aleatorios encajen con el ángulo de la placa se mueve, reproduce el sonido “Lose”, resetea el temporizador y se prepara para un nuevo movimiento/ronda.<br>El led parpadea para indicar actividad<br>Solución de problemas<br>Abre el monitor serial y comprueba cómo los valores cambian cuando inclinas la placa y fíjate cuán rápido necesitas mover la placa para saber la dirección.<br>Depura el reproductor de música, mira en&nbsp;Player&nbsp;referencia para más detalles.<br>Mira en la referencia&nbsp;tarjeta micro SD&nbsp;para colocarla correctamente.<br>Depura el IMU, mira en las referencias de IMU para más detalles..<br>¡Sigue experimentando!<br>Haz tus propios sonidos para que la placa pueda dar otros comandos. Intenta hacer otras combinaciones de las direcciones de inclinación que encajan con estos sonidos.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>SPACE ROVER</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Caminar en planetas alienígenas puede ser dificil. Vas a necesitar un explorador para investigar estos nuevos mundo alienígenas. Ahora podrás controlar un explorador para descubrir los planetas.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/gekMOld4yxs"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>2 x servo de giro continuo<br>7 x cable de prototipado<br>1 x pila 9 V<br>4 x pila AA<br>1 x porta pilas de 4<br>2 x conector de alimentación (uno con jack y otro con dos cables sueltos)<br>1 x kit space rover<br>1 x bola metálica<br>2 x rueda<br>Otros materiales:</p>
+<p>1 x Teléfono Android con Bluetooth<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_5_space_rover_101_27969561793_o.png?_gl=1*1i1s3qn*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4Mjg0MTY2MC4xNC4xLjE2ODI4NDYwNzMuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541159-2018marlogospace.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541158-2018marlogospace.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí</a>.</p>
+<p><strong>Instrucciones</strong><br>Prepara todos los materiales de construcción del explorador espacial. El explorador espacial usa muchas de las partes del <a href="4_robots.html">seguidor de linea!</a> si quieres alguno consejos par la construcción, ve a la referencia de&nbsp;Consejos de construcción.</p>
+<p><img src="5_43.jpg" alt="543" title="543" width="800" height="600"></p>
+<p><img src="5_44.jpg" alt="544" title="544" width="800" height="600"></p>
+<p>Conecta el&nbsp;shield&nbsp;en la parte superior de tu placa controladora.</p>
+<p><img src="5_45.png" alt="545" title="545" width="579" height="1422"></p>
+<p><img src="5_46.jpg" alt="546" title="546" width="800" height="600"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador. Conecta la tarjeta microSD a la placa controladora.</p>
+<p>Encuentra el programa SpaceRover y ábrelo.</p>
+<p><img src="5_47.png" alt="547" title="547" width="580" height="310"></p>
+<p>Luego carga el programa en la placa. Desconecta el cable USB, no ejecutarás este proyecto con la placa conectada.</p>
+<p><img src="5_48.jpg" alt="548" title="548" width="800" height="600"></p>
+<p>Prepara la batería de 9 V con el conector de poder y ponlo dentro del robot. Ve a la referencia de las&nbsp;baterías&nbsp;si es necesario.</p>
+<p>Conecta la batería de 9 V a la toma de corriente de la placa</p>
+<p><img src="5_50.jpg" alt="550" title="550" width="800" height="600"></p>
+<p><img src="5_49.jpg" alt="549" title="549" width="800" height="600"></p>
+<p>Inicia la app CTC y conectala al explorador espacial para controlarlo!</p>
+<p>Código<br>Encuentra el código en Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;SpaceRover</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+*  SpaceRover
+* 
+* Getting around on alien planets can be difficult. 
+* You are going to need a rover to investigate these new alien worlds. 
+* Now you will be able to control the rover to explore alien planets.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;EducationShield.h&gt;
+
+BLEuart ble = BLEuart(TYPE_LOGOROBOT);
+
+Wheels wheels = Wheels(6, 9);
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  ble.setName("Rover");
+  ble.begin();
+
+ wheels.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (ble.searchCentral()) {
+    Serial.println("Connected to central ");
+    while (ble.connected()) {
+      if (ble.dataReceived()) {
+        ble.fetchData();
+
+        Serial.print("Received number of commands: ");
+        Serial.println(ble.getReceivedLength());
+
+        for (int i = 0; i &lt; ble.getReceivedLength(); i++) {
+          unsigned char n = ble.receivedString()[i];
+
+          Serial.print(n);
+
+          logoMove(n);
+        }
+        Serial.println();
+      }
+    }
+    Serial.println(F("Disconnected from central "));
+
+  }
+}
+
+void logoMove(unsigned char direction) {
+  switch (direction) {
+    case 1: //forward
+      wheels.goForward();
+      delay(750);
+      break;
+    case 2: //backwards
+      wheels.goBackwards();
+      delay(750);
+      break;
+    case 3: //left
+      wheels.turnLeft();
+      delay(250);
+      break;
+    case 4: //right
+      wheels.turnRight();
+      delay(250);
+      break;
+  }
+  wheels.standStill();
+  delay(300);
+}</code></pre>
+</div>
+</div>
+<p>Cómo funciona<br>&nbsp;</p>
+<p>La librería EducationShield está incluida<br>Crea un objeto de la clase&nbsp;BLEuart, y establece el tipo&nbsp;TYPE_LOGOROBOT.<br>Crea el objeto&nbsp;wheels, el cuál es usado para controlar dos servomotores cómo ruedas del vehículo. Las ruedas de la izquierda están conectadas al pin 6 y las de la derecha al pin digital 9.<br>En setup, fija el nombre del dispositivo BLE. Cualquier nombre menos de 8 caracteres está bien. Asegurate que es diferente al de los proyectos de tus compañeros.<br>Empieza la comunicación BLE<br>En bucle, busca el dispositivo central para conectarse. Si la conexión está establecida, ejecuta el siguiente código.<br>Mientras la placa está conectada al dispositivo central, ejecuta el código siguiente.<br>Cuando la placa recibe datos de la central:<br>Extrae los datos<br>Muestra la longitud de los datos, en número de caracteres.<br>Haz un bucle a través de cada carácter de la secuencia recibida, la secuencia tiene que ser compuesta por comandos para que el “rover” funcione<br>Ejecuta el comando y mueve las ruedas<br>En&nbsp;logoMove:<br>Se acepta un parámetro, un carácter representa la dirección. Tendría que ser ‘1’,’2’,’3’ o ‘4’, es decir, adelante, izquierda, atrás, derecha, respectivamente. Recuerda que son caracteres en lugar de números, por lo que '1' en lugar de 1 aquí. '1' tiene un código ASCII de 49, por lo que si se compara con los números enteros, es lo mismo que 49. Y '2' es 50, etcétera.<br>Utiliza la instrucción “switch” para identificar y llevar a cabo la orden.<br>Empieza moviendo las ruedas, y espera un poco. Así las ruedas continuarán moviéndose durante un tiempo.<br>Después, para las ruedas y espera un poco. Así podrás ver que una acción ha sido realizado.</p>
+<p><br>¿No funciona?<br>¿No puedes conectar tu dispositivo a la aplicación? Mira las referencias de la aplicación.</p>
+<p><br>¡Sigue experimentando!<br>Haz tu propio comando para mover el explorador en patrones diferentes.<br>Dale más herramientas para usar, adicionando más parte y adiciona nuevas funciones al explorador de esta manera puede usar las nuevas partes.</p>
+</div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ZAZZ EL ALIEN</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Es mucha responsabilidad, pero ahora debes cuidar del bebé extraterrestre. Este particular bebé alienígena se comunica a través de bluetooth. Necesitas asegurarte que haga ejercicio, coma y duerma. Utiliza la aplicación para comprobar su estado, y toma las medidas necesarias para satisfacer sus necesidades. Agitalo para hacer ejercicios, pulsa el botón varias veces para darle de comer. Cubre el sensor de luz para darle un poco de sueño.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/hQZKi4JFdz8"></iframe></p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/udkbJYuiAOw"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>3 x cable prototipado<br>1 x resistencia 10 kohm<br>1 x módulo sensor de luz<br>1 x cable de módulo<br>1 x botón<br>1 x pila 9 V<br>1 x conector de alimentación con jack<br>1 x kit zazz el alien<br>Otros materiales:</p>
+<p>1 x Teléfono Android con Bluetooth<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_5_zazz_the_alien_101_28301037050_o.png?_gl=1*qdr3fz*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4Mjg0MTY2MC4xNC4xLjE2ODI4NDcxNzQuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541159-2018marlogospace.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541158-2018marlogospace.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí</a>.</p>
+<p><strong>Instrucciones</strong><br>Prepara todos los materiales de construcción de Zazz el alienígena. Si quieres alguno consejos par la construcción, ve a la referencia de&nbsp;Consejos de construcción.</p>
+<p><img src="5_51.jpg" alt="551" title="551" width="800" height="600"></p>
+<p><img src="5_52.jpg" alt="552" title="552" width="800" height="600"></p>
+<p><img src="5_53.png" alt="553" title="553" width="579" height="692"></p>
+<p>Abre la aplicación CTC y conectala a Zazz el Alienígena, para monitorizarlo!</p>
+<p><img src="5_54.jpg" alt="554" title="554" width="800" height="600"></p>
+<p>CÓDIGO<br>Encuentra el código en Archivo&gt;Ejemplos&gt;EducationShield&gt;Module5-Space&gt;Projects&gt;ZazzTheAlien</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+*  ZazztheAlien
+*
+* It is a lot of responsibility but now you will have to take care of the alien baby. This particular
+* alien baby communicates with bluetooth. You need to make sure it has proper exercises, get
+* enough food and sleep.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;educationshield.h&gt;
+
+BLEuart ble=BLEuart(TYPE_TAMAGOTCHI);
+IMU imu;
+
+//const int lightPin = A0; //phototransistor
+LightSensor sleepSensor(A1);
+
+Button foodButton(9);
+
+int exerciseLv, foodLv, sleepLv; // the saved stats that will go down over time
+
+long sleepTimer;
+long updateTimer;
+
+void setup() {
+  Serial.begin(9600);
+
+  // Curie IMU setup
+  imu.begin();
+  imu.detectShock();
+  imu.attachCallback(shockCallback);
+
+  // set advertised local name
+  ble.setName("Zazz");
+  ble.begin();
+
+  foodButton.begin();
+
+  sleepSensor.config(1000,200);
+
+  //Set initial values for the three states
+  exerciseLv = 100;
+  foodLv = 100;
+  sleepLv = 100;
+
+  updateTimer = millis();
+  sleepTimer = millis();
+}
+
+void loop() {
+
+  updateStatus(); // used to update the stats values
+
+  // if a central is connected to peripheral:
+  if(ble.searchCentral()){
+    Serial.println("Connected to central ");
+    // while the central is still connected to peripheral:
+    while(ble.connected()){
+      updateStatus();// used to update the stats values
+      Serial.println("Sending data");
+      ble.addValue(exerciseLv);
+      ble.addValue(foodLv);
+      ble.addValue(sleepLv);
+      ble.send();
+    }
+    // when the central disconnects, print it out:
+    Serial.println(F("Disconnected from central "));
+
+  }
+
+}
+
+void updateStatus() {
+  // if the light level is low, add 1 to the sleepLv
+  if(sleepSensor.getState() &amp;&amp; millis()-sleepTimer&gt;200){
+    sleepLv++;
+    sleepTimer=millis();
+  }
+
+  //Fill the food stat when the button is being pressed
+  if(foodButton.isPressed()){
+    foodLv+=5;
+  }
+
+  // every 3 sec update and lower the 3 stats in diffrent rates
+  if (millis() - updateTimer &gt;= 3000) {
+    exerciseLv = exerciseLv - 1;
+    foodLv = foodLv - 2;
+    sleepLv = sleepLv - 3;
+
+    updateTimer = millis();
+  }
+
+  //Constrain the values so they don't exceed 100 or go below 0
+  exerciseLv=constrain(exerciseLv,0,100);
+  foodLv=constrain(foodLv,0,100);
+  sleepLv=constrain(sleepLv,0,100);
+}
+
+// this is called when the Imu detects  a shock in any direction
+static void shockCallback(void) {
+  //add 1 to the exerciseLv
+  exerciseLv++;
+}</code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>La librería EducationShield está incluida<br>Crea el objeto&nbsp;BLEuart, y establece el tipo&nbsp;TYPE\_TAMAGOTCHI<br>Create los objetos IMU, LED,&nbsp;LightSensor&nbsp;y Button<br>Declara las variables para mantener los estados<br>Declara las variables para los temporizadores.<br>Inicializa el objeto IMU, y configura en modo de detección de choque. Cuando un choque es detectado, el&nbsp;shockCallback&nbsp;es llamado.<br>Inicializa el objeto&nbsp;BLEuart, y configura un nombre.<br>Inicializa LED, Button y&nbsp;LightSensor<br>Establecer valores por defecto para los estados y los temporizadores.<br>Utiliza&nbsp;updateStatus()&nbsp;para actualizar los valores e interactuar con los sensores cuando BLE no está conectado.<br>Busca el dispositivo central, y ejecuta el código siguiente si es exitoso.<br>Repite el código siguiente mientras el dispositivo central está conectado.<br>Ejecuta&nbsp;updateStatus()&nbsp;mientras el BLE está conectado. Fíjate que cuando el BLE está conectado, sólo el código dentro del bloque&nbsp;while()&nbsp;está ejecutándose. Así que el siguiente&nbsp;updateStatus()&nbsp;no se ejecutará aquí.<br>Añade los 3 estados de BLE, y envíalos fuera.<br>En&nbsp;updateStatus():<br>Si el&nbsp;LightSensor&nbsp;está activado, incrementa el&nbsp;sleepLv&nbsp;cada 200 millisegundos.<br>Si el botón está presionado, incrementa el&nbsp;foodLv<br>Cada 3 segundos, disminuyen los estados un poco.<br>Si cualquiera de los estados bajan demasiado, activar el LED correspondiente como indicador.<br>El&nbsp;shockCallback()&nbsp;se llama siempre que el IMU detecta un choque. Aumentar el nivel de ejercicio aquí.<br>¿No funciona?<br>Si los valores no están cambiando como corresponde, comprobar las referencias de los componentes correspondientes.<br>Si los valores no se actualizan en la aplicación, o no se pueden conectar en la aplicación, reiniciar la aplicación y / o la placa 101. Comprobar la referencia de aplicación para más información.<br>¡Sigue experimentando!<br>Ajusta con cuidado los valores para que sea más fácil / difícil cuidar del bebé extraterrestre.<br>Utiliza otros sensores / reglas para manipular los estados del alienígena.</p></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="4_robots.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="recursos.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_escolares_js.js"></script></body></html>

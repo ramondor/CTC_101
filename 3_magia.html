@@ -1,0 +1,1245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>3. Magia | Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="José Ramón Dorado Repiso" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.8 Portable - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-3"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield</a></li>
+   <li><a href="1_processing.html" class="no-ch">1. Processing</a></li>
+   <li><a href="2_deportes.html" class="no-ch">2. Deportes</a></li>
+   <li id="active"><a href="3_magia.html" class="active no-ch">3. Magia</a></li>
+   <li><a href="4_robots.html" class="no-ch">4. Robots</a></li>
+   <li><a href="5_espacio.html" class="no-ch">5. Espacio</a></li>
+   <li><a href="recursos.html" class="no-ch">Recursos</a></li>
+   <li><a href="gua_didctica.html" class="no-ch">Guía didáctica</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="2_deportes.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="4_robots.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">3. Magia</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id10">
+<div class="iDevice emphasis0" >
+<div id="ta10_1748_2" class="block iDevice_content">
+<div class="exe-text"><p><a href="https://ctc101.arduino.cc/ctc101/module/module-3">https://ctc101.arduino.cc/ctc101/module/module-3</a></p>
+<p>Aprende sobre la magia de las señales analógicas y el puerto serie. Vas a construir proyectos que emplean señales analógicas, sonidos e imágenes.</p></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id11">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">3.1 LEYENDO SEÑALES ANALÓGICAS</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta11_1749_2" class="block iDevice_content">
+<div class="exe-text"><p>Como has aprendido anteriormente, las señales digitales solo tienen dos estados opuestos: 1 ó 0. Si pulsas y sueltas un botón, su estado cambiará de uno a otro. Un LED está encendido o apagado.</p>
+<p>El mundo real sin embargo, no es digital. El agua por ejemplo, no sólo está caliente o fría, puede también estar templada. Para poder medir eso, y otras cosas del mundo real, no podemos usar sólo señales digitales. En lugar de ello, empleamos señales analógicas.</p>
+<p>En vez de 2 estados opuestos, las señales analógicas tienen niveles continuos. Así que si tienes un sensor de luz, puedes obtener muchos valores diferentes que expresan cómo de iluminada está la habitación, y no sólo clara/oscura. O en el caso de un termómetro, te dice la temperatura mediante un número, en lugar de fría/caliente.</p>
+<p>En tu placa controladora, puedes obtener los valores analógicos de los pines analógicos. Sobre la placa puedes ver un grupo de pines marcados como ANALOG IN, que llevan el nombre de A0 a A5. En lugar de leer 0 V o el voltaje de alimentación (5 V o 3,3 V dependiendo de la placa), estos pines permiten leer valores entre 0 y 1023; de este modo, cuando no hay voltaje en el pin, la lectura es 0 y si le aplicas el voltaje de alimentación, la lectura será 1023. Aplicando la mitad del voltaje de alimentación, te dará 512. Para leer estos valores desde un pin analógico tienes que utilizar la función analogRead(), en lugar de digitalRead().</p>
+<p>Para seguir explicando las señales analógicas, necesitamos introducir el potenciómetro. Un potenciómetro es un componente con el que puedes controlar algo. Por ejemplo, el mando para ajustar el volumen de la radio es un potenciómetro. Cuando los dos pines exteriores del potenciómetro están conectados a GND y a la alimentación respectivamente, puedes controlar la cantidad de voltaje que saldrá por el pin del medio. Este voltaje está entre 0V y el voltaje de alimentación.</p>
+<p><img src="3_01.png" alt="301" title="301" width="580" height="670" /></p>
+<p><strong>Ejemplo 3.1</strong><br />En este ejemplo, usarás un potenciómetro para controlar la velocidad a la que parpadea el LED de la placa.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x potenciómetro<br />3 x cable de prototipado</p>
+<p>INSTRUCCIONES</p>
+<p><img src="3_02.png" alt="302" title="302" width="580" height="428" /></p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _3.1_reading_analog
+*
+* The board uses a potentiometer to control the blinking speed of the on-board LED.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+int ledPin = 13;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  int val = analogRead(A5);
+
+  digitalWrite(ledPin, HIGH);
+  delay(val);
+  digitalWrite(ledPin, LOW);
+  delay(val);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />Si giras el mando del potenciómetro, verás como cambia la frecuencia de parpadeo. Cuando lo giras al máximo hacia un lado, el LED está encendido siempre. Si haces lo mismo hacia el lado contrario el LED parpadea cada vez más despacio.</p>
+<p>COMANDOS<br />analogRead (pinNumber): Este comando lee el valor en un pin analógico especificado por pinNumber, que puede ser desde A0 hasta A5. Devuelve el valor leído que variará entre 0 y 1023.<br />Los pines analógicos sólo se pueden usar como entradas, por lo que no es necesario emplear la función pinMode() en la función setup().<br />CÓMO FUNCIONA<br />Se declara la variable ledPin.<br />En la función setup(), se configura el pin 13 como salida.<br />En la función loop() se declara la variable val para almacenar el valor leído del pin analógico A5.<br />Se enciende el LED de la placa.<br />El programa espera durante el tiempo especificado en la variable val.<br />Se apaga el LED de la placa.<br />El programa espera de nuevo durante el tiempo especificado en la variable val.<br />Repite la función loop(), lo que significa que el valor en el pin A5 se lee continuamente.<br />Nota: Cuanto mayor sea la lectura, más tiempo se espera en el programa. Esto significa que cuando la lectura es el máximo (1023), se tardarán más de 2 segundos en tener una lectura nueva.</p>
+<p>¡Sigue experimentando!<br />Emplea la sentencia if para convertir el potenciómetro en un interruptor. Si el valor leído es mayor que un valor determinado (umbral), enciende el LED, si es menor lo apaga.<br />Emplea el potenciómetro para generar sonido con un piezo. Haz que el valor leído sea la frecuencia del tono.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id12">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">3.2 ESCRIBIENDO SEÑALES ANALÓGICAS</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta12_1750_2" class="block iDevice_content">
+<div class="exe-text"><p>Al igual que puedes leer señales analógicas, también puedes generar señales analógicas. Tu placa emplea pines PWM (del inglés Pulse Width Modulation) para enviar valores analógicos. Echa un vistazo en tu placa a los pines digitales que llevan al lado un símbolo (~), estos son los pines PWM.</p>
+<p>Cuando se utiliza un pin digital para escribir HIGH o LOW, se obtiene 0 V o el voltaje de alimentación (5 V o 3,3 V dependiendo de la placa). Los pines PWM tienen una habilidad diferente, puedes utilizarlos para obtener un nivel de tensión entre 0 V y el voltaje de alimentación. Con esto, puedes modificar el brillo de un LED desde apagado hasta totalmente encendido.</p>
+<p>Para utilizar esta habilidad especial de los pines PWM, tendrás que usar la función analogWrite(). Esta función necesita dos parámetros, el número del pin PWM, y el nivel de salida. El nivel de salida es un número entre 0 y 255. Escribir 0 en el nivel de salida es igual que digitalWrite(pin, LOW) y 255 es igual que digitalWrite(pin, HIGH). Puedes emplear cualquier otro número entre 0 y 255.</p>
+<p>Nota: Ten cuidado con la diferencia entre analogRead() y analogWrite(): analogRead() lee valores entre 0 y 1023, mientras que analogWrite() escribe valores entre 0 y 255. analogRead() utiliza pines analógicos, mientras que analogWrite() utiliza pines digitales tipo PWM.</p>
+<p><strong>Ejemplo 3.2</strong><br />En este ejemplo, cambiarás gradualmente el brillo de un LED conectado a un pin PWM.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x LED<br />1 x resistencia 220 ohm<br />2 x cable de prototipado</p>
+<p>INSTRUCCIONES</p>
+<p><img src="3_03.png" alt="303" title="303" width="580" height="425" /></p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+*   _3.2_writing_analog
+*
+* The board will gradually change the light intensity of an LED, connected to a PWM pin.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+int ledPin = 9;
+int fade = 0;
+
+void setup() {
+  // nothing here
+}
+
+void loop() {
+  analogWrite(ledPin, fade);
+  delay(10);
+  fade = fade + 10;
+  if (fade &gt; 255) fade = 0;
+}
+</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />Verás que el LED se va iluminando poco a poco hasta llegar a su máxima intensidad, y luego se repite.</p>
+<p>COMANDOS<br />analogWrite(pinNumber, fadeLevel): escribe un valor analógico en un pin PWM. pinNumber es el número de pin PWM que estás utilizando y fadeLevel es un número entre 0 y 255. 0 es igual a LOW y 255 es igual a HIGH si comparamos con señales digitales.<br />No es necesario llamar a la función pinMode() en la función setup() en este caso.<br />CÓMO FUNCIONA<br />Se define la variable ledPin para almacenar el valor 9, este es el pin PWM al que esta conectado el LED.<br />Se define la variable fade para almacenar el valor 0. Esta variable se empleará para fijar el brillo del LED.<br />Esta vez no hacemos nada en la función setup().<br />En la función loop(), se escribe un valor analógico en el pin 9. La primera vez que se ejecuta la función loop(), este valor es 0 (fade=0), que es lo mismo que apagar el LED.<br />El programa espera durante 10 milisegundos.<br />La variable fade se incrementa en 10.<br />Se comprueba si la variable fade es mayor que 255.<br />La primera vez que la función loop() se ejecuta, la variable fade no es mayor que 255 y la función se ejecuta de nuevo desde el principio.<br />Se escribe un valor nuevo en el pin 9. Esta vez, ese valor es 10 (fade = 10), haciendo que el LED brille ligeramente.<br />El programa espera durante 10 milisegundos.<br />La variable fade se incrementa en 10 de nuevo, siendo ahora igual a 20.<br />La variable fade es aún menor que 255 y la función loop() se ejecuta de nuevo desde el principio.<br />La vez 26 que la función loop() se ejecuta, la variable fade es igual a 250 y el LED está encendido casi del todo.<br />Cuando la variable fade se incrementa de nuevo, esta es igual a 260.<br />Cuando la sentencia if se ejecuta, esta vez la variable fade es mayor que 255. Cuando esto ocurre, la variable se fija de nuevo a 0.<br />Repite la función loop().<br />¡Sigue experimentando!<br />Intenta hacer que el LED se apague poco a poco después de que alcance el brillo completo, en lugar de apagarse de repente. A esto lo llamamos una luz de respiración (breath).<br />¿Se puede cambiar la velocidad de la "respiración" para que se apague más rápido o más lento?<br />¿Se puede utilizar un potenciómetro para controlar el LED? Recuerda la diferencia entre analogRead() y analogWrite().</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id13">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">3.3 SENSOR DE LUZ</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta13_1751_2" class="block iDevice_content">
+<div class="exe-text"><p>Ahora vamos a aprender acerca de un sensor analógico. El sensor de luz, en este caso un fototransistor, es un componente que reacciona a la cantidad de luz, detecta la luminosidad y en función de ella, el sensor devuelve un valor analógico diferente. Puedes hacer cosas muy interesantes con este sensor, como por ejemplo una lámpara que se enciende automáticamente cuando la habitación se oscurece o que un robot siga una linterna... pero vamos a empezar por lo básico.</p>
+<p><img src="3_04.png" alt="304" title="304" width="579" height="178" /></p>
+<p><strong>Ejemplo 3.3</strong><br />En este ejemplo, cambiarás el brillo de un LED en función del valor leído del sensor de luz.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x módulo sensor de luz<br />1 x LED<br />1 x resistencia 220 ohm<br />1 x cable de módulo<br />2 x cable de prototipado</p>
+<p>INSTRUCCIONES</p>
+<p><img src="3_05.png" alt="305" title="305" width="579" height="556" /></p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _3.3_light_sensor
+*
+* The board changes the light intensity of an LED depending on the readings from a light sensor.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+
+int ledPin=9;
+int lightSensorPin=A1;
+
+void setup() {
+  //nothing here
+}
+
+void loop() {
+  int lightSensorValue=analogRead(lightSensorPin);
+  int ledValue=map(lightSensorValue,0,1023,0,255);
+
+  analogWrite(ledPin, ledValue);
+  delay(10);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />Cubre el sensor con la mano, o bien, orientalo hacia una luz muy brillante. El LED brillará poco cuando el sensor esté tapado y mucho cuando no lo esté.</p>
+<p>COMANDOS<br />map(value, fromLow, fromHigh, toLow, toHigh): Reasigna un número de un rango a otro. value es el valor que queremos reasignar.fromLow y fromHigh son el valor mínimo y máximo que value puede tomar. En este caso desde 0 a 1023. toLow y toHigh son el mínimo y el máximo valor que queremos. En este caso, desde 0 hasta 255.<br />CÓMO FUNCIONA<br />Se declaran las variables, ledPin y sensorPin.<br />Esta vez no hacemos nada en la función setup().<br />En la función loop(), se declara la variable value para almacenar la lectura analógica del pin A1. Este valor puede ser entre 0 y 1023, lo cual es muy grande para escribir un valor analógico en otro pin.<br />Se declara la variable ledValue para almacenar y mapear value. El valor leído se ajustará a un rango de 0 a 255. Cuando value = 0, ledValue = 0, cuando value = 1023, ledValue = 255, cuando value = 512, ledValue = 127, etc..<br />Se escribe un valor analógico en el pin 9 empleando la variable ledValue.<br />El programa espera durante 10 milisegundos.<br />Repite la función loop().<br />¡Sigue experimentando!<br />Para saber más sobre el sensor de luz, haz click en la referencia sensor de luz.<br />Intenta hacer la lámpara automática que hemos mencionado anteriormente. Cuando la lectura del sensor es más baja que un valor concreto o umbral, la luz se enciende. De lo contrario, se apaga. Utiliza un LED para simular la lámpara.<br />Emplea el sensor de luz para hacer sonidos con un piezo. Recuerda asignar los valores correctamente.<br /><strong></strong></p>
+<p><strong>Calibración de sensores</strong><br />El fototransistor se ve fuertemente influenciado por el entorno. Es decir, un proyecto con este sensor funcionará de manera diferente en lugares diferentes ya que la iluminación ambiente no es la misma. En ocasiones funcionará a la primera pero a veces lo tendremos que calibrar para que funcione correctamente. Tomando la lámpara automática como ejemplo, digamos que la queremos utilizar para otro propósito. Esta vez, se encenderá si le colocas un trozo de papel sobre el sensor en lugar de la mano. Necesitarás experimentar un poco, intenta buscar el umbral para un trozo de papel. ¿Has conseguido que funcione? Muy bien, prueba lo mismo debajo de la mesa, ¿todavía funciona? Si es que no, probablemente ya sabemos cuál es el problema. El papel no ha cambiado mucho la lectura del sensor, mientras que la iluminación exterior sí lo ha hecho (al mover el sensor debajo la mesa). Por lo que necesitarás encontrar una manera mejor de cambiar el umbral dinámicamente.</p>
+<p><strong>Ejemplo 3.4</strong><br />En este ejemplo, vas a modificar el circuito del ejemplo 3.3 y usarás el sensor de luz como un interruptor para encernder o apagar un LED dependiendo del valor leído. Emplearás un potenciómetro para ajustar el umbral.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x módulo sensor de luz<br />1 x potenciómetro<br />1 x LED<br />1 x resistencia 220 ohm<br />1 x cable de módulo<br />5 x cable de prototipado</p>
+<p>INSTRUCCIONES</p>
+<p><img src="3_06.png" alt="306" title="306" width="580" height="555" /></p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _3.4_light_sensor
+*
+* The light sensor acts as a switch and turn an LED on or off depending on the readings.
+* With a potentiometer to set the switch threshold.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+int ledPin=9;
+int lightSensorPin=A1;
+int potPin=A5;
+
+void setup() {
+  pinMode(ledPin,OUTPUT);
+}
+
+void loop() {
+  int lightSensorValue=analogRead(lightSensorPin);
+  int threshold=analogRead(potPin);
+
+  if(lightSensorValue&gt;threshold){
+    digitalWrite(ledPin,LOW);
+  }
+  else{
+    digitalWrite(ledPin,HIGH);
+  }
+
+  delay(10);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />Cubre el sensor de luz y comprueba si el LED se enciende. Si no lo hace, o si está encendido todo el tiempo, gira el potenciómetro hasta que encuentres el umbral apropiado.</p>
+<p>CÓMO FUNCIONA<br />Se declaran las variables, ledPin, sensorPin y potPin (para almacenar el pin al que está conectado el potenciómetro).<br />Como estamos empleando un LED como actuador digital, se configura el pin 9 como salida en la función setup().<br />En la función loop() se declara la variable value para almacenar el valor analógico leído en el pin A1.<br />Se declara la variable threshold para almacenar el valor analógico leído en el pin A5.<br />Si value es mayor que threshold, se apaga el LED.<br />Si value no es mayor que threshold, se enciende el LED.<br />El programa espera durante 10 milisegundos.<br />Repite la función loop().</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id14">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">3.4 PUERTO SERIE</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta14_1752_2" class="block iDevice_content">
+<div class="exe-text"><p>La placa controladora se conecta a tu ordenador usando un cable USB. El modo en que las placas "hablan" con el ordenador consiste en algo llamado puerto serie. Este se puede usar para intercambiar datos relativamente complicados entre la placa y el ordenador. En lugar de señales digitales o analógicas puedes enviar o recibir texto (string).</p>
+<p>Mediante comunicación serie puedes comunicarte también con otros programas. Puedes por ejemplo, utilizar la placa controladora para leer el estado de un botón y mandar los datos a un programa de processing que cambie el color de la pantalla cuando el botón esté presionado.</p>
+<p>El puerto serie usa los pines digitales 0 y 1: - El pin 0: RX o recepción, por aquí llegan los datos a la placa.</p>
+<p>El Pin 1: TX o transmisión, por aquí salen los datos desde la placa.<br />Por lo tanto, no uses la función digitalRead() ni digitalWrite() en esos pines si vas a utilizar comunicación serie.</p>
+<p><img src="3_07.png" alt="307" title="307" width="580" height="476" /></p>
+<p>Es importante que el emisor y el receptor se comuniquen a la misma velocidad. Si no lo hacen, es como si dos personas tratan de comunicarse hablando una en chino y la otra en español. Esta velocidad se llama baud rate y mide los bits por segundo. Normalmente emplearemos 9600 bits por segundo.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id15">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">3.5 ENVIANDO AL ORDENADOR</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta15_1753_2" class="block iDevice_content">
+<div class="exe-text"><p>Algo importante en lo que utilizarás la comunicación serie es para comprobar el funcionamiento de tus programas. De esta manera, más que mandar mensajes estáticos por el puerto serie, puedes mandar valores dinámicos que cambien con el tiempo.</p>
+<p>Para enviar un mensaje al ordenador, necesitarás tres comandos diferentes: Serial.begin(), Serial.println() o Serial.print().</p>
+<p><strong>Ejemplo 3.5</strong><br />En este ejemplo, enviarás un mensaje de texto desde la placa controladora al ordenador. Podrás ver el mensaje en la pantalla del ordenador.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora</p>
+<p>INSTRUCCIONES</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _3.5_sending_serial
+*
+* The board will send a text message from the board to the computer and monitor
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.println("Hello World");
+  delay(1000);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.<br />Abre el monitor de puerto serie empleando este icono <img src="2_08.png" alt="308" title="308" width="56" height="56" /> <br />RESULTADO<br />Esta ventana muestra todo lo enviado a tu ordenador a través del puerto serie de la placa. Verás una pequeña ventana con el texto "Hello World", apareciendo una vez por segundo.</p>
+<p><img src="3_09.png" alt="309" title="309" width="580" height="697" /></p>
+<p>COMANDOS<br />Serial.begin( speed ): Inicia la comunicación por el puerto serie. El baud rate, o bits por segundo, es lo rápido que los mensajes son transmitidos y se fija con speed.<br />Serial.println( "message" ): Envía un mensaje (message) por el puerto serie con un salto de línea al final. Así que, cada vez que llames a esta función, el mensaje siguiente se iniciará en una nueva línea. El mensaje es una cadena de texto (tipo String), reemplázala con el texto que quieras enviar.<br />Serial.print( "message" ): Envía un mensaje (message) por el puerto serie sin un salto de línea al final. El siguiente mensaje aparecerá justo después, sin nueva línea.<br />CÓMO FUNCIONA<br />En la función setup(), se inicializa la comunicación por el puerto serie a una velocidad de 9600 bits por segundo.<br />En la función loop(), se envía el mensaje “Hola Caracola” por el puerto serie.<br />El programa espera durante 1000 milisegundos.<br />Repite la función loop().</p>
+<p><strong>Enviando valores del sensor de luz</strong><br />Algo importante en lo que utilizarás la comunicación serie es para comprobar el funcionamiento de tus programas. De esta manera, más que mandar mensajes estáticos por el puerto serie, puedes mandar valores dinámicos que cambien con el tiempo. Esto es útil cuando quieres usar un sensor analógico y no sabes exactamente qué valores lee.</p>
+<p>En el ejemplo 3.4, usaste un potenciómetro para calibrar un sensor de luz. En este ejemplo lo haremos mediando comunicación serie.</p>
+<p><strong>Ejemplo 3.6</strong><br />En este ejemplo, leerás el valor analógico de un sensor de luz y lo enviarás por el puerto serie.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x módulo sensor de luz<br />1 x cable de módulo</p>
+<p>INSTRUCCIONES</p>
+<p><img src="3_10.png" alt="310" title="310" width="580" height="555" /></p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _3.6_sending_serial
+*
+* The board will  read the analog value from a light sensor and print that value to the serial monitor.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorValue = analogRead(A1);
+
+  Serial.println(sensorValue);
+  delay(100);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.<br />Abre el monitor de puerto serie empleando este icono <img src="2_08.png" alt="308" title="308" width="56" height="56" /> <br />RESULTADO<br />Cubre el sensor con la mano y comprueba como los valores cambian en el monitor de puerto serie. Cuando el sensor esta tapado verás valores próximos a 0, cuando recibe bastante luz verás valores próximos a 1000. Estos valores pueden ser diferentes dependiendo de las condiciones de luz ambiente.</p>
+<p>CÓMO FUNCIONA<br />En la función setup(), se inicializa la comunicación por el puerto serie a una velocidad de 9600 bits por segundos.<br />En la función loop() se declara la variable sensorValue para almacenar la lectura analógica del pin A1.<br />Se envía el valor sensorValue por el puerto serie.<br />El programa espera durante 100 milisegundos. Esta pausa solo sirve para facilitar la lectura de todos los valores enviados por el puerto serie.<br />Repite la función loop().<br />Nota: Recuerda que el conector A1 de la shield está internamente conectado al pin A1 de tu placa, por lo que no puedes leer otros sensores analógicos en ese pin cuando uses este conector.</p>
+<p>¡Sigue experimentando!<br />Para saber más, haz click en la referencia comunicación serie.<br />Declara una variable para almacenar el valor mapeado del sensor (emplea la función map()). Envía por el puerto serie ambos valores y comprueba como cambian cuando modificas la luz en el sensor.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id16">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">3.6 RECIBIENDO DEL ORDENADOR</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta16_1754_2" class="block iDevice_content">
+<div class="exe-text"><p>Para recibir información por el puerto serie, necesitarás dos comandos: Serial.available() y Serial.read().</p>
+<p>Ejemplo 3.7<br />En este ejemplo, encenderás o apagarás el LED de la placa enviando por el puerto serie las letras ‘H’ o ‘L’ desde el ordenador.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora</p>
+<p>INSTRUCCIONES</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _3.7_receiving_serial
+*
+* The board turns the on-board LED on or off by sending an ‘H’ or ‘L’ to the control board from the serial monitor
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+int ledPin=13;
+int incomingByte;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin,OUTPUT);
+}
+void loop() {
+  if(Serial.available()&gt;0){
+    incomingByte=Serial.read();
+
+    if(incomingByte=='H'){
+      digitalWrite(ledPin, HIGH);
+    }
+    if(incomingByte=='L'){
+      digitalWrite(ledPin,LOW);
+    }
+
+  }
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.<br />Abre el monitor de puerto serie.<br />RESULTADO<br />En la parte superior del monitor de puerto serie, hay una caja de texto con un botón de "enviar" justo al lado. Escribe una ‘H’ en la caja de texto y haz clic en el botón de enviar. Verás como el LED de la placa se enciende. De la misma forma, si escribes y envías una ‘L’ el LED se apaga. Ten en cuenta que esto solo funcionará si envías las letras en mayúscula.</p>
+<p>COMANDOS<br />Serial.available(): Devuelve el número de bytes que esperan ser leídos desde el puerto serie.<br />Serial.read(): Lee la información recibida. Lee las señales sólo cuando estén disponibles.<br />CÓMO FUNCIONA<br />Se declaran las variables ledPin y incomingByte. La variable incomingByte se empleará para almacenar la información recibida.<br />En la función setup(), se inicializa la comunicación por el puerto serie a una velocidad de 9600 bits por segundo.<br />Se configura el pin 13 como salida.<br />Sólo leeremos del puerto serie cuando hay datos entrantes. Por tanto, lo primero que comprobamos con en la función loop() es si la cantidad de bytes recibidos es mayor que 0.<br />Si el número de bytes no es mayor que 0, el programa ignora el código entre llaves. Puesto que no hay más código que ejecutar después de la sentencia if, el programa salta al principio de la función loop().<br />Si es número de bytes es mayor que 0, se lee la información y se almacena en la variable incomingByte.<br />Si la variable incomingByte es igual a ‘H’, se enciende el LED.<br />Si la variable incomingByte es igual a ‘L’, se apaga el LED.<br />Repite la función loop().<br />¡Sigue experimentando!<br />Para saber más, haz click en la referencia comunicación serie.<br />Consulta cualquiera de los ejemplos en Archivo-&gt;Ejemplos-&gt;EducationShield-&gt;Help. Casi todos hacen uso del puerto serie.<br />Usa dos baterías de 9V y haz que una placa controle a otra. La placa que recibe las señales debe tener el código anterior. La placa que envía debe mandar las señales "H" o "L" alternativamente.</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id17">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">ACTIVIDADES</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta17_1755_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>TOCADISCOS BINARIO</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Si eres de los que te gusta tanto lo musical como lo digital, te lo pasarás genial creando diferentes melodías para este proyecto.</p>
+<p>Esto funciona parecido a un tocadiscos. La diferencia está en que, en lugar de utilizar una aguja en un disco de vinilo, utilizamos tres sensores IR en línea para leer el patrón de un disco de papel. Si eres de los que te gusta tanto lo musical como lo digital, te lo pasarás genial creando diferentes melodías para este proyecto.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/WtbGq6xK0ao"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x IR Array<br>1 x piezo<br>7 x cable de prototipado (5 largos)<br>1 x kit tocadiscos binario<br>Otros materiales:</p>
+<p>1 x disco de papel tocadiscos binario<br>1 x cinta adhesiva<br>1 x tijeras<br>1 x impresora<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_3_binary_lp_101_27969561243_o.png?_gl=1*1i9hx0c*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjM2NTMyMC44LjEuMTY4MjM2NzM5OS4wLjAuMA..">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1646817683-2018feb_logo_clownwalker_binarylp_without_r.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1646817682-2018feb_logo_clownwalker_binarylp_without_r.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí</a>.</p>
+<p>Instrucciones</p>
+<p><img src="3_11.png" alt="311" title="311" width="580" height="687"></p>
+<p>Monta el tocadiscos:</p>
+<p><img src="3_12.jpg" alt="312" title="312" width="800" height="600"></p>
+<p><img src="3_13.jpg" alt="313" title="313" width="800" height="600"></p>
+<p><img src="3_14.jpg" alt="314" title="314" width="800" height="600"></p>
+<p>Encuentra el programa BinaryLP y ábrelo.</p>
+<p><img src="3_15.png" alt="315" title="315" width="580" height="310"></p>
+<p>En el IDE, haz clic en Programa &gt; Mostrar carpeta del programa. Abre las carpetas Processing &gt; binaryLPdisc, a continuación abre el archivo binaryLPdisc.pde.</p>
+<p><img src="3_16.png" alt="316" title="316" width="580" height="366"></p>
+<p>Ejecuta el programa binaryLPdisc.pde. Para crear tu disco, haz clic dónde quieras que se produzca un sonido. Verás que aparecen cuadrados negros que el sensor IR Array podrá detectar más tarde.</p>
+<p><img src="3_17.png" alt="317" title="317" width="580" height="414"></p>
+<p>Cuando termines tu disco, haz clic en el botón "Press here to save as PDF file" y la ventana se cerrará. El resultado en PDF, se llama "record.pdf" y lo puedes encontrar en la misma carpeta que el programa de processing.</p>
+<p>&nbsp;<span style="background-color: #ccffcc;">Nota: Si ejecutas el programa de nuevo, el disco anterior se elimina automáticamente, si quieres guardar varias versiones de este disco, mueve el archivo a otra localización antes de crear el siguiente.</span></p>
+<p><img src="3_18.png" alt="318" title="318" width="580" height="836"></p>
+<p>Imprime el PDF creado y asegúrate de imprimirlo a tamaño real (no "Ajustar a página"). Tambien puedes imprimir el disco en blanco (vacío) y crear los patrones con un rotulador negro.</p>
+<p><img src="3_19.png" alt="319" title="319" width="580" height="653"></p>
+<p>Pega el disco al engranaje con cinta adhesiva.</p>
+<p><img src="3_20.jpg" alt="320" title="320" width="800" height="600"></p>
+<p>Desplaza el sensor IR Array sobre el disco que has creado.</p>
+<p><img src="3_21.jpg" alt="321" title="321" width="800" height="600"></p>
+<p>Descarga el programa en la placa y&nbsp;¡Empieza a reproducir tu disco!</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* BinaryLP
+*
+* This sort of works as an LP player. The difference is
+* that instead of using a needle on a plastic disc,
+* we use three IR sensors in a row to read a pattern from
+* a paper disc.
+*
+* If you are both musically and digitally inclined,
+* you will have lots of fun creating melodies with this.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+
+#include <educationshield.h>
+#include "pitches.h"
+
+//IRArray(left, middle, right);
+IRArray ir = IRArray(A1, A2, A3);
+
+int piezo = 8; //Piezo pin
+int lastReading = 0;
+
+void setup(){
+  pinMode(piezo, OUTPUT);
+
+  //Use this line to set the threshold of the IR sensors.
+  //If you are using the Uno board, set the threshold to 380,if you're using the 101 board, set it to 530.
+  //Use ir.test() to check the values of each sensor in the loop()
+  ir.setThreshold(530);
+
+  Serial.begin(9600);
+}
+
+void loop(){
+  //Use this line to check the values from each IR sensor
+  //ir.test();
+
+  //Read the binary pattern and get a number from 0 to 7
+  int reading = ir.readBinary();
+
+  //Play a note depending on the read value
+  playNote(reading);
+
+}
+
+void playNote(int r){
+  //If the last note we played is the same as the new note
+  //we make a short break so that two notes are distinguished
+  if(lastReading==r){
+    noTone(piezo);
+    delay(20);
+  }
+
+  //Play a different note depending on the value of b.
+  //Check pitches.h to see which notes you can use.
+  //In this case the scale is C Major.
+  switch (r){
+    case 0:
+      break;
+    case 1:
+      tone(piezo, NOTE_C4);
+      break;
+    case 2:
+      tone(piezo, NOTE_D4);
+      break;
+    case 3:
+      tone(piezo, NOTE_E4);
+      break;
+    case 4:
+      tone(piezo, NOTE_F4);
+      break;
+    case 5:
+      tone(piezo, NOTE_G4);
+      break;
+    case 6:
+      tone(piezo, NOTE_A4);
+      break;
+    case 7:
+      tone(piezo, NOTE_B4);
+      break;
+  }
+
+  //If r is more than 0 we save that value to lastByte
+  if(r&gt;0)lastReading = r;
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se incluye pitches.h, el archivo que contiene las definiciones de las notas.<br>Se declara el objeto&nbsp;ir&nbsp;de la clase IRArray.<br>Se declaran las variables&nbsp;piezo&nbsp;y&nbsp;lastReading.<br>En la función&nbsp;setup(), se configura el pin al que está conectado el piezo como salida empleando la variable&nbsp;piezo.<br>El umbral para el sensor se configura con esta línea de código&nbsp;ir.setThreshold(threshold). Si empleas la placa CTC 101 el umbral será&nbsp;530, si empleas la placa CTC será&nbsp;380.<br>En la función&nbsp;loop(), el valor leído del sensor IR Array se almacena la variable&nbsp;reading. Este valor es un número decimal entre 0 y 7 y es la combinación binaria de las áreas blancas y negras del disco de papel. Por lo tanto, 0 corresponde a todo blanco y 7 a todo negro.<br>El programa llama a la función&nbsp;playNote()&nbsp;y le pasa como parámetro los valores leídos.En la función&nbsp;playNote(), se comprueba con una sentencia&nbsp;if&nbsp;si la variable&nbsp;lastReading&nbsp;es igual a&nbsp;r. La variable&nbsp;r&nbsp;es el valor leído del sensor, el que hemos pasado a esta función y&nbsp;lastReading&nbsp;es la lectura previa del sensor.<br>Si la comprobación es cierta (true) significa que se van a tocar dos notas iguales. Para poder distinguir los dos sonidos, se llama a la función&nbsp;noTone()&nbsp;para producir un silencio entre notas.<br>El programa espera durante 20 milisegundos.<br>Se emplea un&nbsp;switch&nbsp;para decidir que nota hay que tocar dependiendo del valor almacenado en la variable&nbsp;r.<br>Si&nbsp;r&nbsp;es igual a 0, no se hace nada (el piezo ya está en silencio), si&nbsp;r&nbsp;es igual a 1, se toca la nota&nbsp;NOTE\_C4&nbsp;etc.<br>Si&nbsp;r&nbsp;es mayor que 0, se asigna a&nbsp;lastReading&nbsp;el valor de&nbsp;r.<br>El programa vuelve a la función&nbsp;loop().<br>Nota: No te olvides de modificar el umbral (threshold) con&nbsp;ir.setThreshold(threshold)&nbsp;para qué el sensor IR Array funcione correctamente con tu placa. Si estás usando la placa Uno, configura el umbral a&nbsp;380, si estás usando la placa 101, a&nbsp;550. Emplea la función&nbsp;ir.test()&nbsp;para comprobar los valores de cada sensor dentro del&nbsp;loop().</p>
+<p>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click <a href="https://ctc101.arduino.cc/resources?id=32151456">aquí</a> para ver su funcionamiento).<br>¿El sensor no funciona correctamente? Mira la referencia <a href="https://ctc101.arduino.cc/resources?id=32101708">IR Array</a>.<br>¡Sigue experimentando!<br>Compón dos melodías diferentes.<br>Piensa una nueva forma de utilizar las lecturas binarias.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>BOOMBOX</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Es hora de poner en práctica <a href="https://www.youtube.com/watch?v=FcJCxe1VSLA">este tipo de habilidades</a>. El proyecto Boombox es un reproductor de sonido sencillo que puedes usar para tocar música, o simplemente reproducir cualquier sonido. Viene con tres sonidos ya grabados, ¡pero seguro que tú puedes grabar sonidos mucho mejores!</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/VtI1g9xJMT0"></iframe></p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x tarjeta microSD<br>3 x botón<br>1 x altavoz<br>3 x resistencia 10 kohm<br>9 x cable prototipado</p>
+<p><strong>Instrucciones</strong><br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p><img src="3_20.png" alt="320" title="320" width="579" height="568"></p>
+<p><img src="3_22.jpg" alt="322" title="322" width="800" height="600"></p>
+<p>Encuentra el programa Boombox y ábrelo.</p>
+<p><img src="3_23.png" alt="323" title="323" width="577" height="310"></p>
+<p>Guarda 3 archivos de sonido .wav en la tarjeta microSD. Abre el IDE, los archivos se encuentran en Programa &gt; Mostrar carpeta del programa &gt; Sound files. Guarda “0.wav”, “1.wav” y “2.wav” en el directorio raíz de la tarjeta microSD. Si quieres grabar tus propios sonidos, consulta la referencia <a href="https://ctc101.arduino.cc/resources?id=32359184">Prepara Sonidos Wav</a>.</p>
+<p><img src="3_24.png" alt="324" title="324" width="580" height="555"></p>
+<p>Consulta la referencia y <a href="https://ctc101.arduino.cc/resources?id=32173222">Prepara el altavoz</a>. Cuando lo tengas listo conéctalo al conector de audio de la placa. A continuación, introduce la tarjeta microSD en la shield.</p>
+<p><img src="3_25.png" alt="325" title="325" width="580" height="768"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p>Descarga el programa en la placa.</p>
+<p>¡Empieza a tocar!</p>
+<p><img src="3_26.jpg" alt="326" title="326" width="800" height="600"></p>
+<p>Código<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module3-Magic&gt;Projects&gt;BoomBox</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* BoomBox
+*
+* This is your first step towards theese kinds of skills:
+* https://www.youtube.com/watch?v=FcJCxe1VSLA&amp;noredirect=1
+* The boom box is a small sample player you can use to make music,
+* or just random sound. It comes with three prerecorded samples
+* but we probably don’t have the same creative cleverness when it
+* comes to recording as you do so you should definitely record your
+* own samples too!
+*
+*  (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+
+//Declare a button group with 3 buttons. The
+//sound player secrectly takes pin 3, 4 and 11,
+//so don't use them,
+ButtonGroup bg;
+int buttons[]={5,6,7};
+
+//There're 3 buttons in the button group.
+int buttonsCount=3;
+
+//Declare the sound player
+Player player=Player();
+
+void setup(){
+  // Open serial communications and wait for port to open:
+  Serial.begin(9600);
+
+  // Initialize the sound player. Open the serial monitor to see
+  //the sound files found on your micro SD card
+  player.begin();
+
+  //Initialize the button group.
+  bg.begin(buttonsCount,buttons);
+}
+
+void loop(){
+  //Wait for one of the buttons to be pressed.
+  //According to which button is pressed, it
+  //returns either 0, 1 or 2
+  int pressedButton=bg.pressed();
+
+  //Play a different sound according to the
+  //button pressed.
+  switch(pressedButton){
+    case 0:
+      Serial.println("sound 0");
+      player.play("0.wav");
+      break;
+    case 1:
+      Serial.println("sound 1");
+      player.play("1.wav");
+      break;
+    case 2:
+      Serial.println("sound 2");
+      player.play("2.wav");
+      break;
+  }
+
+}
+</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se declaran las variables&nbsp;buttons\[\]&nbsp;y&nbsp;buttonsCount&nbsp;y el objeto&nbsp;bg&nbsp;de la clase ButtonGroup.<br>Se declara el objeto&nbsp;player&nbsp;de la clase Player.<br>En la función&nbsp;setup(), se inicializa el puerto serie.<br>Se configuran e inicializan los botones y el altavoz.<br>Se declara la variable&nbsp;pressedButton&nbsp;y se le asigna el valor leído y almacenado en&nbsp;bg.<br>Se emplea un&nbsp;switch&nbsp;para decidir que hacer dependiendo del valor almacenado en la variable&nbsp;pressedButton.<br>Si el valor en&nbsp;pressedButton&nbsp;es igual a 0, se manda “sound 0” por el puerto serie y se toca el archivo de sonido 0.wav.<br>Si el valor en&nbsp;pressedButton&nbsp;es igual a 1, se manda “sound 1” por el puerto serie y se toca el archivo de sonido 1.wav.<br>Si el valor en&nbsp;pressedButton&nbsp;es igual a 2, se manda “sound 0” por el puerto serie y se toca el archivo de sonido 2.wav.<br>Se repite la función&nbsp;loop().<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>¿Los botones no funcionan correctamente? Mira la referencia&nbsp;botón.<br>¿Tu proyecto no reproduce audio? Mira la referencia&nbsp;player.<br>¡Sigue experimentando!<br>¿Puedes añadirle más botones para reproducir más sonidos?<br>Puedes grabar tus propios sonidos. Mira la referencia&nbsp;prepara sonidos wav&nbsp;para saber cómo hacerlo.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>MONSTRUO DE LAS GALLETAS</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Hemos descubierto que alguien se ha estado comiendo las galletas del bote de la cocina! Hemos estado hablando sobre esto y llegamos a la conclusión de que lo mejor va a ser preparar una trampa para descubrir al culpable. Vamos a construir algo que haga una foto a lo que sea que abra el bote de las galletas. Ningún monstruo de las galletas fue herido en la realización de este experimento.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/jQjx80VPzJc"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x breadboard<br>1 x cámara<br>1 x módulo LED<br>1 x resistencia 1 Mohm<br>1 x cable de módulo<br>3 x cable de prototipado (1 largo)<br>1 x Kit Monstruo de las galletas<br>Otros materiales: - 1 x pieza de papel de aluminio</p>
+<p>1 x cinta adhesiva<br>3-4 x goma elástica<br>1 x bote de galletas metálico<br>Nota: Si no encuentras un bote conductor para el proyecto, puedes emplear uno cualquiera y adaptarlo cubriéndolo con papel de aluminio o cinta adhesiva conductora.</p>
+<p>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_3_cookie_monster_101_27967976034_o.png?_gl=1*hw8cwx*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjQ0NzA1OC45LjEuMTY4MjQ0ODIxNC4wLjAuMA..">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541165-2018marlogocookiemonster.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541164-2018marlogocookiemonster.ai">AI</a>.</p>
+<p>. Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="http://verkstad.cc/urler/ctc-frz-git">aquí</a>.</p>
+<p><strong>Instrucciones</strong><br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p><img src="3_26.png" alt="326" title="326" width="580" height="1141"></p>
+<p><img src="3_27.jpg" alt="327" title="327" width="800" height="600"></p>
+<p><img src="3_28.png" alt="328" title="328" width="580" height="627"></p>
+<p>En el IDE, haz clic en Programa &gt; Mostrar carpeta del programa. Abre las carpetas Processing &gt; CookieMonster, a continuación abre el archivo CookieMonster.pde.</p>
+<p><img src="3_29.png" alt="329" title="329" width="580" height="369"></p>
+<p>Ejecuta el programa CookieMonster.pde. Este programa tomará la foto del ladrón y la guardará para que puedes verla más tarde.</p>
+<p>¡Intenta quitarle las galletas al monstruo! Puedes encontrar la foto del ladrón en la misma carpeta que el programa de processing.</p>
+<p><img src="3_30.jpg" alt="330" title="330" width="800" height="600"></p>
+<p>Código<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module3-Magic&gt;Projects&gt;CookieMonster</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* CookieMonster
+*
+* Someone is eating our cookies, let's gather some proof
+* about that person and get him/her to confess.
+*
+* (c) 2013-2016 Arduino LLC. B&amp;D Cuartielles
+*
+* This code is Free Software, licensed under GPLv3
+* Based on code by Paul Badger 2008
+*
+*/
+
+
+#include <educationshield.h>
+
+//Define the capacitive sensor
+CapacitiveSwitch sensor=CapacitiveSwitch(2,3);
+
+//Define the LED
+int led = 6;
+
+void setup()
+{
+   // configure the serial port
+   Serial.begin(9600);
+
+   //initialize components
+   sensor.config(200);
+   pinMode(led, OUTPUT);
+ }
+
+void loop(){
+  //When someone attempts to open the
+  //cookie jar, the sensor is activated
+  if(sensor.pressed()){
+    //Turn on the LED
+    digitalWrite(led, HIGH);
+    //Sends signal to processing, so a picture
+    //will be captured
+    Serial.print('p');
+    //Wait 2 seconds before turning the LED off
+    delay(2000);
+    digitalWrite(led, LOW);
+  }
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p>Encuentra el programa que necesitas ejecutar en Processing para que la cámara web capture las imágenes del ladrón de galletas en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module3-Magic&gt;Projects&gt;CookieMonster&gt;Proccesing&gt;CookieMonster</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* CookieMonster
+* 
+* Someone is eating our cookies, let's gather some proof
+* about that person and get him/her to confess.
+*
+* This program initializes a webcam connected to a PC
+* and listens to the serial port. If a "P" command arrives
+* it will then take a picture with the webcam and store it
+* locally in the sketch folder.
+* 
+* (c) 2013-2016 Arduino LLC. B. &amp; D. Cuartielles in a quest for the truth 
+* This is Free Software under GPLv3
+* Based on previous code by C. Reas and B. Fry
+*/ 
+
+import processing.video.*;
+import processing.serial.*;
+
+Capture cam;
+Serial myPort;  // The serial port
+
+void setup() {
+  size(640, 480, P2D);
+
+  initializeCamera(0);
+
+  // List all the available serial ports
+  println(Serial.list());
+  // Open the port you are using at the rate you want:
+  myPort = new Serial(this, Serial.list()[0], 9600);
+}
+
+void draw() {
+  if (cam.available() == true) {
+    cam.read();
+  }
+  image(cam, 0, 0);
+
+  String timeStamp=createTimeStamp();
+
+  text(timeStamp, 10, height-10);
+
+
+
+  // for the keyboard detection to work, you need to have
+  // clicked on the application window first (aka focus)
+  if(keyPressed) {
+    if (key == 'p' || key == 'P') {
+      captureImage(timeStamp);
+    }
+  }
+
+  if (myPort.available() &gt; 0) {
+    int inByte = myPort.read();
+    if(inByte == 'p') {
+      captureImage(timeStamp);
+    }
+  }  
+}
+
+
+
+
+
+void initializeCamera(int camNum){
+  String[] cameras = Capture.list();
+
+  if (cameras.length == 0) {
+    println("There are no cameras available for capture.");
+    exit();
+  } else {
+    println("Available cameras:");
+    for (int i = 0; i &lt; cameras.length; i++) {
+      println("["+i+"] "+cameras[i]);
+    }
+
+    // The camera can be initialized directly using an element
+    // from the array returned by list():
+    cam = new Capture(this, cameras[camNum]);
+    cam.start();     
+  }   
+
+  // we don't need the camera at full blast
+  frameRate(1);  
+
+}
+
+String createTimeStamp(){
+  String timeStamp = String.format("%02d", hour());
+  timeStamp += ":" + String.format("%02d", minute());
+  timeStamp += ":" + String.format("%02d", second());
+  timeStamp += " " + year();
+  timeStamp += "/" + String.format("%02d", month());
+  timeStamp += "/" + String.format("%02d", day());
+
+  return timeStamp;
+}
+
+void captureImage(String timeStamp){
+      saveFrame("pic-######.png");
+      println("capturing Frame at: " + timeStamp);
+}</code></pre>
+</div>
+</div>
+<p><span style="background-color: #ccffcc;">Nota: Para añadir una librería en Processing tienes que ir a : Sketch &gt; Importar biblioteca y pulsar en la opción Añadir Biblioteca. Esta opción abrirá la ventana de "Contribution Manager", donde podrás encontrar las librerías que necesites. Para encontrar la librería de Vídeo, escribe "Video" en el campo de texto , selecciona la librería nombrada "Video GStreamer-based video library for Processing", y pulsa el botón de instalar. A continuación, cierra la ventana de "Contribution Manager" y listo, ya la tienes instalada!</span><br>&nbsp;</p>
+<p>CÓMO FUNCIONA<br>Cuando alguien toca el bote de las galletas, el sensor capacitivo se activa y la placa envía una "p" a Processing a través del puerto serie (véase&nbsp;comunicación serie. Cuando el programa de Processing recibe esta letra, hace una foto con la cámara.</p>
+<p>EL PROGRAMA DE TU PLACA<br>Se incluye la librería EducationShield.<br>Se declara el objeto&nbsp;sensor&nbsp;de la clase CapacitiveSwitch.<br>Se declara la variable&nbsp;led.<br>En la función&nbsp;setup(), se inicializa el puerto serie.<br>Se configura e inicializa el sensor capacitivo.<br>Se configura el pin al que está conectado el LED como salida.<br>En la función&nbsp;loop(), si el sensor capacitivo se toca, el LED se enciende y se encía una ‘p’ por el puerto serie.<br>El programa espera 2000 milisegundos.<br>Se apaga el LED.<br>Si no se toca el sensor, no ocurre nada.<br>Se repite la función&nbsp;loop(). Es decir, el estado del sensor se comprueba continuamente.<br>EL PROGRAMA DE PROCESSING<br>Se incluyen las librerías&nbsp;video&nbsp;y&nbsp;serial.<br>Se declaran los objetos para la cámara y el puerto serie.<br>En la función&nbsp;setup(), se establece el tamaño de la ventana a 640 x 480 píxeles, y&nbsp;P2D&nbsp;(dos dimensiomes).<br>Se configuran la cámara y el puerto serie.<br>En la función&nbsp;draw(), si la cámara está disponible, se lee la imagen.<br>La imagen leída de la cámara se muestra en la ventana del programa.<br>Se declara la variable&nbsp;timeStamp&nbsp;para almacenar la fecha y la hora.<br>El texto en&nbsp;timeStamp&nbsp;se muestra en las coordenadas (10,&nbsp;height-10).<br>Si se pulsa la letra ‘p’ o ‘P’ del teclado la imagen se guarda en la carpeta del programa.<br>Si el puerto serie está disponible, se lee la información entrante y se almacena en&nbsp;inByte.<br>Si la variable&nbsp;inByte&nbsp;es igual a ‘p’, la imagen se guarda en la carpeta del programa.<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>¿Processing te está informando sobre un error y no aparece ninguna imagen? Asegúrate de que tengas la última versión de Processing y de que:</p>
+<p>La placa está conectada al ordenador y dentro de tu programa en Processing&nbsp;myPort = new Serial(this, Serial.list()\[0\], 9600);&nbsp;estás usando el número del puerto de tu placa, lo puedes encontrar en el menú Herramientas-&gt;Puerto en el IDE.<br>initializeCamera()&nbsp;está utilizando la cámara correcta de la lista de Processing.<br>¿No captura ninguna imagen cuando tocas el bote de galletas? Prueba a tocar el sensor directamente. Si esto funciona, necesitas un bote de galletas que sea más conductor. Si no, mira la referencia&nbsp;sensor capacitivo.<br>¿Dónde está la foto del ladrón de galletas? Búscala en la carpeta de Processing dentro de la carpeta de tu programa&nbsp;CookieMonster.<br>¡Sigue experimentando!<br>Cambia el tiempo de reacción: haz que el monstruo espere unos segundos antes de tomar la foto, ¡así pillarás al ladrón&nbsp;in fraganti!<br>Graba un sonido de monstruo , y usa un altavoz para reproducirlo una vez que se activa el sensor capacitivo. Mira la referencia sobre&nbsp;prepara sonidos wav.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>DRAWDIO</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Dibuja un sonido con&nbsp;drawdio. Quizás pienses que este lápiz es mágico, y simplemente puede serlo.&nbsp;Drawdio&nbsp;convierte (casi) todo que sea conductivo en un instrumento musical. Puedes hacer música dibujando o tocando un punto de diferentes objetos conductores a tu alrededor. Mira algunos ejemplos de cómo utilizarlo en <a href="http://web.media.mit.edu/~silver/drawdio/">esta página</a> (en inglés).</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/gVuuKsYVuDk"></iframe></p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x breadboard<br>1 x piezo<br>1 x resistencia 1 Mohm<br>5 x cable de prototipado<br>Otros materiales: - 1 x lápiz de grafito</p>
+<p>1 x cinta adhesiva<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_3_drawdio_101_27969561043_o.png?_gl=1*1p6rgub*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjQ0NzA1OC45LjEuMTY4MjQ0OTQ4NS4wLjAuMA..">aquí</a></p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí</a>.</p>
+<p><strong>Instrucciones</strong><br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p><img src="3_31.png" alt="331" title="331" width="580" height="841"></p>
+<p><img src="3_32.jpg" alt="332" title="332" width="800" height="600"></p>
+<p>Encuentra el programa Drawdio y ábrelo.</p>
+<p><img src="3_33.png" alt="333" title="333" width="580" height="310"></p>
+<p>Descarga el programa en la placa.</p>
+<p>¡Prueba y dibuja con drawdio! Utiliza tus manos en contacto con el dibujo para crear diferentes melodías.</p>
+<p><img src="3_34.jpg" alt="334" title="334" width="800" height="600"></p>
+<p>Código<br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module3-Magic&gt;Projects&gt;Drawdio</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* Drawdio
+*
+* Draw audio with drawdio. You might think that this pen is magic,
+* and it might just be. Drawdio turns (almost) everything that is
+* conductive into an instrument. You can either make music by
+* drawing a picture or by touching the tip of it to different
+* conductive things around you.
+*
+* (c) 2013-2016 Arduino LLC.
+* Inspiration from Jay Siver's DRAWDIO
+* http://web.media.mit.edu/~silver/drawdio/
+*
+*/
+
+#include <educationshield.h>
+#include "pitches.h"
+
+//Capacitive switch connected between 2 and 3
+CapacitiveSwitch me=CapacitiveSwitch(2,3);
+
+//A piezo speaker connected to digital pin 8
+Melody speaker=Melody(8);
+
+//The range of capacitive sensor values to be
+//mapped to music tones. See example
+//"help/CapacitiveSwitchTest" about how to get
+//the values
+int lowerThreshold=80;
+int upperThreshold=900;
+
+//Define the lowest and highest tone. Defined
+//in pitches.h
+int toneLow=NOTE_C3;
+int toneHigh=NOTE_B6;
+
+void setup(){
+  //Nothing to do here. Magic?
+}
+void loop(){
+  //Get value of the sensor. If it's smaller
+  //than threshold, it'll be 0
+  int value=me.getValue(lowerThreshold);
+
+  //map the sensor value to tones. The map()
+  //function maps values smaller than lower
+  //threshold to the lowest desired value. If
+  //you want to keep drawdio quiet when you're
+  //not playing, you have to deal with 0 separately
+  int pitch;
+  if(value&gt;0){
+    pitch=map(value,lowerThreshold,upperThreshold,toneLow,toneHigh);
+  }else{
+    pitch=0;
+  }
+
+  //Play the tone to the speaker.
+  speaker.playTone(pitch,10);
+}
+</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se incluye pitches.h, el archivo que contiene las definiciones de las notas.<br>Se declaran los objetos&nbsp;me&nbsp;y&nbsp;speaker&nbsp;de las clases CapacitiveSwitch y Melody respectivamente.<br>Se declaran las variables&nbsp;lowerThreshold,&nbsp;upperThreshold,&nbsp;toneLow&nbsp;y&nbsp;toneHigh.<br>Esta vez no hacemos nada en la función&nbsp;setup().<br>Se declara la variable&nbsp;value&nbsp;para almacenar el valor leído del sensor capacitivo. Si el valor leído es menor que&nbsp;lowerThreshold, la variablevalue&nbsp;valdrá 0.<br>Se declara la variable&nbsp;pitch.<br>Si la variable&nbsp;value&nbsp;es mayor que 0, se asigna a&nbsp;pitch&nbsp;un valor entre mapeado desde&nbsp;lowerThreshold&nbsp;y&nbsp;upperThreshold, hasta&nbsp;toneLow&nbsp;y&nbsp;toneHigh.<br>De lo contrario, si&nbsp;value&nbsp;no es mayor que 0,&nbsp;pitch&nbsp;será igual a 0.<br>Se toca un tono usando la variable&nbsp;pitch.<br>Se repite la función&nbsp;loop().<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>Los objetos metálicos son conductores pero pueden no funcionar para Drawdio. El agua, la fruta, los humanos, las plantas y los lápices funcionan mejor. Usa el ejemplo en Archivo-&gt;Ejemplos-&gt;EducationShield-&gt;Help-&gt;CapacitiveSwitchTest para experimentar con la capacidad de los diferentes objetos que te rodean.<br>Si usas lápices de dibujo, asegúrate de que las líneas y las formas son anchas y gruesas. Intenta tocar uno de los extremos del objeto cuando utilices Drawdio.<br>Mira la referencia del&nbsp;sensor capacitivo&nbsp;para más explicaciones.<br>¡Sigue experimentando!<br>Afina el tono de Drawdio para que sea más preciso con los objetos que toca.<br>Cambia los sonidos que Drawdio toca.<br>¡Utiliza el material más insólito que encuentres para Drawdio!</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>CAJA KNOCK KNOCK</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Llama a éste ataúd para despertar al muerto. No te preocupes, el esqueleto no saldrá y te perseguirá, pero te contestará desde dentro.</p>
+<p>Vale, sabemos que no hay ningún esqueleto real ahí. En realidad es un piezoeléctrico utilizado como sensor de toques. Después de que hayas montado este proyecto quizás se te ocurran otras formas más útiles de utilizar este sensor. Mira este <a href="https://www.youtube.com/watch?v=zE5PGeh2K9k" target="_blank" rel="noopener">cerrojo secreto</a> para inspirarte.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/Z4N_tnmgTxU"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x breadboard<br>2 x piezo<br>1 x 3v3 diodo zener<br>1 x resistencia 1 Mohm<br>14 x cable de prototipado<br>1 x pila 9 V<br>1 x conector de alimentación con jack<br>1 x kit caja Knock knock<br>Otros materiales: - 1 x cinta adhesiva</p>
+<p>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_3_knock_knock_box_101_27967975914_o.png?_gl=1*1mmqbtc*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjYwOTU5NS4xMC4xLjE2ODI2MDk2MDguMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541148-2018marlogoknockknock.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541166-2018marlogoknockknock.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub&nbsp;aquí.</p>
+<p><strong>Instrucciones</strong><br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p><img src="3_34.png" alt="334" title="334" width="580" height="771"></p>
+<p><img src="3_35.jpg" alt="335" title="335" width="800" height="600"></p>
+<p><img src="3_36.jpg" alt="336" title="336" width="800" height="600"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p>Encuentra el programa KnockKnockBox y ábrelo.</p>
+<p><img src="3_37.png" alt="337" title="337" width="580" height="310"></p>
+<p>Descarga el programa en la placa.</p>
+<p>Una vez que se descarga el programa, retira el cable USB, no lo necesitarás para hacer funcionar este proyecto.</p>
+<p>Sitúa el sensor en la tapa de la caja y asegúrate que el piezo está haciendo contacto con la superficie.</p>
+<p>Fija el sensor con cinta adhesiva.</p>
+<p><img src="3_38.jpg" alt="338" title="338" width="800" height="600"></p>
+<p>Conecta la pila de 9 V al conector de alimentación de la placa. Consulta la referencia&nbsp;Baterías&nbsp;si lo necesitas.</p>
+<p><img src="3_39.png" alt="339" title="339" width="579" height="942"></p>
+<p>Cierra la caja:</p>
+<p><img src="3_40.jpg" alt="340" title="340" width="800" height="600"></p>
+<p>¡Es hora de llamar al ataúd!</p>
+<p><strong>Código</strong><br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module3-Magic&gt;Projects&gt;KnockKnockBox</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* KnockKnockBox
+* 
+* Knock on this coffin to awake the dead. Don’t worry, 
+* the skeleton won’t get out and come after you but it 
+* will reply from inside.
+* 
+* Ok, we know that you know that there isn’t a real 
+* skeleton there. It's really a piezo used as a knock 
+* sensor. After you've made this project you might 
+* think of a handy way to use this sensor in other ways. 
+* Check out this secret knock detecting lock for some 
+* inspiration: http://www.youtube.com/watch?v=zE5PGeh2K9k 
+* 
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+
+//The number of knocks that can be recorded
+#define MAX_KNOCKS 30
+
+PiezoKnockSensor sensor=PiezoKnockSensor(A0);
+int speaker = 8;
+
+//An array for remembering the knock pattern
+long timer[MAX_KNOCKS];
+
+//If it has started recording
+boolean started;
+
+//Used for calculating if you have finished the pattern
+long timeoutBase;
+
+//If you stop knocking for the period of timeout, it'll
+//stop recording
+long timeout=2000;
+
+//Keep track of the number of knocks you've knocked
+int currentKnock;
+
+void setup(){
+  //define the threshold and debounce time of the knock
+  //sensor. Threshold defines how hard you need to knock,
+  //debounce time prevents the sensor from detecting
+  //false knocks, but also limits how rapid you can knock.
+  sensor.config(100,80);
+
+  //initializing the values
+  started=false;
+  timeoutBase=0;
+  currentKnock=0;
+  clearArray();
+}
+
+void loop(){
+  //Knock sensor waits for a short time if a knock is detected
+  //and then move on.
+  if(sensor.knocked(20)){
+    //If it's the first knock in the round, start recording
+    if(!started){
+      started=true;
+    }
+
+    long currentTime=millis();
+    //Reset timeout
+    timeoutBase=currentTime;
+    //Save the amount of milliseconds that have 
+    //passed since the last knock
+    timer[currentKnock]=currentTime;
+    currentKnock++;
+  }
+  if(started){
+    //If recording has started and you stop
+    //knocking for the time of "timeout", it'll
+    //stop recording and play it back to you.
+    if(millis()-timeoutBase&gt;timeout){
+      playback();
+      //reset the parameters, so a new round begins
+      started=false;
+      clearArray();
+      currentKnock=0;
+    }
+  }
+}
+void clearArray(){
+  //clean up values in the timer array
+  for(int i=0;i&lt;MAX_KNOCKS;i++){
+    timer[i]=0;
+  }
+}
+void playback(){
+  //Play the knock pattern back to you through the
+  //speaker piezo
+  for(int i=0;timer[i]!=0;i++){
+    //Make a beep sound with tone 200 for 30 milliseconds
+    tone(speaker, 200, 30);
+    if(timer[i+1]){
+      //Wait the same amount of milliseconds that was detected
+      //between the knocks
+      delay(timer[i+1]-timer[i]);
+    }
+  }
+}
+</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se define la constante&nbsp;MAX\_KNOCKS&nbsp;para almacenar el valor 30.<br>Se declara el objeto&nbsp;sensor&nbsp;de la clase PiezoKnockSensor.<br>Se declara la variable&nbsp;speaker.<br>Se declaran las variables&nbsp;timer\[\],&nbsp;started,&nbsp;timeoutBase,&nbsp;timeout,&nbsp;currentKnock. Estas variables se emplearán para hacer un seguimiento de los golpes.<br>En la función&nbsp;setup(), se configura el sensor de golpes.<br>Se asignan valores a las variables del sensor de golpes.<br>El programa llama a la función&nbsp;clearArray().<br>En la función&nbsp;clearArray(), un bucle&nbsp;for&nbsp;recorre el array&nbsp;timer\[\]&nbsp;y el asigna el valor 0 a cada elemento.<br>El programa vuelve a la función&nbsp;setup().<br>En la función&nbsp;loop(), si se detecta un golpe en el sensor ocurre lo siguiente.<br>Si la variable&nbsp;started&nbsp;es&nbsp;false, es decir, que se detecto el primer golpe. Se asigna&nbsp;true&nbsp;a la variable&nbsp;started.<br>Se declara la variable&nbsp;currentTime&nbsp;y se le asigna el valor que devuelve la función&nbsp;millis(). La función&nbsp;millis()&nbsp;devuelve el tiempo en milisegundos que ha pasado desde que el programa empezó.<br>La variable&nbsp;timeoutBase&nbsp;se emplea para comprobar cuánto tiempo ha transcurrido desde que se detectó el último golpe. Por lo tanto, cada vez que se detecta un golpe, la variable&nbsp;timeoutBase&nbsp;se actualiza con el valor de&nbsp;currentTime.<br>El valor de la variable&nbsp;currentTime&nbsp;se asigna también al array&nbsp;timer\[\]&nbsp;en la posición que marca&nbsp;currentKnock. La primera vez que se detecta un golpe, a la variable&nbsp;currentKnock&nbsp;se le asigna el valor 0, por lo tanto, el tiempo correspondiente se almacena en primer elemento del array&nbsp;timer\[\].<br>La variable&nbsp;currentKnock&nbsp;se incrementa en 1.<br>Si no se detecta ningún golpe, se ignora la sentencia&nbsp;if.<br>Si la variable&nbsp;started&nbsp;es&nbsp;true, se emplea una sentencia&nbsp;if&nbsp;adicional para comprobar si ha pasado mucho tiempo desde que el golpe anterior fue detectado.<br>Si ha pasado demasiado tiempo, el programa llama a la función&nbsp;playBack().<br>En la función&nbsp;playBack(), un bucle&nbsp;for&nbsp;recorre los elementos del array&nbsp;timer\[\]&nbsp;siempre y cuando ninguno de los elementos sea igual a 0.<br>Para cada iteración, se toca un tono y el programa espera la cantidad de milisegundos entre golpes detectados.<br>El tiempo de espera se calcula con&nbsp;timer\[i+1\]-timer\[i\]. Es decir, el tiempo desde que comenzó el programa hasta el siguiente golpe, menos el tiempo desde que comenzó el programa hasta golpe actual. O lo que es lo mismo, el tiempo entre golpes.<br>Cuando termina el bucle&nbsp;for, el programa vuelve a la función&nbsp;loop().<br>Los parámetros se resetean al poner&nbsp;started&nbsp;a&nbsp;false, ejecutando la función&nbsp;clearArray()&nbsp;y configurando&nbsp;currentKnock&nbsp;a 0.<br>Si no ha pasado demasiado tiempo, no pasa nada y la función&nbsp;loop()&nbsp;continúa ejecutándose, comprobando si se detectan golpes.<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>Asegúrate de que la pila esté conectada correctamente y que por tanto el LED de alimentación esté encendido. Pruébalo con la placa conectada al ordenador y la pila de 9 V desconectada. Si funciona con el cable USB pero no con la pila, este puede ser el problema; prueba a cambiar la pila.<br>Recuerda que debes golpear sobre la pared correcta de la caja (la que tiene el sensor).<br>¿El sensor no funciona correctamente? Mira la referencia&nbsp;sensor de golpes.<br>¡Sigue experimentando!<br>Cambia el sonido con el que la caja devuelve el golpe.<br>Añade ledes a los ojos del esqueleto que parpadeen o bien cuando golpeas la caja o bien cuando el piezo está tocando un sonido.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>P.O.V.</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Con P.O.V. persistencia de visión (del inglés&nbsp;Persistence Of Vision), puedes, por ejemplo, convertir una rueda de bici en un display con tan solo algunos ledes. Mira&nbsp;este video&nbsp;para entenderlo mejor.</p>
+<p>En este proyecto harás uno de estos displays por ti mismo. Haz que dibuje largas líneas o que incluso muestre texto, un patrón o una imagen mientras pedaleas. El efecto es más visible en la oscuridad, por lo que si vas en bici, ten cuidado de no chocar contra un árbol o un amigo.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/Mgwh0CSnYx4"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>5 x LED<br>5 x resistencia 220 ohm<br>10 x cable prototipado<br>1 x pila 9 V<br>1 x conector de alimentación con jack<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar&nbsp;aquí</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub&nbsp;aquí.</p>
+<p><strong>Instrucciones</strong><br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p><img src="3_41.jpg" alt="341" title="341" width="800" height="600"></p>
+<p><img src="3_42.png" alt="342" title="342" width="579" height="568"></p>
+<p><img src="3_43.png" alt="343" title="343" width="577" height="310"></p>
+<p>Descarga el programa en la placa. Una vez que se descarga el programa, retira el cable USB, no lo necesitarás para hacer funcionar este proyecto.</p>
+<p>Conecta la pila de 9V al conector de alimentación de la placa. Consulta la referencia&nbsp;Baterías&nbsp;si lo necesitas.</p>
+<p>Pon los ledes en vertical en una habitación oscura.</p>
+<p>¡Mueve la placa de un lado a otro!</p>
+<p><img src="3_44.jpg" alt="344" title="344" width="800" height="600"></p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* POV (Persistence of Vision)
+* 
+* With POV, persistence of vision, you can take eg a bike wheel
+* and make it into a display with just a few LEDs. Check out 
+* this video to see what we mean: 
+* http://www.youtube.com/watch?v=-TvGvVWS3IE
+* 
+* In this project you will make one of these displays yourself. 
+* Wave it with long strokes or even hold it while running to 
+* display a text, a statement or a picture. The effect is most 
+* visible in a dark place so if you’re running, make sure not 
+* to run in to a tree or a friend. 
+* 
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+/*
+An array of pin numbers to which LEDs are attached
+the defaults are 2 to 6 but you can choose any of the digital pins
+*/
+int ledPins[] = {2, 3, 4, 5, 6};
+int pinCount = 5;
+VUMeter vuMeter;
+
+int rowCount = 0; // Stores the number of rows
+int rowLength = 22; // Width of the message, copy this number to the message array
+int delayTime = 9; // Time it takes to show a row in milliseconds
+
+// The message where 0 is LOW and 1 is HIGH
+boolean message[5][22]={
+  // H H H H   O O O O   L L L L   A A A A
+  {0,1,0,0,1,0,0,1,1,0,0,1,0,0,0,0,0,1,1,0,0,0},
+  {0,1,0,0,1,0,1,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0},
+  {0,1,1,1,1,0,1,0,0,1,0,1,0,0,0,0,1,1,1,1,0,0},
+  {0,1,0,0,1,0,1,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0},
+  {0,1,0,0,1,0,0,1,1,0,0,1,1,1,1,0,1,0,0,1,0,0}
+
+};
+
+void setup(){
+  // If your are using other pins than 2 to 6 you need to configure that here
+  vuMeter.config(pinCount, ledPins);
+
+  vuMeter.begin(); //does the same as pinMode, LEDs are outputs
+}
+
+void loop(){
+ // If the whole array has been drawn
+  if(rowCount == rowLength) {
+    rowCount = 0; // Reset the rowCount
+  } else {
+    // Shows the message
+    for (int i = 0; i &lt; pinCount; i++) {
+      // Checks if the array says HIGH
+      if (message[i][rowCount] == 1) {
+        vuMeter.on(i);
+      } else {
+        vuMeter.off(i);
+      }
+    }
+    rowCount++;
+  }
+
+  delay(delayTime);// This is the delay per row
+
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se declaran las variables,&nbsp;ledPins\[\]&nbsp;y&nbsp;pinCount&nbsp;y el objeto&nbsp;vuMeter&nbsp;de la clase VUMeter.<br>Se declaran las variables que se van a emplear para mostrar el mensaje,&nbsp;rowCount&nbsp;se empleará para controlar el número de fila,&nbsp;rowLength&nbsp;es la anchura del mensaje y&nbsp;delayTime&nbsp;es el tiempo en milisegundos que se muestra cada fila.<br>Se define el patrón del mensaje en un array de dos dimensiones,&nbsp;message\[5\]\[22\]. El mensaje se muestra con cinco ledes y tiene 22 filas de largo.<br>El patrón del mensaje se define de forma que sea fácil de visualizar. Para cada LED hay 22 ceros y unos. Un&nbsp;1&nbsp;representa un LED encendido, y un&nbsp;0&nbsp;apagado.<br>En la función&nbsp;setup(), se configura e inicializa el VU-meter.<br>En la función&nbsp;loop(), se comprueba si la variable&nbsp;rowCount&nbsp;es igual que&nbsp;rowLength&nbsp;con una sentencia&nbsp;if. Si lo es, significa que ya se ha mostrado el mensaje completo.<br>Para comenzar de nuevo, se asigna 0 a la variable&nbsp;rowCount.<br>Si las variables&nbsp;rowCount&nbsp;y&nbsp;rowLength&nbsp;no son iguales, se muestra el mensaje.<br>Se ejecuta un bucle&nbsp;for&nbsp;tantas veces como el valor almacenado en&nbsp;pinCount, la cantidad de ledes que estamos utilizando.<br>En cada iteración del bucle, una sentencia&nbsp;if&nbsp;comprueba si&nbsp;message\[i\]\[rowCount\]&nbsp;es igual a 1.<br>En la primera iteración, las variables&nbsp;i&nbsp;y&nbsp;rowCount&nbsp;son igual a 0, por lo que&nbsp;message\[i\]\[rowCount\]&nbsp;no es igual a 1 y el LED correspondiente a ese índice del array (i) se apaga.<br>En la segunda iteración,&nbsp;i&nbsp;es igual a 1 y&nbsp;rowCount&nbsp;es igual a 0, por lo que&nbsp;message\[i\]\[rowCount\]&nbsp;no es igual a 1 y el LED correspondiente a ese índice del array (i) se apaga.<br>Cuando termina el bucle&nbsp;for,&nbsp;rowCount&nbsp;se incrementa en 1.<br>El programa espera durante el tiempo almacenado en la variable&nbsp;delayTime.<br>De nuevo, si&nbsp;rowCount&nbsp;es igual a&nbsp;rowLength,&nbsp;rowCount&nbsp;se pone a 0.<br>Esta vez, cuando el bucle&nbsp;for&nbsp;se ejecuta,&nbsp;i&nbsp;es igual a 0 y&nbsp;rowCount&nbsp;es igual a 1, por lo tanto&nbsp;message\[i\]\[rowCount\]&nbsp;es igual a 1 y el LED correspondiente a ese índice del array (i) se enciende.<br>Cuando termina el bucle&nbsp;for,&nbsp;rowCount&nbsp;se incrementa en 1.<br>El programa espera durante el tiempo almacenado en la variable&nbsp;delayTime.<br>Repite la función&nbsp;loop().<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>Asegúrate de que la pila esté conectada correctamente y que por tanto el LED de alimentación esté encendido. Pruébalo con la placa conectada al ordenador y la pila de 9V desconectada. Si funciona con el cable USB pero no con la pila, este puede ser el problema; prueba a cambiar la pila.<br>¿El VU–Meter no funciona correctamente? Mira la referencia del&nbsp;VU–Meter.<br>¡Sigue experimentando!<br>Prueba otros mensajes con una longitud diferente.<br>Cambia el mensaje a un patrón o un dibujo.<br>Hazte una foto agitando el P.O.V. ¡Mira el efecto que hace!</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>SECUENCIADOR</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Reproduce ritmos y cambia la secuencia en tiempo real con el secuenciador. ¡Aprende lo básico para convertirte en todo un artista!</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/b484ihI9rMQ"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>5 x resistencia 680 ohm<br>1 x resistencia 220 ohm<br>1 x resistencia 470 ohm<br>1 x resistencia 1,2 Kohm<br>1 x altavoz<br>1 x tarjeta micro SD<br>8 x cable<br>9 x cable de prototipado<br>1 x kit secuenciador<br>Instrucciones<br>Prepara todos los materiales de construcción del secuenciador. ¡Y empieza a contruir el secuenciador! Puedes encontrar algunos trucos en la referencia&nbsp;Consejos de construcción&nbsp;y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541156-2018marlogoopenboxsequencer.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541155-2018marlogoopenboxsequencer.ai">AI</a>.</p>
+<p><img src="3_45.jpg" alt="345" title="345" width="800" height="600"></p>
+<p>Corta y prepara tus cables largos, estos son diferentes a los cables de prototipado por lo que tendrás que "pelar" o descubrir sus puntas metálicas unos 2 ó 3 cm para que hagan contacto. Prepara al menos 4 cables negros. Los otros 4 pueden ser de cualquier color.</p>
+<p>Pon el extremo de un cable negro pelado a través de los agujeros de uno de los lados de cada corazón.</p>
+<p>Coloca los cables restantes a través de los agujeros del otro lado de cada corazón.</p>
+<p><img src="3_46.jpg" alt="346" title="346" width="800" height="600"></p>
+<p><img src="3_47.jpg" alt="347" title="347" width="800" height="600"></p>
+<p><img src="3_48.jpg" alt="348" title="348" width="800" height="600"></p>
+<p><img src="3_49.jpg" alt="349" title="349" width="800" height="600"></p>
+<p><img src="3_50.jpg" alt="350" title="350" width="800" height="600"></p>
+<p>Coloca una resistencia en cada pieza con forma de corazón (220 ohm, 470 ohm, 680 ohm, 1.2 Kohm) y usa la pieza superior para sujetarla en su sitio.</p>
+<p><img src="3_51.png" alt="351" title="351" width="579" height="401"></p>
+<p><img src="3_52.png" alt="352" title="352" width="577" height="690"></p>
+<p>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p>Conecta cuatro resistencias de 680 ohm a través del puente de la breadboard.</p>
+<p><img src="3_53.png" alt="353" title="353" width="580" height="938"></p>
+<p><img src="3_53.jpg" alt="353" title="353" width="800" height="600"></p>
+<p><img src="3_54.png" alt="354" title="354" width="580" height="307"></p>
+<p>Guarda 5 archivos de sonido .wav en la tarjeta SD. En el IDE, los archivos se encuentran en Programa &gt; Mostrar carpeta del programa &gt; Sound files. Guarda “seq0.wav”, “seq1.wav”, “seq2.wav”, “seq3.wav” y “seq4.wav” en el directorio raíz de la tarjeta microSD. Si quieres grabar tus propios sonidos, consulta la referencia&nbsp;Prepara Sonidos Wav.</p>
+<p>Consulta la referencia y&nbsp;Prepara el altavoz&nbsp;y cuando lo tengas listo conéctalo al conector de audio de la placa. A continuación, introduce la tarjeta microSD en la shield.</p>
+<p><img src="3_55.png" alt="355" title="355" width="580" height="1152"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p>Descarga el programa en la placa.</p>
+<p>¡Coloca el altavoz en el agujero redondo y empieza a tocar!</p>
+<p><img src="3_56.jpg" alt="356" title="356" width="800" height="600"></p>
+<p><strong>Código</strong></p>
+<p>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module3-Magic&gt;Projects&gt;Sequencer</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* Sequencer
+* 
+* Play beats and change the sequence in real time. Basically 
+* all you need to become a hiphop artist. That, and rapping 
+* skills. But that's another course. 
+*  
+* (c) 2013-2016 Arduino LLC.
+*/
+#include &lt;EducationShield.h&gt;
+
+//Declare the sound player
+Player player=Player();
+
+//There're 4 slots for 4 sequences. We use 4 analog pins
+//to read them.
+int analog_pins[]={3,2,1,0};
+int pin_count=4;
+int analog_values[4];
+
+//Template for the music file names.
+char filename[]="seq0.wav";
+
+void setup(){
+  // Open serial communications and wait for port to open:
+  Serial.begin(9600);
+
+  //The system automatically calibrates itself
+  calibrate();
+
+  // Initialize the sound player. Open the Serial Monitor to see
+  //the sound files found on your micro SD card
+  player.begin();
+
+}
+void loop(){
+  //Loop through 4 pins and play the right sequence accordingly
+  for(int i=0;i&lt;pin_count;i++){
+    int slot_value=analogRead(analog_pins[i]);
+    int sequence=getSeq(slot_value);
+
+    //Get the right file name by sequence
+    filename[3]='0'+sequence;
+    Serial.println(filename);
+    //Play the file
+    player.play(filename);
+  }
+
+  //End of one loop
+  Serial.println("=======");
+}
+
+void calibrate(){
+  delay(1000);
+  Serial.println("Begin Calibration");
+  for(int i=0;i&lt;4;i++){
+    Serial.print("calibrating slot ");
+    Serial.println(i);
+    int val=0;
+    do{
+      val=analogRead(analog_pins[i]);
+      Serial.println(i);
+    }while(val&gt;1010);
+    analog_values[i]=val;
+  }
+  for(int i=0;i&lt;4;i++){
+    for(int j=i;j&lt;4;j++){
+      if(analog_values[i]&gt;analog_values[j]){
+        int temp=analog_values[i];
+        analog_values[i]=analog_values[j];
+        analog_values[j]=temp;
+      }
+    }
+  }
+  Serial.println("Done Calibration");
+}
+
+int getSeq(int analogVal){
+  for(int i=0;i&lt;4;i++){
+    if(analogVal&gt;analog_values[i]-50 &amp;&amp; analogVal&lt;analog_values[i]+50){
+      return i+1;
+    }
+  }
+
+  return 0;
+
+/*
+  if(analogVal&gt;200 &amp;&amp; analogVal&lt;300){  //220 Ohm
+   return 1; 
+  }else if(analogVal&gt;360 &amp;&amp; analogVal&lt;460){  //470 Ohm
+   return 2;
+  }else if(analogVal&gt;480 &amp;&amp; analogVal&lt;580){  //680 Ohm
+   return 3;
+  }else if(analogVal&gt;600 &amp;&amp; analogVal&lt;700){  //1k2 Ohm
+   return 4;
+  }else{  //No resistor
+   return 0; 
+  }
+*/
+  //If you're using Arduino 101, the same resistors give
+  //different analog read values. Use the following code 
+  //instead. 
+  /*
+  if(analogVal&gt;200 &amp;&amp; analogVal&lt;300){  //220 Ohm
+   return 1; 
+  }else if(analogVal&gt;400 &amp;&amp; analogVal&lt;500){  //470 Ohm
+   return 2;
+  }else if(analogVal&gt;600 &amp;&amp; analogVal&lt;700){  //680 Ohm
+   return 3;
+  }else if(analogVal&gt;800 &amp;&amp; analogVal&lt;900){  //1k2 Ohm
+   return 4;
+  }else{  //No resistor
+   return 0; 
+  }*/
+}</code></pre>
+</div>
+</div>
+<p>Cómo funciona<br>Se incluye la librería EducationShield.<br>Se declara el objeto `player` de la clase Player.<br>Se declaran las variables relacionadas con los pines analógicos, `analog_pins[]` y `pin_count`.<br>Se declara el array `filename[]` para almacenar el archivo “seq0.wav”.<br>En la función `setup()`, se inicializa el puerto serie.<br>Empleando la función `calibration()`, el secuenciador se calibra automáticamente con los valores analógicos en cada pin. Asegúrate que tienes todas las piezas en las ranuras antes de iniciar el dispositivo.<br>Se inicializa el objeto `player`.<br>En la función `loop()`, un bucle `for` se ejecuta tantas veces como marca la variable `pin_count`, una vez por pin analógico.<br>En cada iteración del bucle `for`, se declara la variable `slot_value` para almacenar el valor analógico leído de los pines analógicos (`analog_pins[i]`). En la primera iteración, la variable `i` es igual a 0 lo que significa que se lee el valor analógico del pin 3.<br>Se declara la variable `sequence` para almacenar el valor que devuelve la función `getSeq()`.<br>El programa llama a la función `getSeq()` y le pasa la variable `slot_value`.<br>En la función `getSeq()`, una sentencia `if-else` comprueba dentro de qué rango está el valor analógico leído.<br>La función `getSeq()` devuelve un número entre 1 y 4, dependiendo del resultado de la sentencia `if-else`. La función devuelve un 0 si la variable `analogVal` no está en ninguno de los rangos.<br>El programa vuelve a la función `loop()` donde se almacena el valor devuelto en la variable `sequence`.<br>El cuarto carácter `filename[]` se reemplaza con el valor almacenado en `sequence`.<br>El nombre del archivo se manda por puerto serie, puedes verlo en el monitor de puerto serie si quieres.<br>Se toca el sonido en el archivo.<br>Se envía "=======" por el puerto serie.<br>Se repite la función `loop()`.<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>¿Tienes problemas reproduciendo los archivos de sonido? Mira la referencia&nbsp;player.<br>Asegúrate de que estás utilizando las resistencias correctas. Mira la referencia sobre&nbsp;resistencias y ley de ohm.<br>¡Sigue experimentando!<br>Graba cinco sonidos propios nombralos como: "seq0.wav", "seq1.wav", "seq2.wav", "seq3.wav" y "seq4.wav". Todos deben tener la misma duración para un mejor resultado y "seq0.wav" debe ser silencioso. Mira la referencia&nbsp;prepara sonidos wav&nbsp;para más detalles.</p></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="2_deportes.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="4_robots.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_escolares_js.js"></script></body></html>

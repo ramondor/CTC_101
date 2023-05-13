@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="exe_highlighter.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>4. Robots | Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="José Ramón Dorado Repiso" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.8 Portable - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="exe_highlighter.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<link rel="stylesheet" type="text/css" href="udl-content.css" />
+<script type="text/javascript" src="udl-content.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="exe-web-site" id="exe-node-4"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Proyectos de Robótica con Arduino Genuino 101 y Arduino Education Shield</a></li>
+   <li><a href="1_processing.html" class="no-ch">1. Processing</a></li>
+   <li><a href="2_deportes.html" class="no-ch">2. Deportes</a></li>
+   <li><a href="3_magia.html" class="no-ch">3. Magia</a></li>
+   <li id="active"><a href="4_robots.html" class="active no-ch">4. Robots</a></li>
+   <li><a href="5_espacio.html" class="no-ch">5. Espacio</a></li>
+   <li><a href="recursos.html" class="no-ch">Recursos</a></li>
+   <li><a href="gua_didctica.html" class="no-ch">Guía didáctica</a></li>
+   <li><a href="crditos.html" class="no-ch">Créditos</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="3_magia.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="5_espacio.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">4. Robots</h1></header>
+<article class="iDevice_wrapper textIdevice" id="id18">
+<div class="iDevice emphasis0" >
+<div id="ta18_1756_2" class="block iDevice_content">
+<div class="exe-text"><p><a href="https://ctc101.arduino.cc/ctc101/module/module-4">https://ctc101.arduino.cc/ctc101/module/module-4</a></p>
+<p>Aprende sobre como controlar motores y sensores. Construye diferentes robots y agrega movimiento usando servo motores standard y continuos.</p></div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id19">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">4.1 TIPOS DE MOTORES</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta19_1757_2" class="block iDevice_content">
+<div class="exe-text"><p>Para controlar los motores, utilizarás la placa controladora. Básicamente, cualquier objeto electrónico que hayas visto o conoces, tiene alguna pieza en movimiento. Por ejemplo: impresoras, coches de juguete, cepillos de dientes eléctricos, etc.; todos, contienen motores. Los hay de muchos tipos, pero principalmente encontrarás tres tipos de motores:</p>
+<p><strong>Motores DC (corriente continua):</strong><br />Si necesitas que algo gire pero sin precisión, este es tu motor. Para encontrar un motor DC en la vida real, busca el ventilador que está dentro de tu ordenador. También hay uno muy pequeño en tu teléfono móvil. El motor DC es el que hace que tu teléfono vibre, haciendo girar un bloque de metal cuyo peso está distribuido de manera no uniforme.</p>
+<p><img src="4_01.png" alt="401" title="401" width="580" height="239" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>Un motor DC puede funcionar libremente en ambas direcciones, es muy fácil controlar su velocidad pero no su posición. Tampoco es sencillo hacerlo parar de forma precisa. Viene con dos cables: alimentación y tierra. Por regla general un motor DC no puede ser alimentado directamente de la corriente proporcionada por un pin digital de tu placa.</p>
+<p>Los cables se pueden conectar a tierra o a un pin digital. Para hacerlo girar, pon el pin digital a nivel alto (HIGH) y para que se detenga, pon el pin digital a nivel bajo (LOW). Para hacerlo girar en sentido contrario, cambia el orden de los cables.</p>
+<p>Es posible controlar la velocidad de un motor DC desde tu placa con una técnica llamada PWM usando un transistor. Con varios transistores dispuestos en un puente H, puedes incluso controlar la dirección sin tener que desconectar el motor.</p>
+<p><strong>Motores paso a paso:</strong><br />Los motores paso a paso se pueden encontrar en cualquier objeto electrónico donde prima la precisión, como un escáner o una impresora. Un motor paso a paso puede, a diferencia del motor DC, ser muy preciso tanto en posición como en velocidad.</p>
+<p><img src="4_02.png" alt="402" title="402" width="579" height="443" /></p>
+<p>La rotación completa de los motores paso a paso se divide en pasos equitativos y puedes controlar la parada del motor en cada uno de estos pasos. Los pasos se miden en grados, normalmente 1.8, 3.6 o 7.2. Cuanto más pequeños sean los pasos, más preciso será. Esto hace que sea muy útil cuando se necesita un posicionamiento repetido.</p>
+<p>Sin embargo, el motor paso a paso nunca será muy rápido. Un motor paso a paso tiene 4 o más cables. Por lo general, necesitas más de 5 voltios para alimentar un motor paso a paso, lo que significa que no se puede alimentar directamente desde la placa controladora. Sin embargo, podemos utilizar una fuente de alimentación externa para alimentar el motor y controlarlo desde la placa a través de un transistor.</p>
+<p><strong>Servomotores</strong><br />Los servomotores son ampliamente utilizados en robótica y en radio-control. Estos tipos de motores son los que vas a utilizar aquí puesto que son muy sencillos de conectar y controlar desde tu placa.</p>
+<p>Tienen tres cables: uno para la energía, uno para tierra y otro para controlarlos. Hay dos tipos de servomotores: rotación estándar y rotación continua. El estándar puede girar 180 grados y puede ser controlado como el motor paso a paso a una posición precisa. El de rotación continua puede, al igual que el motor DC, rotar en ambas direcciones, no tan rápido; pero puedes controlar tanto la velocidad como la dirección sin tener que utilizar transistores.</p>
+<p><img src="4_03.png" alt="403" title="403" width="580" height="270" /></p>
+<p></p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id20">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">4.2 SERVO ESTÁNDAR</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta20_1758_2" class="block iDevice_content">
+<div class="exe-text"><p>Comencemos por comprobar cómo funciona el servomotor estándar. Para controlar un servo vamos a utilizar una librería llamada Servo. Como vimos en el <a href="2_deportes.html">Módulo 2</a>, una librería es un fragmento de código que ya ha sido escrito y que se puede instanciar (llamar) cada vez que necesites utilizarlo.</p>
+<p><strong>Ejemplo 4.1</strong><br />En este ejemplo vas a controlar el servo para mover su eje entre 0 y 180 grados repetidamente.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x servo estándar</p>
+<p><strong>INSTRUCCIONES</strong></p>
+<p><img src="4_04.png" alt="404" title="404" width="580" height="651" /></p>
+<p>Conecta la shield en la parte superior de tu placa controladora.<br />Monta uno de los accesorios del servo en el servo estándar.<br />Conecta el cable del servo al conector D6 de la shield.<br />Escribe el siguiente programa en el IDE:</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _4.1_standard_servo
+*
+* The board  will control the servo to repeatedly move its arm between 0 and 180 degrees.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;servo.h&gt;
+
+Servo myservo;
+
+void setup() {
+  myservo.attach(6);
+}
+
+void loop() {
+  myservo.write(0);
+  delay(1000);
+  myservo.write(180);
+  delay(1000);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />El eje del servo debe girar a 0 grados, esperar un segundo, girar a 180 grados, esperar un segundo y repetir de nuevo esta secuencia.</p>
+<p>COMANDOS<br />#include servo.h: Incluye la librería Servo, esta librería se emplea para controlar servos.<br />Servo servoName: Crea el objeto servoName de la clase Servo. Este es el que utilizas para controlar el servo.<br />servoName.attach( pinNumber ): Aquí es donde indicas a que pin pinNumber conectas el servo servoName.<br />servoName.write( degrees ): Indica al servo a qué posición girar, este valor se especifica en grados (degrees) y puede variar entre 0 y 180<br />CÓMO FUNCIONA<br />Se incluye la librería Servo.<br />Se crea el objeto myservo de la clase Servo.<br />En la función setup(), myservo se configura en el pin 6.<br />En la función loop(), el eje del servo se mueve a 0 grados.<br />El programa espera durante 1000 milisegundos.<br />El eje del servo se mueve a 180 grados.<br />El programa espera durante otros 1000 milisegundos.<br />Repite la función loop().<br />¡Sigue experimentando!<br />Para saber más, haz click en la referencia servo estándar.<br />Cambia el ángulo del servo cambiando el valor dentro de la función write. Prueba añadir más movimientos en el programa. Observa qué sucede si cambias el tiempo de retardo.<br />En lugar de hacer que el servo salte directamente de una posición a otra, puedes aumentar o disminuir la posición poco a poco. Intenta escribir un programa que haga que el servo haga un barrido de un lado a otro, de una manera suave. (SUGERENCIA: mira el ejemplo Archivo -&gt; Ejemplos -&gt; Servo -&gt; Sweep)</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id21">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">4.3 SERVO DE GIRO CONTINUO</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta21_1759_2" class="block iDevice_content">
+<div class="exe-text"><p>Ahora vamos a probar el servo de giro continuo. Puedes controlar el servo continuo configurando su velocidad y dirección de giro en lugar de su posición.</p>
+<p><img src="4_05.png" alt="405" title="405" width="579" height="268" /></p>
+<p><strong>Ejemplo 4.2</strong><br />En este ejemplo, vas a emplear el mismo programa que en el ejemplo anterior, pero esta vez con un servo de giro continuo.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x servo de giro continuo<br />1 x porta pilas de 4<br />4 x pila AA<br />1 x conector de alimentación (con dos cables sueltos)<br />4 x cable de prototipado</p>
+<p>INSTRUCCIONES</p>
+<p><img src="4_06.jpg" alt="406" title="406" width="339" height="640" /></p>
+<p>Conecta la shield en la parte superior de tu placa controladora.<br />Monta uno de los accesorios del servo en el servo de giro continuo.<br />Conecta los cables rojo y negro de la batería a la breadboard.<br />Conecta el cable negro de la batería a GND a través de la breadboard empleando un cable de prototipado.<br />Conecta tres cables de prototipado al conector del servo.<br />Conecta el cable rojo del servo al cable rojo o positivo de la batería a través de la breadboard.<br />Conecta el cable negro del servo a GND a través de la breadboard.<br />Conecta el cable blanco del servo (verde en la ilustración) al pin digital 6.<br />Escribe el siguiente programa en el IDE:</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _4.2_continuous_servo
+*
+* The board  will control the continuous rotation servo by writing a speed to it instead of a position.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;servo.h&gt;
+
+Servo myservo;
+
+void setup() {
+  myservo.attach(6);
+}
+
+void loop() {
+  myservo.write(0);
+  delay(1000);
+  myservo.write(180);
+  delay(1000);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.<br />RESULTADO<br />Lo que hace el programa es mover el servo hacia una dirección a toda velocidad durante un segundo. A continuación, gira en dirección opuesta a toda velocidad durante otro segundo, repitiendo esto constantemente. Este es exactamente el mismo programa que usamos para controlar el servo estándar pero como puedes ver, el servo continuo actúa diferente. Esto se debe a que controlas su velocidad en lugar de su posición.</p>
+<p>COMANDOS<br />servoName.write( speed ): Indica al servo a qué velocidad girar. speed puede ser un número de 0 a 180, donde 0 es la velocidad máxima en una dirección y 180 la velocidad máxima pero en la dirección opuesta.<br />CÓMO FUNCIONA<br />Se incluye la librería Servo.<br />Se crea el objeto myservo de la clase Servo.<br />En la función setup(), myservo se configura en el pin 6.<br />En la función loop(), el eje del servo gira continuamente a velocidad 0, la velocidad máxima en un sentido.<br />El programa espera durante 1000 milisegundos.<br />El eje del servo gira continuamente a velocidad 180, la velocidad máxima en el otro sentido.<br />El programa espera durante otros 1000 milisegundos.<br />Repite la función loop().<br />¡Sigue experimentando!<br />Para saber más, haz click en la referencia servo de giro continuo.<br />Ahora, ¿qué ocurre si cambias los valores dentro de la función write()?<br />¿Qué valor hace que el servo se quede parado?</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id22">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">4.4 SERVO CONTROLADO CON ENTRADA</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta22_1760_2" class="block iDevice_content">
+<div class="exe-text"><p>Puedes emplear cualquier tipo de entrada para controlar servos.</p>
+<p><strong>Ejemplo 4.3</strong><br />En este ejemplo, utilizarás un potenciómetro para controlar la de posición de un servo estándar.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />1 x potenciómetro<br />1 x servo estándar<br />3 x cable de prototipado</p>
+<p>INSTRUCCIONES</p>
+<p><img src="4_07.png" alt="407" title="407" width="577" height="651" /></p>
+<p>Conecta la shield en la parte superior de tu placa controladora.<br />Conecta el potenciómetro a la breadboard.<br />Conecta el pin central del potenciómetro al pin analógico A5, y los extremos a GND y alimentación.<br />Conecta el cable del servo al conector D6 de la shield.<br />Escribe el siguiente programa en el IDE:<br /> </p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+*  _4.3_input_controlled_servo
+*
+* The board will use a potentiometer to control the position of a standard servo.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;servo.h&gt;
+
+Servo myservo;
+int potPin = A5;
+int val;
+
+void setup() {
+  myservo.attach(6);
+}
+
+void loop() {
+  val = analogRead(potPin);
+  val = map(val, 0, 1023, 0, 179);
+
+  myservo.write(val);
+  delay(15);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.<br />RESULTADO<br />Girando el mando del potenciómetro, se puede controlar la posición del eje de salida del servo. Girado al máximo en una dirección, el servo debe ir a 0 grados. Girado al máximo en la otra dirección, el servo debe ir a 180 grados.</p>
+<p>CÓMO FUNCIONA<br />Se incluye la librería Servo.<br />Se crea el objeto myservo de la clase Servo.<br />Se declaran las variables potPin y val.<br />En la función setup(), myservo se configura en el pin 6.<br />En la función loop(), se lee el valor analógico en el pin A5 y se almacena en la variable val.<br />El valor de la variable val se mapea de 0 - 1023 a 0 - 179 y se almacena de nuevo en val.<br />La variable val se emplea para establecer la posición del eje de salida del servo.<br />El programa espera durante 15 milisegundos para que al servo le de tiempo a llegar a la posición.<br />Se repite la función loop().<br />¡Sigue experimentando!<br />Cambia el servo estándar por uno de giro continuo. Utiliza el mismo código pero suprime la función delay, cárgalo y vuelve a probarlo. ¿Cómo actúan los diferentes servos y por qué? Piensa por qué la función delay es necesaria cuando se controla el servo estándar pero no lo es con el continuo.<br />¿Qué otros componentes puedes utilizar para controlar los servos y qué puedes añadirles para que sean más útiles?</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id23">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">4.5 UTILIZANDO DOS SERVOMOTORES</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta23_1761_2" class="block iDevice_content">
+<div class="exe-text"><p>Cuando utilices dos servos a la vez, tu placa puede tener un problema para darles la suficiente corriente. Hay diferentes técnicas para controlar esto. Aquí vas a explorar la técnica de escribir señales a los servos por separado. Este control lo harás desde tu programa. Mira la referencia ruedas para aprender cómo usar los servos para controlar ruedas.</p>
+<p><strong>Ejemplo 4.4</strong><br />En este ejemplo controlarás dos servos sin moverlos a la vez para asegurar que la placa puede proporcionar suficiente corriente.</p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br />1 x Arduino Education Shield<br />2 x servo estándar</p>
+<p>INSTRUCCIONES</p>
+<p><img src="4_08.png" alt="408" title="408" width="800" height="1027" /></p>
+<p>Conecta la shield en la parte superior de tu placa controladora.<br />Conecta un servo estándar a D6 y el otro a D9.<br />Escribe el siguiente programa en el IDE:<br /> </p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* _4.4_two_servos
+*
+* The board  will ccontrol two servos, moving one at a time to make sure that the can provide enough current.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;servo.h&gt;
+
+Servo myservo1, myservo2;
+
+void setup() {
+  myservo1.attach(6);
+  myservo2.attach(9);
+}
+
+void loop() {
+  myservo2.detach();
+  myservo1.attach(6);
+  myservo1.write(70);
+  delay(1000);
+  myservo1.write(120);
+  delay(1000);
+
+  myservo1.detach();
+  myservo2.attach(9);
+  myservo2.write(70);
+  delay(1000);
+  myservo2.write(120);
+  delay(1000);
+}</code></pre>
+</div>
+</div>
+<p>Compila y descarga el programa en la placa.</p>
+<p>RESULTADO<br />Uno de los servos gira a una posición de 70 grados, espera un segundo, y a continuación gira a una posición de 120 grados. El segundo servo hará lo mismo que el primero. Esta secuencia se repite continuamente.</p>
+<p>CÓMO FUNCIONA<br />Se incluye la librería Servo.<br />Se crean los objetos myservo1 y myservo2 de la clase Servo.<br />En la función setup(), myservo1 se configura en el pin 6 y myservo2 se configura en el pin 9.<br />En la función loop(), myservo2 se desactiva y myservo1 se activa en el pin 6.<br />myservo1 gira a la posición 70 grados.<br />El programa espera durante 1000 milisegundos.<br />myservo1 gira a la posición 120 grados.<br />El programa espera durante 1000 milisegundos.<br />myservo1 se desactiva y myservo2 se activa en el pin 9.<br />myservo2 gira a la posición 70 grados.<br />El programa espera durante 1000 milisegundos.<br />myservo2 gira a la posición 120 grados.<br />El programa espera durante 1000 milisegundos.<br />Se repite la función loop().<br />¡Sigue experimentando!<br />Inventa un robot que use un motor de giro continuo y otro de giro estándar para que se mueva hacia adelante, ¿cómo lo harías?</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<article class="iDevice_wrapper UDLcontentIdevice em_iDevice" id="id24">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">ACTIVIDADES</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta24_1762_2" class="block iDevice_content">
+<div class="exe-udlContent exe-udlContent-expression"><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>CÁMARA ROBÓTICA</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>¡Espía a tu gato con esta cámara robótica! Monta la cámara espía y contrólala con un pequeño <a href="https://ctc101.arduino.cc/resources?id=32131498">joystick</a>. Podrás ver todo desde el ordenador y cuando veas algo sospechoso, ¡hazle una foto!</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/RfS4GA9iYck"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x cámara<br>1 x módulo joystick<br>2 x servo estándar<br>2 x cable de módulo<br>3 x cable de prototipado<br>8 x pila AA<br>1 x porta pilas de 4<br>1 x conector de alimentación con jack<br>1 x kit cámara robótica<br>Otros materiales: - 3-4 x goma elástica</p>
+<p>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_4_camera_robot_101_27967975814_o.png?_gl=1*pdbumo*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjY5NjI5My4xMS4xLjE2ODI2OTYzMTQuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541163-2018marlogocamerabot.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541162-2018marlogocamerabot.ai">AI</a></p>
+<p>. Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="http://verkstad.cc/urler/ctc-frz-git">aquí.</a></p>
+<p><strong>Instrucciones</strong><br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p>Prepara el módulo joystick y un cable de módulo. A continuación, conecta el cable al joystick.</p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p><img src="4_09.png" alt="409" title="409" width="579" height="822"></p>
+<p>Encuentra el programa CameraRobot y ábrelo.</p>
+<p><img src="4_10.png" alt="410" title="410" width="577" height="307"></p>
+<p>Descarga el programa en la placa. Retira el cable USB, no lo necesitarás para hacer funcionar este proyecto.</p>
+<p>Prepara todos los materiales de construcción de la cámara robótica.</p>
+<p><img src="4_11.png" alt="411" title="411" width="580" height="906"></p>
+<p>Prueba que las 4 piezas redondas tocan la superficie de la mesa y prepara un servo estándar.</p>
+<p><img src="4_12.jpg" alt="412" title="412" width="800" height="600"></p>
+<p>Pon el servo sobre la base de la cámara robótica dejando el cable hacia arriba.</p>
+<p><img src="4_13.jpg" alt="413" title="413" width="800" height="600"></p>
+<p>¡Vamos a calibrar el servo! 1.Toma el brazo del servo y ponlo sobre el servo 2.Una vez fijo, vamos a mover manualmente el servo. 3.Gíralo hasta que haga tope. 4.Retira el brazo del servo. 5.Sin mover el servo, vuelve a colocar el brazo perpendicular con el cuerpo del servo. 6.¡Hecho!</p>
+<p><img src="4_14.png" alt="414" title="414" width="580" height="544"></p>
+<p>Ahora que el servo está calibrado, pon el tornillo y contínua construyendo la cámara.</p>
+<p><img src="4_15.jpg" alt="415" title="415" width="800" height="600"></p>
+<p>Prepara tu cámara.</p>
+<p><img src="4_16.jpg" alt="416" title="416" width="800" height="600"></p>
+<p><img src="4_17.png" alt="417" title="417" width="580" height="833"></p>
+<p><img src="4_18.jpg" alt="418" title="418" width="800" height="600"></p>
+<p>Saca el cable USB de la cámara por el agujero trasero de la caja.</p>
+<p><img src="4_19.jpg" alt="419" title="419" width="800" height="600"></p>
+<p>Prepara otro servo estándar.</p>
+<p><img src="4_20.jpg" alt="420" title="420" width="800" height="600"></p>
+<p>¡Vamos a calibrar el servo! 1.Toma el brazo del servo y ponlo sobre el servo 2.Una vez fijo, vamos a mover manualmente el servo. 3.Gíralo hasta que haga tope. 4.Retira el brazo del servo. 5.Sin mover el servo, vuelve a colocar el brazo perpendicular con el cuerpo del servo. 6.¡Hecho!</p>
+<p>Sin quitar el brazo del servo, alinea el mismo con el servo moviéndolo suavemente.</p>
+<p>Ahora que el servo está calibrado, pon el tornillo.</p>
+<p><img src="4_21.jpg" alt="421" title="421" width="800" height="600"></p>
+<p>Coloca el servo en la caja dejando el cable en su interior.</p>
+<p><img src="4_22.jpg" alt="422" title="422" width="800" height="600"></p>
+<p>Sube el cable del servo inferior y mételo detro de la caja por el agujero.</p>
+<p><img src="4_23.jpg" alt="423" title="423" width="800" height="600"></p>
+<p>Pon tu circuito dentro de la caja. A continuación, conecta el servo inferior (pan) al conector D6 de la shield.</p>
+<p>Conecta el servo lateral (tilt) al conector D9 de la shield.</p>
+<p><img src="4_22.png" alt="422" title="422" width="579" height="1305"></p>
+<p><img src="4_25.jpg" alt="425" title="425" width="800" height="600"></p>
+<p>Prepara una batería de 12 V y métela en la caja. Para aprender cómo preparar la batería, consulta la referencia&nbsp;Baterías.</p>
+<p><img src="4_24.jpg" alt="424" title="424" width="800" height="600"></p>
+<p>Conecta la batería de 12 V al conector de alimentación de la placa.</p>
+<p><img src="4_26.jpg" alt="426" title="426" width="800" height="600"></p>
+<p>Saca el joystick fuera de la caja para poder controlar la cámara. Debido al tamaño, quizás necesitás retirar los cables por un momento, sacar el joystick y volverlos a poner en el mismo orden.</p>
+<p>Pon la tapa.</p>
+<p>Asegúrate de que la placa está conectada al ordenador. Puedes emplear el joystick para apuntar con la cámara.</p>
+<p><img src="4_27.jpg" alt="427" title="427" width="800" height="600"></p>
+<p>En el IDE, haz clic en Programa &gt; Mostrar carpeta del programa. Abre las carpetas Processing &gt; CameraRobot, a continuación abre el archivo CameraRobot.pde.</p>
+<p><img src="4_28.png" alt="428" title="428" width="580" height="366"></p>
+<p>Ejecuta el programa CameraRobot.pde.</p>
+<p>¡Qué empiece el espionaje!</p>
+<p><strong>Código</strong></p>
+<p>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module4-Robots&gt;Projects&gt;CameraRobot</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* CameraRobot
+*
+* Spy on your cat with this robot camera. Mount the camera robot and
+* control it with a small joystick. You can run everything from the
+* computer and when you see your cat doing something suspicious,
+* take a picture!
+*
+* You need to run the processing sketch included in the sketch folder
+* to be able to take photos with a webcam connected to your computer.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+
+//The joystick uses two analog pins. Here pin A0 and A1
+Joystick joystick = Joystick(A1,A0);//Joystick(XanalogPin, YanalogPin)
+
+Servo pan, tilt;
+
+int panAngle = 90; //Pan angle starts in the middle position
+int tiltAngle = 90; //Tilt angle starts in the middle position
+
+int panJoystick = 0;
+int tiltJoystick = 0;
+
+void setup(){
+  //servos are initialized
+  pan.attach(6);
+  tilt.attach(9);
+}
+void loop(){
+  panJoystick = joystick.getX(); //Get X value from joystick
+  tiltJoystick = joystick.getY(); //Get Y value from joystick
+
+  //If the joysticks X value isn't 0 we will pan
+  if(panJoystick!=0){
+    //If the X value from the joystick equals 1 and
+    //panAngle is less than 180 degrees, increase panAngle with 1
+    if(panJoystick==1 &amp;&amp; panAngle0) panAngle--;
+  }
+  //If the joysYicks Y value is 0 we will tilt
+  if(tiltJoystick!=0){
+    //If the Y value from the joystick equals 1 and
+    //tiltAngle is less than 180 degrees, increase tiltAngle with 1
+    if(tiltJoystick==1 &amp;&amp; tiltAngle0) tiltAngle--;
+  }
+  pan.write(panAngle); //Set position of the pan servo
+  tilt.write(tiltAngle); //Set position of the tilt servo
+  delay(5);
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p>Encuentra el programa que necesitas ejecutar en Processing para que la cámara web capture las imágenes en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module4-Robots&gt;Projects&gt;CameraRobot&gt;Processing&gt;CameraRobot</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/**
+ * Camera Robot
+ *
+ * This program initializes a webcam connected to a PC. 
+ * If a "P" is pressed it will then take a picture with 
+ * the webcam and store it locally in the sketch folder.
+ * 
+ * Based on Cookie Monster by David Cuartielles
+ * (c) 2013-2016 Arduino LLC.
+ */ 
+
+import processing.video.*;
+
+Capture cam;
+
+void setup() {
+  size(640, 480, P2D);
+
+  initializeCamera(0);
+}
+
+void draw() {
+  if (cam.available() == true) {
+    cam.read();
+  }
+  image(cam, 0, 0);
+
+  String timeStamp=createTimeStamp();
+
+  text(timeStamp, 10, height-10);
+
+
+
+  // for the keyboard detection to work, you need to have
+  // clicked on the application window first (aka focus)
+  if(keyPressed) {
+    if (key == 'p' || key == 'P') {
+      captureImage(timeStamp);
+    }
+  }
+
+}
+
+
+
+
+void initializeCamera(int camNum){
+  String[] cameras = Capture.list();
+
+  if (cameras.length == 0) {
+    println("There are no cameras available for capture.");
+    exit();
+  } else {
+    println("Available cameras:");
+    for (int i = 0; i &lt; cameras.length; i++) {
+      println("["+i+"] "+cameras[i]);
+    }
+
+    // The camera can be initialized directly using an element
+    // from the array returned by list():
+    cam = new Capture(this, cameras[camNum]);
+    cam.start();     
+  }   
+
+}
+
+String createTimeStamp(){
+  String timeStamp = String.format("%02d", hour());
+  timeStamp += ":" + String.format("%02d", minute());
+  timeStamp += ":" + String.format("%02d", second());
+  timeStamp += " " + year();
+  timeStamp += "/" + String.format("%02d", month());
+  timeStamp += "/" + String.format("%02d", day());
+
+  return timeStamp;
+}
+
+void captureImage(String timeStamp){
+      saveFrame("pic-######.png");
+      println("capturing Frame at: " + timeStamp);
+}</code></pre>
+</div>
+</div>
+<p><span style="background-color: #ccffcc;">Nota: Para añadir una librería en Processing tienes que ir a : Sketch &gt; Importar biblioteca y pulsar en la opción Añadir Biblioteca. Esta opción abrirá la ventana de "Contribution Manager", donde podrás encontrar las librerías que necesites. Para encontrar la librería de Vídeo, escribe "Video GS" en el campo de texto , selecciona la librería nombrada "Video GStreamer-based video library for Processing", y pulsa el botón de instalar. A continuación, cierra la ventana de "Contribution Manager" y listo, ya la tienes instalada!</span></p>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se declara el objeto&nbsp;joystick&nbsp;de la clase Joystsick.<br>Se declaran los objetos&nbsp;pan&nbsp;y&nbsp;tilt&nbsp;de la clase Servo.<br>Se declaran las variables para fijar las posiciones de ambos servos,&nbsp;panAngle&nbsp;y&nbsp;tiltAngle.<br>Se declaran las variables para almacenar los valores del joystick,&nbsp;panJoystick&nbsp;y&nbsp;tiltJoystick.<br>En la función&nbsp;setup(), se configuran los objetos Servo.<br>En la función&nbsp;loop(), se lee el valor X del joystick y se almacena en la variable&nbsp;panJoystick.<br>Se lee el valor Y del joystick y se almacena en la variable&nbsp;tiltJoystick.<br>Si la variable&nbsp;panJoystick&nbsp;es distinta de 0, entonces, el joystick se ha movido en el eje x y ocurre lo siguiente.Si la variable&nbsp;panJoystick&nbsp;vale 1 y la variable&nbsp;panAngle&nbsp;es menor que 180, se incrementa&nbsp;panAngle&nbsp;en una unidad.<br>Si de lo contrario, la variable&nbsp;panJoystick&nbsp;vale -1 y la variable&nbsp;panAngle&nbsp;es mayor que 0, se decrementa&nbsp;panAngle&nbsp;en una unidad.<br>La siguiente sentencia&nbsp;if&nbsp;comprueba si la variable&nbsp;tiltJoystick&nbsp;es distinta de 0. Si la condición es cierta, ocurre lo siguiente.Si la variable&nbsp;tiltJoystick&nbsp;vale 1 y la variable&nbsp;tiltAngle&nbsp;es menor que 180, se incrementa&nbsp;tiltAngle&nbsp;en una unidad.<br>Si de lo contrario, la variable&nbsp;tiltJoystick&nbsp;vale -1 y la variable&nbsp;tiltAngle&nbsp;es mayor que 0, se decrementa&nbsp;tiltAngle&nbsp;en una unidad.<br>La posición del servo que controla el giro (pan en inglés) se fija con&nbsp;panAngle.<br>La posición del servo que controla la inclinación (tilt en inglés) se fija con&nbsp;tiltAngle.<br>El programa espera durante 5 milisegundos para que los servos puedan llegar a la posición.<br>Se repite la función&nbsp;loop().<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>Asegúrate de que has conectado los servos correctamente. Mira la referencia&nbsp;servo estándar&nbsp;para asegurarte de que los servos funcionan.<br>Asegúrate de que el joystick esté conectado correctamente. Mira la referencia&nbsp;joystick&nbsp;para asegurarte de que funciona.<br>¡Sigue experimentando!<br>¿Se están moviendo los servos demasiado lento o demasiado rápido? Intenta cambiar el tiempo en la función&nbsp;delay&nbsp;al final de&nbsp;loop&nbsp;o intenta cambiar el aumento y la disminución de los ángulos.<br>¿Los servos se mueven demasiado a los lados, o demasiado hacia arriba y abajo? Intenta limitar los ángulos permitidos.<br>Construye algo diferente con la misma estructura de giro e inclinación que puedas controlar con el joystick.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>ROBOT GATEADOR</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Este pequeño robot puede gatear. Es todo lo que puede hacer, y tampoco es muy bueno en eso, pero es muy bonito y divertido.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/ASN06kOJuqw"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>2 x servo estándar<br>8 x pila AA<br>1 x porta pilas de 8<br>1 x conector de alimentación con jack<br>1 x kit robot gateador</p>
+<p>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_4_crawling_robot_101_28301037670_o.png?_gl=1*1mzyeuv*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjY5OTA5MC4xMi4wLjE2ODI2OTkwOTAuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1646817683-2018feb_logo_clownwalker_binarylp_without_r.pdf">PDF_A</a>, <a href="https://www.datocms-assets.com/43958/1646817682-2018feb_logo_clownwalker_binarylp_without_r.ai">AI_A</a>, <a href="https://www.datocms-assets.com/43958/1638541156-2018marlogoopenboxsequencer.pdf">PDF_B</a>, <a href="https://www.datocms-assets.com/43958/1638541155-2018marlogoopenboxsequencer.ai">AI_B</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="http://verkstad.cc/urler/ctc-frz-git">aquí</a>.</p>
+<p><strong>Instrucciones</strong></p>
+<p>Prepara todos los materiales de construcción del robot gateador y&nbsp;¡Empieza a contruir!</p>
+<p><img src="4_30.jpg" alt="430" title="430" width="800" height="600"></p>
+<p><img src="4_31.jpg" alt="431" title="431" width="800" height="600"></p>
+<p><img src="4_32.png" alt="432" title="432" width="580" height="716"></p>
+<p><img src="4_33.jpg" alt="433" title="433" width="800" height="600"></p>
+<p>¡Vamos a calibrar los servos! 1.Toma el brazo del servo y ponlo sobre el servo 2.Una vez fijo, vamos a mover manualmente el servo. 3.Gíralo hasta que haga tope. 4.Retira el brazo del servo. 5.Sin mover el servo, vuelve a colocar el brazo perpendicular con el cuerpo del servo. 6.Haz esto en ambos servos.</p>
+<p><img src="4_33.png" alt="433" title="433" width="580" height="547"></p>
+<p>Ahora que los servos están calibrados, pon el tornillo.</p>
+<p><img src="4_34.jpg" alt="434" title="434" width="800" height="600"></p>
+<p>Una vez fijadas las piernas, alinea el brazo del servo con el servo moviéndolo suavemente.</p>
+<p><img src="4_35.jpg" alt="435" title="435" width="800" height="600"></p>
+<p><img src="4_36.jpg" alt="436" title="436" width="800" height="600"></p>
+<p>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p>Conecta los servos a D9 y D6 en la shield.</p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p><img src="4_37.png" alt="437" title="437" width="580" height="1020"></p>
+<p>Encuentra el programa CrawlingRobot y ábrelo.</p>
+<p><img src="4_38.png" alt="438" title="438" width="580" height="307"></p>
+<p>Descarga el programa en la placa. Retira el cable USB, no lo necesitarás para hacer funcionar este proyecto.</p>
+<p>Prepara una batería de 12 V con conector de alimentación y ponla dentro del robot. Para aprender cómo preparar la batería, consulta la referencia&nbsp;Baterías.</p>
+<p>Conecta la batería al conector de alimentación de la placa. Y pon la placa en el robot.</p>
+<p>¡Es hora de gatear!</p>
+<p><img src="4_39.jpg" alt="439" title="439" width="800" height="600"></p>
+<p><strong>CÓDIGO</strong><br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module4-Robots&gt;Projects&gt;CrawlingRobot</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* CrawlingRobot
+*
+* This small robot can crawl. It’s all it can do, and it isn’t
+* very good at it. But it is super cute and great fun.
+*
+*  (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+
+Servo front, back;
+
+void setup(){
+  //servos are initialized
+  front.attach(6);
+  back.attach(9);
+}
+
+void loop(){
+  //Make the robot crawl by setting the servos to opposite angles.
+  //90 is the middle angle
+
+  //First step of each pair of legs
+  front.write(110);
+  delay(200);
+  back.write(70);
+  delay(200);
+
+  //Second step of each pair of legs
+  front.write(70);
+  delay(200);
+  back.write(110);
+  delay(200);
+}
+</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se declaran los objetos&nbsp;front&nbsp;y&nbsp;back&nbsp;de la clase Servo.<br>En la función&nbsp;setup(), se configuran los objetos Servo.<br>La posición del servo frontal se ajusta a 110 grados.<br>El programa espera durante 200 milisegundos.<br>La posición del servo trasero se ajusta a 70 grados. Es decir, el ángulo opuesto a la parte frontal.<br>El programa espera durante 200 milisegundos.<br>La posición del servo frontal se ajusta a 70 grados.<br>El programa espera durante 200 milisegundos.<br>La posición del servo trasero se ajusta a 110 grados.<br>El programa espera durante 200 milisegundos.<br>Repite la función&nbsp;loop().<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>¿No están funcionando los servos? ¿Funcionan cuando la placa está conectada al ordenador pero no al utilizar la pila? Si es así, intenta cambiar la pila.<br>¿Sigue sin funcionar? Asegúrate de que has conectado los servos correctamente. Mira la referencia&nbsp;servo estándar&nbsp;para comprobarlo.<br>¿No se mueve correctamente? Revisa del paso 27 al 37 y asegúrate de que los brazos de los servos están alineados.<br>¡Sigue experimentando!<br>¿Quieres que el robot de pasos más grandes o más pequeños? Intenta cambiar los ángulos.<br>¿Quieres que el robot gatee más rápido o más lento? Intenta cambiar el tiempo de espera en la función&nbsp;delay.<br>Prueba a ver de cuántas maneras diferentes puedes hacer que el robot se arrastre y cuál es la más eficiente.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>CAZADOR DE LUZ</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Este pequeño robot tiene la eterna e imposible misión de atrapar la luz. Puedes hacer que te siga enfocándole una luz, la de tu teléfono móvil por ejemplo. Siempre girará a donde esté la luz.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/qo80GMWtnR8"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>2 x sensor de luz<br>2 x servo de giro continuo<br>2 x resistencia 10 Kohm<br>8 x cable de prototipado<br>8 x pila AA<br>1 x porta pilas de 8<br>1 x conector de alimentación con jack<br>1 x pelota de ping pong<br>1 x kit cazador de luz<br>Otros materiales: - 2 x goma elástica</p>
+<p>1 x linterna (o similar)<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar&nbsp;aquí&nbsp;y archivos de corte por láser&nbsp;PDF,&nbsp;AI. Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub&nbsp;aquí.</p>
+<p><strong>Instrucciones</strong><br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p><img src="4_40.jpg" alt="440" title="440" width="580" height="566"></p>
+<p>Encuentra el programa LightChaser y ábrelo.</p>
+<p><img src="4_41.png" alt="441" title="441" width="580" height="307"></p>
+<p>Descarga el programa en la placa. Retira el cable USB, no lo necesitarás para hacer funcionar este proyecto.</p>
+<p>Prepara todos los materiales de construcción del robot cazador de luz. y&nbsp;¡Empieza a contruir!</p>
+<p><img src="4_42.jpg" alt="442" title="442" width="800" height="600"></p>
+<p><img src="4_43.jpg" alt="443" title="443" width="800" height="600"></p>
+<p><img src="4_44.png" alt="444" title="444" width="580" height="487"></p>
+<p><img src="4_45.jpg" alt="445" title="445" width="800" height="600"></p>
+<p><img src="4_46.jpg" alt="446" title="446" width="800" height="600"></p>
+<p><img src="4_47.jpg" alt="447" title="447" width="800" height="600"></p>
+<p>Prepara una batería de 12 V con conector de alimentación y ponla dentro del robot. Para aprender cómo preparar la batería, consulta la referencia&nbsp;Baterías.</p>
+<p>Conecta el servo izquierdo a D9 y el derecho a D6 en la shield. Recuerda emplear el&nbsp;Adaptador de servo.</p>
+<p><img src="4_48.jpg" alt="448" title="448" width="312" height="639"></p>
+<p><img src="4_49.jpg" alt="449" title="449" width="580" height="481"></p>
+<p>Pon la placa en el robot, asegúrate de que los sensores de luz están en el extremo opuesto a los servos.</p>
+<p><img src="4_50.jpg" alt="450" title="450" width="260" height="640"></p>
+<p>Conecta la batería al conector de alimentación de la placa.</p>
+<p><img src="4_51.jpg" alt="451" title="451" width="800" height="600"></p>
+<p>¡Ahora intenta atrapar la luz!</p>
+<p><strong>Código</strong><br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module4-Robots&gt;Projects&gt;LightChaser</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* LightChaser
+*
+* This little vehicle is on an impossible, never ending
+* mission to catch the light. You can make it follw you
+* by pointing a flashligt at it. (The one on your mobile
+* phone eg.) It will always turn towards the light.
+*
+* (c) 2013-2016 Arduino LLC.
+*/
+
+#include <educationshield.h>
+
+//Declare the two wheels of robot, left wheel to D6 and
+// right wheel to D9
+Wheels wheels=Wheels(6, 9);
+
+//Declare the two LightSensor
+LightSensor sensorLeft=LightSensor(A0);
+LightSensor sensorRight=LightSensor(A2);
+
+void setup(){
+  //initialize the LightSensor
+  sensorLeft.config(600,800);
+  sensorRight.config(600,800);
+
+  //initialize the servo motors
+  wheels.begin();
+}
+void loop(){
+  if(sensorLeft.getState()){
+    //Left LightSensor detects strong light, the vechile turns left
+    wheels.turnLeft();
+  }else if(sensorRight.getState()){
+    //Right LightSensor detects strong light, the vechile turns right
+    wheels.turnRight();
+  }else{
+    //No strong light detected, the vechile goes straight
+    wheels.goForward();
+  }
+}</educationshield.h></code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Se incluye la librería EducationShield.<br>Se definen los objetos&nbsp;wheels&nbsp;de la clase Wheels,&nbsp;sensorLeft&nbsp;y&nbsp;sensorRight&nbsp;de la clase LightSensor.<br>En la función&nbsp;setup(), los sensores y los servos se definen y configuran.<br>En la función&nbsp;loop(), si&nbsp;sensorLeft.getState()&nbsp;es&nbsp;true, esto significa que el sensor izquierdo detecta una luz intensa y se controlan las ruedas para girar a la izquierda.<br>Si de lo contrario,&nbsp;sensorRight.getState()&nbsp;es&nbsp;true, las ruedas se configuran para girar a la derecha.<br>Si ninguno de los sensores detecta una luz intensa, las ruedas se configuran para avanzar.<br>Repite la función&nbsp;loop().<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>¿El robot no gira hacia la luz? Mira la referencia&nbsp;sensor de luz.<br>Los motores no están funcionando? ¿el robot no va recto? Mira la referencia&nbsp;ruedas.<br>¡Sigue experimentando!<br>¿Puedes convertirlo en un "vehículo vampiro" que se esconda de la luz?<br>Modifica el ejemplo para que el robot sólo se mueva cuando haya luz apuntándole.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>SIGUE LÍNEAS</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>El sigue líneas hace exactamente lo que su nombre sugiere: sigue una línea. Hazle ir por donde quieras que vaya enseñándole el camino con una línea negra de 3 cm de ancho.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/Uu0Q5gXCoYo"></iframe></p>
+<p>MATERIALES</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x IR Array<br>2 x servo de giro continuo<br>12 x cable de prototipado<br>1 x pila 9 V<br>4 x pila AA<br>1 x porta pilas de 4<br>2 x conector de alimentación (uno con jack y otro con dos cables sueltos)<br>1 x kit sigue líneas<br>1 x bola metálica<br>2 x rueda<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_4_line_follower_101_28301037580_o.png?_gl=1*1yzh2rs*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjY5OTA5MC4xMi4xLjE2ODI3MDE4MDAuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541154-2018marlogolinefollower.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541153-2018marlogolinefollower.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="http://verkstad.cc/urler/ctc-frz-git">aquí</a>.</p>
+<p><strong>Instrucciones</strong></p>
+<p>Pincha en el <a href="http://tech3esoastaroth.blogspot.com/2019/12/line-follower.html">enlace</a></p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>CAJA MÁGICA</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Esta es una caja 'open source' (o de código abierto) que contiene electrónica libre. Ah, y se abre automáticamente cuando la llamas golpeándola.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/PHNu3zKmLYU"></iframe></p>
+<p>MATERIALES</p>
+<p>1 x placa controladora 1 x Arduino Education Shield 1 x breadboard 1 x piezo 1 x 3v3 diodo zener 1 x servo estándar 1 x resistencia 1 Mohm 4 x cable de prototipado 1 x pila 9 V 1 x conector de alimentación con jack 1 x kit caja mágica</p>
+<p>Otros materiales: 1 x cinta adhesiva</p>
+<p>1 x rollo de hilo</p>
+<p>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descargar <a href="https://cdn.arduino.cc/ctc/images/block_4_magic_box_101_27969562323_o.png?_gl=1*y0lku0*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjY5OTA5MC4xMi4xLjE2ODI3MDIzOTguMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541156-2018marlogoopenboxsequencer.pdf">PDF</a>, <a href="https://www.datocms-assets.com/43958/1638541155-2018marlogoopenboxsequencer.ai">AI</a>.</p>
+<p>Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTCfritzing">aquí</a>.</p>
+<p><strong>Instrucciones</strong><br>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p>Conecta la resistencia de 1 Mohm a través del puente de la breadboard externa. Conecta uno de los terminales de la resistencia a A0 y el otro déjalo sin conectar por ahora. Conecta el terminal negativo del diodo zener (el que está marcado con una línea) junto con la resistencia a A0. A continuación conecta el otro terminal del diodo a GND.</p>
+<p><img src="4_51.png" alt="451" title="451" width="580" height="772"></p>
+<p>Conecta el piezo a través del puente de la breadboard externa. Conecta uno de los terminales del piezo (no importa cual) al terminal de la resistencia que dejaste libre. Y el otro terminal a GND. El piezo puede actuar ahora como un sensor de golpes.</p>
+<p><img src="4_52.png" alt="452" title="452" width="580" height="772"></p>
+<p><img src="4_53.jpg" alt="453" title="453" width="800" height="600"></p>
+<p>Prepara todos los materiales de construcción de la caja mágica y ¡Empieza a contruir!</p>
+<p><img src="4_54.png" alt="454" title="454" width="580" height="578"></p>
+<p><img src="4_55.jpg" alt="455" title="455" width="800" height="600"></p>
+<p><img src="4_56.jpg" alt="456" title="456" width="800" height="600"></p>
+<p>¡Vamos a calibrar el servo! 1.Toma el brazo del servo y ponlo sobre el servo 2.Una vez fijo, vamos a mover manualmente el servo. 3.Gíralo hasta que haga tope. 4.Retira el brazo del servo. 5.Sin mover el servo, vuelve a colocar el brazo perpendicular con el cuerpo del servo. 6.¡Hecho!</p>
+<p><img src="4_57.png" alt="457" title="457" width="579" height="517"></p>
+<p>Alinea el brazo del servo con el servo moviéndolo suavemente.</p>
+<p>Ahora que el servo está calibrado, pon el tornillo.</p>
+<p><img src="4_58.jpg" alt="458" title="458" width="800" height="600"></p>
+<p>Ata un hilo a la tapa de la caja.</p>
+<p>Ata el otro extremo del hilo al brazo del servo.</p>
+<p><img src="4_59.jpg" alt="459" title="459" width="800" height="600"></p>
+<p>Conecta el servo a D9 en la shield.</p>
+<p><img src="4_60.png" alt="460" title="460" width="579" height="902"></p>
+<p><img src="4_61.jpg" alt="461" title="461" width="800" height="600"></p>
+<p>Sitúa el sensor en la caja y asegúrate que el sensor está haciendo contacto con la superficie.</p>
+<p>Fija el sensor con cinta adhesiva a la pared interior de la caja.</p>
+<p><img src="4_62.jpg" alt="462" title="462" width="800" height="600"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador.</p>
+<p><img src="4_62.png" alt="462" title="462" width="580" height="1076"></p>
+<p>Encuentra el programa MagicBox y ábrelo.</p>
+<p><img src="4_63.png" alt="463" title="463" width="577" height="307"></p>
+<p>Descarga el programa en la placa. Retira el cable USB, no lo necesitarás para hacer funcionar este proyecto.</p>
+<p>Prepara una pila de 9 V con conector de alimentación y ponla en el robot. Consulta la referencia&nbsp;Baterías&nbsp;si lo necesitas. A continuación, conecta la batería de 9 V al conector de alimentación de la placa.</p>
+<p><img src="4_64.png" alt="464" title="464" width="580" height="1076"></p>
+<p>Pon la placa y su batería dentro de la caja.</p>
+<p><img src="4_65.jpg" alt="465" title="465" width="800" height="600"></p>
+<p>Pon las tapas</p>
+<p><img src="4_66.jpg" alt="466" title="466" width="800" height="600"></p>
+<p>Llama a la caja!</p>
+<p><img src="4_67.jpg" alt="467" title="467" width="800" height="600"></p>
+<p><strong>CÓDIGO</strong><br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module4Robots&gt;Projects&gt;MagicBox</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+* MagicBox
+*
+* MagicBox is an open source box that contains open source
+* electronics. Oh, and it automatically opens when you
+* knock on it.
+*
+* (c) 20132016 Arduino LLC.
+*/
+
+#include &lt;educationshield.h&gt;
+
+//Declare the pezio knock sensor. Connected to A0
+PiezoKnockSensor sensor=PiezoKnockSensor(A0);
+
+//Declare the servo motor for opening the lid
+Servo lidOpener;
+
+void setup(){
+  //define the threshold and debounce time of the knock
+  //sensor. Threshold defines how hard you need to knock,
+  //debounce time prevents the sensor from detecting
+  //false knocks, but also limits how rapid you can knock.
+  //See the PiezoKnockSensor sketch in the help folder
+  //to make sure your values are correct
+  sensor.config(100,80);
+
+  //initialize the servo
+  lidOpener.attach(9);
+  //Rotate servo to close lid
+  lidOpener.write(60);
+}
+void loop(){
+
+  if(sensor.knocked(20)){
+    //rotate the servo motor to open the lid
+    lidOpener.write(0);
+    delay(3000); //Wait for 3 seconds
+    //close the lid
+    lidOpener.write(60);
+    delay(200);
+  }
+
+}</code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Cuando el sensor detecta un golpe, el servo se posiciona en un ángulo determinado para que la tapa se levante. Tras esperar un tiempo, el servo hace que la tapa se cierre. Luego el programa se reinicia.</p>
+<p>Se incluye la librería EducationShield. Se definen los objetos&nbsp;sensor&nbsp;y&nbsp;lidOpener&nbsp;de las clases PiezoKnockSensor y Servo respectivamente. En la función&nbsp;setup(), se configuran e inicializan el sensor y el servo. La posición del servo se fija a 60 grados, es decir, la tapa esta cerrada. En la función&nbsp;loop(), si la variable&nbsp;sensor.knocked()&nbsp;es&nbsp;true, esto significa que se ha detectado un golpe y la posición del servo se fija a 0 grados para abrir la tapa. El programa espera durante 3000 milisegundos con la tapa abierta. La posición del servo se fija a 60 grados para cerrar la tapa. El programa espera durante 200 milisegundos. Si no se detecta golpe, no se realiza ninguna acción. Repite la función&nbsp;loop().</p>
+<p>¿No funciona?<br>Revisa las ilustraciones y comprueba tus conexiones. Asegúrate de que todos los cables están firmemente conectados (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento). ¿La tapa no se abre / cierra por completo? Ajusta los valores en&nbsp;write()&nbsp;para arreglarlo. Pero primero, ajusta el ángulo del brazo del servo y comprueba que la longitud del hilo sea correcta. ¿La caja no hace nada cuando le das un toque? Mira la referencia&nbsp;sensor de golpes. Si aún no funciona, consulta la referencia del&nbsp;servo estándar&nbsp;para comprobar que funciona. Asegúrate de que la pila esté conectada correctamente y que por tanto el LED de alimentación esté encendido. Pruébalo con la placa conectada al ordenador y la pila de 9 V desconectada. Si funciona con el cable USB pero no con la pila, este puede ser el problema; prueba a cambiar la pila.</p>
+<p>¡Sigue experimentando!<br>¡Haz una caja de seguridad! Para que así tengas que abrirlo con un patrón de toques. Modifícalo de tal manera que tocando la caja se abra o se cierre, en lugar de abrirse y luego cerrarse automáticamente como hace ahora.</p></div></div></section><section class="exe-udlContent-block js-hidden"><header class="exe-udlContent-header"><h2>TICKLE ROBOT</h2></header><div class="exe-udlContent-content"><div class="exe-udlContent-content-main"><p>Este es un robot normal con cosquillas en una mecedora. Si lo piensas bien, no suena nada normal. Hazle cosquillas en su corazón y empezará a menearse como loco.</p>
+<p><iframe width="560" height="314" src="https://www.youtube.com/embed/J7NugVGBLyU"></iframe></p>
+<p>Materiales</p>
+<p>1 x placa controladora<br>1 x Arduino Education Shield<br>1 x breadboard<br>1 x servo estándar<br>1 x resistencia 1 Mohm<br>3 x cable de prototipado<br>1 x kit tickle robot<br>Otros materiales: - 1 x pieza de papel de aluminio</p>
+<p>1 x cinta adhesiva<br>1 x rollo de hilo<br>Este experimento puede ser adaptado para hacerse sin la Arduino Education Shield. El diseño y el esquemático se pueden descarga <a href="https://cdn.arduino.cc/ctc/images/block_4_tickle_robot_101_27969562183_o.png?_gl=1*1l1b5g8*_ga*MjA4MjM5MjQxOC4xNjgyMDA3NjE1*_ga_NEXN8H46L5*MTY4MjY5OTA5MC4xMi4xLjE2ODI3MDQwMTYuMC4wLjA.">aquí</a> y archivos de corte por láser <a href="https://www.datocms-assets.com/43958/1638541161-2018marlogoticklerobot.pdf">PDF</a>,<a href="https://www.datocms-assets.com/43958/1638541160-2018marlogoticklerobot.ai">AI</a>. Los archivos de Fritzing originales se pueden encontrar en el repositorio de GitHub <a href="https://github.com/arduino/CTC-fritzing">aquí</a>.</p>
+<p><strong>Instrucciones</strong><br>Prepara todos los materiales de construcción del tickle robot.</p>
+<p><img src="4_65.png" alt="465" title="465" width="580" height="603"></p>
+<p><img src="4_68.jpg" alt="468" title="468" width="800" height="600"></p>
+<p><img src="4_69.jpg" alt="469" title="469" width="800" height="600"></p>
+<p><img src="4_70.jpg" alt="470" title="470" width="800" height="600"></p>
+<p><img src="4_71.jpg" alt="471" title="471" width="800" height="600"></p>
+<p>Prepara los materiales para construir un sensor capacitivo.</p>
+<p>Cubre la pieza del corazón con papel de aluminio y&nbsp;Conecta un cable de prototipado al aluminio.</p>
+<p><img src="4_72.png" alt="472" title="472" width="580" height="383"></p>
+<p><img src="4_73.jpg" alt="473" title="473" width="800" height="600"></p>
+<p><img src="4_74.jpg" alt="474" title="474" width="800" height="600"></p>
+<p>Conecta la shield en la parte superior de tu placa controladora.</p>
+<p><img src="4_75.jpg" alt="475" title="475" width="800" height="600"></p>
+<p>Conecta el servo a D6 en la shield.</p>
+<p><img src="4_76.png" alt="476" title="476" width="580" height="687"></p>
+<p>Empleando una breadboard externa, conecta una resistencia de 1 Mohm entre los pines digitales 3 y 2.</p>
+<p>Conecta el sensor capacitivo al pin digital 3 en la breadboard externa.</p>
+<p><img src="4_77.png" alt="477" title="477" width="579" height="1008"></p>
+<p><img src="4_78.jpg" alt="478" title="478" width="800" height="600"></p>
+<p><img src="4_79.jpg" alt="479" title="479" width="800" height="600"></p>
+<p>Ata un hilo al brazo del servo.</p>
+<p><img src="4_80.png" alt="480" title="480" width="580" height="659"></p>
+<p>¡Vamos a calibrar el servo! 1.Toma el brazo del servo y ponlo sobre el servo 2.Una vez fijo, vamos a mover manualmente el servo. 3.Gíralo hasta que haga tope. 4.Retira el brazo del servo. 5.Sin mover el servo, vuelve a colocar el brazo perpendicular con el cuerpo del servo. 6.¡Hecho!</p>
+<p><img src="4_81.png" alt="481" title="481" width="580" height="516"></p>
+<p>Antes de atornillar el brazo del servo, alinea el mismo con el cuerpo del servo moviéndolo suavemente.</p>
+<p><img src="4_82.jpg" alt="482" title="482" width="800" height="600"></p>
+<p><img src="4_83.jpg" alt="483" title="483" width="800" height="600"></p>
+<p>Comprueba que tu circuito es correcto y&nbsp;conecta&nbsp;la placa al ordenador. Emplea uno de los agujeros con forma de corazón a los lados del robot para conectar el cable.</p>
+<p>Encuentra el programa TickleRobot y ábrelo.</p>
+<p><img src="4_85.png" alt="485" title="485" width="580" height="310"></p>
+<p>Descarga el programa en la placa.</p>
+<p>¡Haz cosquillas al robot!</p>
+<p><img src="4_86.jpg" alt="486" title="486" width="800" height="600"></p>
+<p><strong>CÓDIGO</strong><br>Encuentra el programa en: Archivo&gt;Ejemplos&gt;EducationShield&gt;Module4-Robots&gt;Projects&gt;TickleRobot</p>
+<div class="highlighted-code language-processing line-numbers">
+<div>
+<pre><code>/*
+*   TickleRobot
+*
+*   This is just a regular ticklish robot in a rocking chair.
+*   Come to think of it, that doesn't sound very regular at all.
+*   Tickle the robot on its heart and it will start wiggle like crazy.
+*
+*   (c) 2013-2016 Arduino LLC.
+*/
+
+#include &lt;educationshield.h&gt;
+
+//Declare the servo for controlling the string robot
+Servo pull;
+
+//Declare the capacitive sensor
+CapacitiveSwitch sensor=CapacitiveSwitch(2,3);
+
+void setup(){
+  //initialize the capacitive sensor. Threshold is 400
+  //See the example CapacitiveSwitchTest in the Help folder
+  //to find the right thresshold
+  sensor.config(400);
+
+  //initialize the servo motor
+  pull.attach(9);
+}
+void loop(){
+  if(sensor.getState()){
+    //If the capacitive sensor is touched, pull the strings
+    pull.write(0);
+  }else{
+    //Otherwise, loosen the strings
+    pull.write(90);
+  }
+  delay(30);
+
+}</code></pre>
+</div>
+</div>
+<p>CÓMO FUNCIONA<br>Cuando el sensor de contacto detecta ser tocado, el servomotor se mueve hacia un determinado ángulo para que el muñeco levante sus brazos y piernas. Cuando el sensor no detecta el toque, el servo se mueve hacia otro ángulo que hace que el muñeco baje brazos y piernas.</p>
+<p>Se incluye la libreríaEducationShield.<br>Se definen los objetos para servo y el sensor capacitivo,&nbsp;pull&nbsp;and&nbsp;sensor.<br>En&nbsp;setup(), se configuran e inicializan el sensor y el servo.<br>En&nbsp;loop(), si el valor leído del sensor es "true", es decir, el sensor detecta ser tocado y la posición del servo se fija a 0 grados tirando de los hilos que levantan los brazos y piernas.<br>Si el valor leído no es "true", la posición del servo se fija a 90 grados y se sueltan los hilos.<br>El programa espera durante 30 milisegundos.<br>Se repite la función&nbsp;loop().<br>¿No funciona?<br>Revisa las ilustraciones y comprueba de nuevo tus conexiones. Asegúrate de que la shield y los cables están conectados firmemente (si dispones de un multímetro, haz click&nbsp;aquí&nbsp;para ver su funcionamiento).<br>¿No reacciona a las cosquillas o el servo no se mueve hacia el ángulo correcto? Primero, mira la referencia del&nbsp;servo estándar&nbsp;para corregir errores del mismo.<br>Si todavía no funciona, mira la referencia del&nbsp;sensor capacitivo&nbsp;para comprobar que funciona correctamente.<br>¡Sigue experimentando!<br>¿Puedes hacer que el TickleRobot baile de una manera predeterminada? Hazle bailar justo después de tocarlo.<br>¡Intenta añadir otro servo para que pueda hacer movimientos de baile más avanzados!<br>¡Haz que el robot mueva la silla por si mismo! utiliza el sensor capacitivo para activarlo y desactivarlo.</p></div></div></section></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="3_magia.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="5_espacio.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_escolares_js.js"></script></body></html>
